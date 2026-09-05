@@ -37,7 +37,7 @@ Financial planning platform built for an independent financial advisor, featurin
 ## Project Structure
 
 ```text
-financial-advisor/
+wealth-wise/
 ├── app/                  # Next.js App Router pages, layouts, and routes
 ├── components/           # UI components and interactive landing sections
 ├── hooks/                # Custom React hooks for interactive state & UI observers
@@ -62,8 +62,8 @@ Clone the repository and install dependencies:
 
 **PowerShell / CMD / Unix / macOS:**
 ```bash
-git clone https://github.com/ShreyanDev5/financial-advisor.git
-cd financial-advisor
+git clone https://github.com/ShreyanDev5/wealth-wise.git
+cd wealth-wise
 npm install
 ```
 
