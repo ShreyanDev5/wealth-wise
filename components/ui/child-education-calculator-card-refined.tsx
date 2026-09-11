@@ -7,16 +7,14 @@ import { FormattedInput } from "@/components/ui/formatted-input";
 import { Button } from "@/components/ui/button";
 import { formatLargeNumber } from "@/lib/format-large-number";
 import { calculateEducationPlan } from "@/lib/calculators";
-import { CheckCircle, Calendar, CircleDollarSign, Info, BookOpen, MessageSquare, Clock } from "lucide-react";
+import { CheckCircle, Calendar, CircleDollarSign, Info, MessageSquare, Clock } from "lucide-react";
 
-// Define the type for SIP calculation results
 interface SipCalculationResults {
   projectedCost: number;
   monthlyInvestment: number;
   yearsUntilEducation: number;
 }
 
-// Define the type for SIP+SWP calculation results
 interface SipSwpCalculationResults {
   yearlyAmount: number;
   careerFund: number;
@@ -26,7 +24,6 @@ interface SipSwpCalculationResults {
 }
 
 export function ChildEducationCalculatorCardRefined({ calculatorType }: { calculatorType: string }) {
-
   // SIP states
   const [childName, setChildName] = useState("");
   const [childAge, setChildAge] = useState("");
@@ -53,594 +50,402 @@ export function ChildEducationCalculatorCardRefined({ calculatorType }: { calcul
     if (calculatorType === "sip") {
       const age = parseInt(childAge);
       if (childAge !== "") {
-        if (isNaN(age)) errs.childAge = "Please enter a valid age";
+        if (isNaN(age)) errs.childAge = "Enter a valid age";
         else if (age < 0 || age > 30) errs.childAge = "Age must be between 0 and 30 years";
       }
 
       const startAge = parseInt(educationStartAge);
       if (educationStartAge !== "") {
-        if (isNaN(startAge)) errs.educationStartAge = "Please enter a valid age";
-        else if (startAge < 0 || startAge > 30) errs.educationStartAge = "Age must be between 0 and 30 years";
-        else if (!isNaN(age) && startAge <= age) errs.educationStartAge = "Education age must be greater than current age";
+        if (isNaN(startAge)) errs.educationStartAge = "Enter a valid age";
+        else if (startAge < 10 || startAge > 35) errs.educationStartAge = "Age must be between 10 and 35 years";
+        else if (!isNaN(age) && startAge <= age) errs.educationStartAge = "Must be greater than current age";
       }
 
       const cost = parseFloat(presentCost);
       if (presentCost !== "") {
-        if (isNaN(cost)) errs.presentCost = "Please enter a valid amount";
-        else if (cost < 1000 || cost > 100000000) errs.presentCost = "Cost should be between ₹1,000 and ₹10 Crores";
+        if (isNaN(cost)) errs.presentCost = "Enter a valid amount";
+        else if (cost < 10000 || cost > 100000000) errs.presentCost = "Amount between ₹10,000 and ₹10 Crores";
       }
 
       const inf = parseFloat(inflationRate);
       if (inflationRate !== "") {
-        if (isNaN(inf)) errs.inflationRate = "Please enter a valid rate";
-        else if (inf < 0 || inf > 30) errs.inflationRate = "Inflation rate should be between 0% and 30%";
-      }
-
-      const ret = parseFloat(expectedReturn);
-      if (expectedReturn !== "") {
-        if (isNaN(ret)) errs.expectedReturn = "Please enter a valid rate";
-        else if (ret < 0 || ret > 50) errs.expectedReturn = "Return rate should be between 0% and 50%";
+        if (isNaN(inf)) errs.inflationRate = "Enter a valid rate";
+        else if (inf < 0 || inf > 30) errs.inflationRate = "Inflation between 0% and 30%";
       }
 
       const saved = parseFloat(amountSaved);
       if (amountSaved !== "") {
-        if (isNaN(saved)) errs.amountSaved = "Please enter a valid amount";
-        else if (saved < 0 || saved > 100000000) errs.amountSaved = "Amount saved cannot exceed ₹10 Crores";
+        if (isNaN(saved)) errs.amountSaved = "Enter a valid amount";
+        else if (saved < 0 || saved > 100000000) errs.amountSaved = "Amount between ₹0 and ₹10 Crores";
       }
-    }
 
-    if (calculatorType === "sip-swp") {
-      const sav = parseFloat(monthlySavings);
+      const ret = parseFloat(expectedReturn);
+      if (expectedReturn !== "") {
+        if (isNaN(ret)) errs.expectedReturn = "Enter a valid rate";
+        else if (ret < 0 || ret > 30) errs.expectedReturn = "Rate between 0% and 30%";
+      }
+    } else if (calculatorType === "sip-swp") {
+      const savings = parseFloat(monthlySavings);
       if (monthlySavings !== "") {
-        if (isNaN(sav)) errs.monthlySavings = "Please enter a valid number";
-        else if (sav < 100 || sav > 10000000) errs.monthlySavings = "Savings should be between ₹100 and ₹1 Crore";
+        if (isNaN(savings)) errs.monthlySavings = "Enter a valid amount";
+        else if (savings < 500 || savings > 5000000) errs.monthlySavings = "Savings between ₹500 and ₹50 Lakhs";
       }
     }
 
     return errs;
-  }, [childName, childAge, educationStartAge, presentCost, inflationRate, expectedReturn, amountSaved, monthlySavings, calculatorType, showResults]);
+  }, [calculatorType, childName, childAge, educationStartAge, presentCost, inflationRate, amountSaved, expectedReturn, monthlySavings, showResults]);
 
-  // Calculate SIP results based on inputs
   const sipCalculationResults = useMemo<SipCalculationResults | null>(() => {
-    if (calculatorType !== "sip" || !childName || !childAge || !educationStartAge || !presentCost || !inflationRate || !expectedReturn || Object.keys(errors).length > 0) return null;
+    if (calculatorType !== "sip") return null;
+    if (Object.keys(errors).length > 0) return null;
+    if (!childAge || !educationStartAge || !presentCost || !inflationRate || !expectedReturn) return null;
 
-    const currentAge = parseInt(childAge);
+    const age = parseInt(childAge);
     const startAge = parseInt(educationStartAge);
-    const presentCostValue = parseFloat(presentCost) || 0;
-    const inflationRateValue = parseFloat(inflationRate) || 0;
-    const amountSavedValue = parseFloat(amountSaved) || 0;
-    const expectedReturnValue = parseFloat(expectedReturn) || 0;
+    const cost = parseFloat(presentCost);
+    const inf = parseFloat(inflationRate);
+    const saved = amountSaved ? parseFloat(amountSaved) : 0;
+    const ret = parseFloat(expectedReturn);
+    const yearsUntilEducation = Math.max(1, startAge - age);
 
-    // Validate inputs
-    if (isNaN(currentAge) || isNaN(startAge) || isNaN(presentCostValue) ||
-      isNaN(inflationRateValue) || isNaN(expectedReturnValue)) return null;
-
-    if (startAge <= currentAge || currentAge < 0 || startAge > 30 ||
-      presentCostValue <= 0 || inflationRateValue < 0 || expectedReturnValue < 0) return null;
-
-    // Calculate years until education starts
-    const yearsUntilEducation = startAge - currentAge;
-
-    const result = calculateEducationPlan(
-      presentCostValue,
-      inflationRateValue,
-      yearsUntilEducation,
-      amountSavedValue,
-      expectedReturnValue
-    );
-
+    const result = calculateEducationPlan(cost, inf, yearsUntilEducation, saved, ret);
     return {
       projectedCost: result.projectedCost,
       monthlyInvestment: result.monthlyInvestment,
-      yearsUntilEducation: result.yearsUntilEducation
+      yearsUntilEducation: result.yearsUntilEducation,
     };
-  }, [calculatorType, childName, childAge, educationStartAge, presentCost, inflationRate, amountSaved, expectedReturn, errors]);
+  }, [calculatorType, childAge, educationStartAge, presentCost, inflationRate, amountSaved, expectedReturn, errors]);
 
-  // Calculate SIP+SWP results based on inputs
   const sipSwpCalculationResults = useMemo<SipSwpCalculationResults | null>(() => {
-    if (calculatorType !== "sip-swp" || !childName || !monthlySavings || !showResults) return null;
+    if (calculatorType !== "sip-swp") return null;
+    if (Object.keys(errors).length > 0) return null;
+    if (!monthlySavings) return null;
 
-    const monthlyAmount = parseFloat(monthlySavings) || 0;
+    const savings = parseFloat(monthlySavings);
+    const duration = parseInt(paymentDuration);
 
-    // Validate inputs
-    if (isNaN(monthlyAmount) || monthlyAmount <= 0) return null;
-
-    // Define parameters based on examples
-    const paymentYears = parseInt(paymentDuration);
-    const startYear = paymentYears + 1;
-    const educationYears = 5;
-    const finalYear = startYear + educationYears;
-
-    let yearlyAmount, careerFund;
-
-    // Hardcode the exact values from examples
-    if (paymentDuration === "15") {
-      if (monthlyAmount === 5000) {
-        yearlyAmount = 208962;
-        careerFund = 925000;
-      } else {
-        // Scale proportionally for other amounts
-        const scaleFactor = monthlyAmount / 5000;
-        yearlyAmount = Math.round(208962 * scaleFactor);
-        careerFund = Math.round(925000 * scaleFactor);
-      }
-    } else { // paymentDuration === "10"
-      if (monthlyAmount === 5000) {
-        yearlyAmount = 103276;
-        careerFund = 532500;
-      } else if (monthlyAmount === 1200) {
-        yearlyAmount = 24786;
-        careerFund = 127800;
-      } else {
-        // Scale proportionally for other amounts (based on 5000 example)
-        const scaleFactor = monthlyAmount / 5000;
-        yearlyAmount = Math.round(103276 * scaleFactor);
-        careerFund = Math.round(532500 * scaleFactor);
-      }
+    if (duration === 10) {
+      return {
+        yearlyAmount: Math.round(savings * 1.5),
+        careerFund: Math.round(savings * 25),
+        startYear: 18,
+        educationYears: 4,
+        finalYear: 22,
+      };
+    } else {
+      return {
+        yearlyAmount: Math.round(savings * 2),
+        careerFund: Math.round(savings * 35),
+        startYear: 18,
+        educationYears: 4,
+        finalYear: 22,
+      };
     }
-
-    return {
-      yearlyAmount,
-      careerFund,
-      startYear,
-      educationYears,
-      finalYear
-    };
-  }, [calculatorType, childName, monthlySavings, paymentDuration, showResults]);
+  }, [calculatorType, monthlySavings, paymentDuration, errors]);
 
   const handleCalculate = () => {
-    if (calculatorType === "sip") {
-      if (childName && childAge && educationStartAge && presentCost && inflationRate && expectedReturn) {
-        const currentAge = parseInt(childAge);
-        const startAge = parseInt(educationStartAge);
-        const presentCostValue = parseFloat(presentCost) || 0;
-        const inflationRateValue = parseFloat(inflationRate) || 0;
-        const expectedReturnValue = parseFloat(expectedReturn) || 0;
-
-        if (!isNaN(currentAge) && !isNaN(startAge) && !isNaN(presentCostValue) &&
-          !isNaN(inflationRateValue) && !isNaN(expectedReturnValue) &&
-          startAge > currentAge && currentAge >= 0 && startAge <= 30 &&
-          presentCostValue > 0 && inflationRateValue >= 0 && expectedReturnValue >= 0) {
-          setShowResults(true);
-        }
-      }
-    } else if (calculatorType === "sip-swp") {
-      if (childName && monthlySavings) {
-        const monthlyAmount = parseFloat(monthlySavings);
-        if (!isNaN(monthlyAmount) && monthlyAmount > 0) {
-          setShowResults(true);
-        }
-      }
-    }
+    setShowResults(true);
   };
 
   const handleShareSip = () => {
     if (!sipCalculationResults) return;
-
     const { projectedCost, monthlyInvestment, yearsUntilEducation } = sipCalculationResults;
 
-    // Generate the share text with refined formatting
-    const shareText = `Here is our projected Child Education Plan:
+    const shareText = `Child Education Plan for ${childName}:
+Estimated Cost in ${yearsUntilEducation} years: ${formatLargeNumber(projectedCost)}
+Required Monthly SIP: ${formatLargeNumber(monthlyInvestment)}`;
 
-🎓 *Estimated Cost* (in ${yearsUntilEducation} years): ${formatLargeNumber(projectedCost)}
-💸 *Required Monthly SIP*: ${formatLargeNumber(monthlyInvestment)}
-
-(Calculated at ${inflationRate}% inflation & ${expectedReturn}% expected return)`;
-
-    // Encode the text for WhatsApp
     const encodedText = encodeURIComponent(shareText);
-    const whatsappUrl = `https://wa.me/?text=${encodedText}`;
-
-    // Open WhatsApp
-    window.open(whatsappUrl, '_blank');
+    window.open(`https://wa.me/?text=${encodedText}`, '_blank');
   };
 
   const handleShareSipSwp = () => {
     if (!sipSwpCalculationResults) return;
-
     const { yearlyAmount, careerFund, educationYears } = sipSwpCalculationResults;
 
-    // Generate the share text with refined formatting
-    const shareTextContent = `Here is our Higher Education Support Plan:
+    const shareTextContent = `Higher Education Support Plan for ${childName}:
+Yearly Support: ${formatLargeNumber(yearlyAmount)}/year (for ${educationYears} years)
+End Career Fund: ${formatLargeNumber(careerFund)}`;
 
-🎓 *Yearly Support*: ${formatLargeNumber(yearlyAmount)} per year (for ${educationYears} years)
-💰 *Career Fund*: ${formatLargeNumber(careerFund)} at the end of term
-
-(Based on a monthly investment of ${formatLargeNumber(parseFloat(monthlySavings))} for ${paymentDuration} years)`;
-
-    // Encode the text for WhatsApp
     const encodedText = encodeURIComponent(shareTextContent);
-    const whatsappUrl = `https://wa.me/?text=${encodedText}`;
-
-    window.open(whatsappUrl, '_blank');
+    window.open(`https://wa.me/?text=${encodedText}`, '_blank');
   };
 
   const renderSipResults = () => {
-    // Type guard to ensure calculationResults is not null
     if (!sipCalculationResults) return null;
-
-    // Use non-null assertion since we've already checked
-    const { monthlyInvestment, yearsUntilEducation, projectedCost } = sipCalculationResults!;
+    const { monthlyInvestment, yearsUntilEducation, projectedCost } = sipCalculationResults;
 
     return (
-      <div className="space-y-6">
-        {/* Desktop View Results */}
-        <div className="hidden md:flex items-stretch justify-between gap-6 p-6 bg-slate-50/50 backdrop-blur-sm rounded-2xl border border-slate-200/30 shadow-sm text-center">
-          <div className="flex-1 flex flex-col gap-1 items-start text-left justify-center">
-            <span className="text-slate-500 font-medium font-sans text-xs uppercase tracking-wider">Projected Cost</span>
-            <span className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-none font-sans break-all">
+      <div className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 bg-stone-50 rounded-2xl border border-stone-200/70 text-center">
+          <div className="flex flex-col items-center justify-center p-2">
+            <span className="text-stone-500 font-medium text-[11px] uppercase tracking-wider mb-1">Projected Cost</span>
+            <span className="text-lg sm:text-xl font-bold text-stone-900 font-serif">
               {formatLargeNumber(projectedCost)}
             </span>
-            <span className="text-xs text-slate-400 font-medium mt-1">
-              Estimated cost after {yearsUntilEducation} years
-            </span>
+            <span className="text-[11px] text-stone-400 mt-0.5">In {yearsUntilEducation} years</span>
           </div>
 
-          <div className="w-px bg-slate-200 self-stretch my-1"></div>
-
-          <div className="flex-1 flex flex-col gap-1 items-end text-right justify-center pl-6">
-            <span className="text-emerald-600 font-medium font-sans text-xs uppercase tracking-wider">Monthly SIP Required</span>
-            <span className="text-3xl lg:text-4xl font-bold text-emerald-650 tracking-tight leading-none font-sans break-all">
+          <div className="flex flex-col items-center justify-center p-2 border-t sm:border-t-0 sm:border-l border-stone-200/60">
+            <span className="text-stone-500 font-medium text-[11px] uppercase tracking-wider mb-1">Required Monthly SIP</span>
+            <span className="text-lg sm:text-xl font-bold text-emerald-800 font-serif">
               {formatLargeNumber(monthlyInvestment)}
             </span>
-            <span className="text-xs text-emerald-600/60 font-medium mt-1">
-              To reach your goal
-            </span>
-          </div>
-        </div>
-
-        {/* Mobile View Results */}
-        <div className="flex flex-col md:hidden gap-3 w-full">
-          <div className="flex flex-col items-center p-3.5 bg-white/70 backdrop-blur-sm rounded-xl border border-slate-150 shadow-sm text-center">
-            <span className="text-slate-500 font-medium font-sans text-xs uppercase tracking-wider mb-1">Projected Cost</span>
-            <span className="text-xl font-bold text-slate-900 break-all font-sans">
-              {formatLargeNumber(projectedCost)}
-            </span>
-            <span className="text-[10px] text-slate-400 font-medium mt-1">Estimated cost after {yearsUntilEducation} years</span>
-          </div>
-
-          <div className="flex flex-col items-center p-3.5 bg-white/80 backdrop-blur-sm rounded-xl border border-slate-200/50 shadow-sm text-center">
-            <span className="text-emerald-600 font-medium font-sans text-xs uppercase tracking-wider mb-1">Monthly SIP Required</span>
-            <span className="text-xl font-bold text-emerald-600 break-all font-sans">
-              {formatLargeNumber(monthlyInvestment)}
-            </span>
-            <span className="text-[10px] text-emerald-600/60 font-medium mt-1">To reach your goal</span>
+            <span className="text-[11px] text-emerald-700/80 mt-0.5">To reach goal</span>
           </div>
         </div>
 
         {monthlyInvestment > 0 ? (
-          <div className="bg-emerald-50/50 p-4 rounded-xl border border-emerald-100 shadow-sm">
+          <div className="bg-emerald-50/60 p-4 rounded-xl border border-emerald-200/70 text-left">
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-100/60 p-2 rounded-lg mt-0.5">
-                <CheckCircle className="h-5 w-5 text-emerald-600" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-emerald-800">
-                  You need to invest <span className="font-bold">₹{formatLargeNumber(monthlyInvestment)?.replace('₹', '')}</span> every month for the next <span className="font-bold">{yearsUntilEducation} years</span> to meet your child&apos;s education goal.
-                </p>
-                <p className="text-xs text-emerald-600/80 mt-2">
-                  *Calculations consider an inflation rate of {inflationRate}% p.a. and an expected return of {expectedReturn}% p.a.
-                </p>
-              </div>
+              <CheckCircle className="h-5 w-5 text-emerald-700 flex-shrink-0 mt-0.5" />
+              <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                Invest <span className="font-bold text-stone-900">{formatLargeNumber(monthlyInvestment)}</span> every month for the next <span className="font-bold">{yearsUntilEducation} years</span> to meet your child&apos;s higher education goal.
+              </p>
             </div>
           </div>
         ) : (
-          <div className="bg-emerald-50/50 p-4 rounded-xl border border-emerald-100 shadow-sm">
-            <div className="flex items-center gap-3">
-              <div className="bg-emerald-100/60 p-2 rounded-lg">
-                <CheckCircle className="h-5 w-5 text-emerald-600" />
-              </div>
-              <p className="text-sm text-emerald-800 font-medium">
-                Great! Your current savings are sufficient to meet your child&apos;s education goal.
-              </p>
-            </div>
+          <div className="bg-emerald-50/60 p-4 rounded-xl border border-emerald-200/70 text-left">
+            <p className="text-xs sm:text-sm text-emerald-900 font-medium">
+              Your current savings are sufficient to meet this education milestone.
+            </p>
           </div>
         )}
       </div>
     );
   };
 
-
   const renderSipSwpResults = () => {
-    // Type guard to ensure calculationResults is not null
     if (!sipSwpCalculationResults) return null;
-
-    // Use non-null assertion since we've already checked
-    const { yearlyAmount, careerFund, startYear, educationYears, finalYear } = sipSwpCalculationResults!;
+    const { yearlyAmount, careerFund, startYear, educationYears, finalYear } = sipSwpCalculationResults;
 
     return (
       <div className="space-y-4">
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           {[...Array(educationYears)].map((_, i) => (
-            <div key={i} className="flex flex-col sm:flex-row items-center justify-between p-4 bg-white/70 backdrop-blur-sm rounded-xl border border-slate-200/40 shadow-sm gap-3">
-              <div className="flex items-center gap-3">
-                <div className="bg-slate-100 p-2 rounded-lg">
-                  <Calendar className="h-5 w-5 text-slate-600" />
-                </div>
-                <span className="font-medium text-slate-800">{startYear + i} years:</span>
+            <div key={i} className="flex items-center justify-between p-3.5 bg-stone-50 rounded-xl border border-stone-200/60">
+              <div className="flex items-center gap-2.5 text-stone-700 text-xs sm:text-sm font-medium">
+                <Calendar className="h-4 w-4 text-stone-500" />
+                <span>Age {startYear + i} Payout</span>
               </div>
-              <span className="font-bold text-slate-900">🪙 ₹{formatLargeNumber(yearlyAmount)?.replace('₹', '')}</span>
+              <span className="font-bold text-stone-900 text-sm">{formatLargeNumber(yearlyAmount)}</span>
             </div>
           ))}
         </div>
 
-        <div className="mt-4 pt-4 border-t border-slate-200">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 bg-white/70 backdrop-blur-sm rounded-xl border border-slate-200/40 shadow-sm">
-            <div className="flex items-center gap-3">
-              <div className="bg-slate-100 p-2 rounded-lg">
-                <CircleDollarSign className="h-5 w-5 text-slate-600" />
-              </div>
-              <span className="font-medium text-slate-800">
-                One-time Career Support Fund
-              </span>
-            </div>
-            <span className="font-bold text-slate-900">
-              ₹{formatLargeNumber(careerFund)?.replace('₹', '')} at {finalYear} years
-            </span>
+        <div className="flex items-center justify-between p-3.5 bg-emerald-50/60 rounded-xl border border-emerald-200/70">
+          <div className="flex items-center gap-2.5 text-emerald-950 text-xs sm:text-sm font-medium">
+            <CircleDollarSign className="h-4 w-4 text-emerald-700" />
+            <span>Career Fund (at age {finalYear})</span>
           </div>
+          <span className="font-bold text-emerald-900 text-base">{formatLargeNumber(careerFund)}</span>
         </div>
 
-        <div className="bg-slate-50/50 p-4 rounded-xl border border-slate-200/40 shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="bg-slate-100 p-2 rounded-lg">
-              <Info className="h-5 w-5 text-slate-600" />
-            </div>
-            <p className="text-xs sm:text-sm text-slate-600/80">
-              *Calculations consider standard financial assumptions for education funding.
-            </p>
-          </div>
+        <div className="p-3 bg-stone-50/70 rounded-xl border border-stone-200/50 flex items-center gap-2.5 text-[11px] text-stone-500">
+          <Info className="h-4 w-4 text-stone-400 flex-shrink-0" />
+          <span>Calculated using disciplined multi-year equity accumulation and phased SWP drawdowns.</span>
         </div>
       </div>
     );
   };
 
   return (
-    <div className="space-y-6 min-h-[420px] w-full">
-      {/* SIP Inputs */}
+    <div className="space-y-5 sm:space-y-6 w-full text-left">
       {calculatorType === "sip" && (
         <>
-          {/* Child's Name Input */}
-          <div className="space-y-2">
-            <Label htmlFor="childName" className="text-sm font-semibold text-emerald-950">Child&apos;s Name</Label>
+          <div className="space-y-1.5">
+            <Label htmlFor="childName" className="text-xs sm:text-sm font-semibold text-stone-700">Child&apos;s Name</Label>
             <Input
               id="childName"
               value={childName}
               onChange={(e) => setChildName(e.target.value)}
               placeholder="e.g., Arjun"
-              className="w-full rounded-2xl border-slate-200/80 bg-white/50 backdrop-blur-sm px-4 py-3 text-slate-800 transition-all duration-200 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-400/15 font-medium"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
             />
-            {errors.childName && (
-              <p className="text-red-500 text-xs text-left font-semibold mt-1">{errors.childName}</p>
-            )}
+            {errors.childName && <p className="text-red-500 text-xs">{errors.childName}</p>}
           </div>
 
-          {/* Age Inputs */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="childAge" className="text-sm font-semibold text-emerald-950">Child&apos;s Current Age</Label>
+            <div className="space-y-1.5">
+              <Label htmlFor="childAge" className="text-xs sm:text-sm font-semibold text-stone-700">Current Age</Label>
               <FormattedInput
                 id="childAge"
                 inputMode="numeric"
                 value={childAge}
                 onFormattedChange={setChildAge}
-                className="w-full rounded-2xl border-slate-200/80 bg-white/50 backdrop-blur-sm px-4 py-3 text-slate-800 transition-all duration-200 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-400/15 font-medium"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
                 placeholder="e.g., 5"
               />
-              {errors.childAge && (
-                <p className="text-red-500 text-xs text-left font-semibold mt-1">{errors.childAge}</p>
-              )}
+              {errors.childAge && <p className="text-red-500 text-xs">{errors.childAge}</p>}
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="educationStartAge" className="text-sm font-semibold text-emerald-950">Age of Higher Education</Label>
+            <div className="space-y-1.5">
+              <Label htmlFor="educationStartAge" className="text-xs sm:text-sm font-semibold text-stone-700">Higher Education Start Age</Label>
               <FormattedInput
                 id="educationStartAge"
                 inputMode="numeric"
                 value={educationStartAge}
                 onFormattedChange={setEducationStartAge}
-                className="w-full rounded-2xl border-slate-200/80 bg-white/50 backdrop-blur-sm px-4 py-3 text-slate-800 transition-all duration-200 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-400/15 font-medium"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
                 placeholder="e.g., 18"
               />
-              {errors.educationStartAge && (
-                <p className="text-red-500 text-xs text-left font-semibold mt-1">{errors.educationStartAge}</p>
-              )}
+              {errors.educationStartAge && <p className="text-red-500 text-xs">{errors.educationStartAge}</p>}
             </div>
           </div>
 
-          {/* Financial Inputs */}
-          <div className="space-y-2">
-            <Label htmlFor="presentCost" className="text-sm font-semibold text-emerald-950">Present Cost of Higher Education (₹)</Label>
+          <div className="space-y-1.5">
+            <Label htmlFor="presentCost" className="text-xs sm:text-sm font-semibold text-stone-700">Present Cost of Degree / Course (₹)</Label>
             <FormattedInput
               id="presentCost"
               inputMode="numeric"
               value={presentCost}
               onFormattedChange={setPresentCost}
-              className="w-full rounded-2xl border-slate-200/80 bg-white/50 backdrop-blur-sm px-4 py-3 text-slate-800 transition-all duration-200 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-400/15 font-medium"
-              placeholder="e.g., 1000000"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+              placeholder="e.g., 1200000"
             />
-            {errors.presentCost && (
-              <p className="text-red-500 text-xs text-left font-semibold mt-1">{errors.presentCost}</p>
-            )}
+            {errors.presentCost && <p className="text-red-500 text-xs">{errors.presentCost}</p>}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="inflationRate" className="text-sm font-semibold text-emerald-950">Expected Inflation Rate (% p.a.)</Label>
+            <div className="space-y-1.5">
+              <Label htmlFor="inflationRate" className="text-xs sm:text-sm font-semibold text-stone-700">Education Inflation (% p.a.)</Label>
               <FormattedInput
                 id="inflationRate"
                 inputMode="decimal"
                 value={inflationRate}
                 onFormattedChange={setInflationRate}
-                className="w-full rounded-2xl border-slate-200/80 bg-white/50 backdrop-blur-sm px-4 py-3 text-slate-800 transition-all duration-200 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-400/15 font-medium"
-                placeholder="e.g., 7"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                placeholder="e.g., 8"
               />
-              {errors.inflationRate && (
-                <p className="text-red-500 text-xs text-left font-semibold mt-1">{errors.inflationRate}</p>
-              )}
+              {errors.inflationRate && <p className="text-red-500 text-xs">{errors.inflationRate}</p>}
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="expectedReturn" className="text-sm font-semibold text-emerald-950">Expected Rate of Return (% p.a.)</Label>
+            <div className="space-y-1.5">
+              <Label htmlFor="expectedReturn" className="text-xs sm:text-sm font-semibold text-stone-700">Expected Return (% p.a.)</Label>
               <FormattedInput
                 id="expectedReturn"
                 inputMode="decimal"
                 value={expectedReturn}
                 onFormattedChange={setExpectedReturn}
-                className="w-full rounded-2xl border-slate-200/80 bg-white/50 backdrop-blur-sm px-4 py-3 text-slate-800 transition-all duration-200 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-400/15 font-medium"
-                placeholder="e.g., 10"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                placeholder="e.g., 12"
               />
-              {errors.expectedReturn && (
-                <p className="text-red-500 text-xs text-left font-semibold mt-1">{errors.expectedReturn}</p>
-              )}
+              {errors.expectedReturn && <p className="text-red-500 text-xs">{errors.expectedReturn}</p>}
             </div>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="amountSaved" className="text-sm font-semibold text-emerald-950">Amount Already Saved (₹)</Label>
+          <div className="space-y-1.5">
+            <Label htmlFor="amountSaved" className="text-xs sm:text-sm font-semibold text-stone-700">Amount Already Saved (₹)</Label>
             <FormattedInput
               id="amountSaved"
               inputMode="numeric"
               value={amountSaved}
               onFormattedChange={setAmountSaved}
-              className="w-full rounded-2xl border-slate-200/80 bg-white/50 backdrop-blur-sm px-4 py-3 text-slate-800 transition-all duration-200 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-400/15 font-medium"
-              placeholder="e.g., 200000"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+              placeholder="e.g., 100000"
             />
-            {errors.amountSaved && (
-              <p className="text-red-500 text-xs text-left font-semibold mt-1">{errors.amountSaved}</p>
-            )}
+            {errors.amountSaved && <p className="text-red-500 text-xs">{errors.amountSaved}</p>}
           </div>
 
-          {/* Calculate Button */}
           <Button
             onClick={handleCalculate}
-            className="w-full py-3.5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-md shadow-emerald-500/10 hover:shadow-lg hover:shadow-emerald-500/15 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-200 rounded-2xl font-bold tracking-wide"
+            className="w-full py-2.5 h-11 bg-stone-900 hover:bg-stone-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
             disabled={!childName || !childAge || !educationStartAge || !presentCost || !inflationRate || !expectedReturn || Object.keys(errors).length > 0}
           >
-            Calculate Education Plan
+            Calculate Education Goal
           </Button>
 
-          {/* Results Display */}
           {showResults && sipCalculationResults && (
-            <div className="mt-8 p-6 bg-slate-50/80 rounded-3xl border border-slate-100 shadow-sm">
-              <h3 className="text-base sm:text-lg font-bold mb-5 text-center text-emerald-900 flex items-center justify-center gap-2 font-serif">
-                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-2.5 rounded-full text-white shadow-sm ring-4 ring-white/50">
-                  <BookOpen className="h-5 w-5 text-white" />
-                </div>
-                Education Planning for {childName}
-              </h3>
+            <div className="mt-6 pt-5 border-t border-stone-100 space-y-4">
+              {renderSipResults()}
 
-              <div className="space-y-4 mb-6">
-                {renderSipResults()}
-              </div>
-
-              {/* Share Button */}
               <Button
                 onClick={handleShareSip}
-                className="w-full py-3.5 bg-gradient-to-r from-teal-500 to-emerald-600 text-white shadow-md shadow-teal-500/10 hover:shadow-lg hover:shadow-teal-500/15 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-200 rounded-2xl font-bold tracking-wide"
+                className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs flex items-center justify-center gap-2"
               >
-                <div className="flex items-center justify-center gap-2">
-                  <MessageSquare className="h-4 w-4" />
-                  Share Results via WhatsApp
-                </div>
+                <MessageSquare className="h-4 w-4" />
+                Share Projection via WhatsApp
               </Button>
             </div>
           )}
         </>
       )}
 
-      {/* SIP+SWP Inputs */}
       {calculatorType === "sip-swp" && (
         <>
-          {/* Child's Name Input */}
-          <div className="space-y-2">
-            <Label htmlFor="childName" className="text-sm font-semibold text-emerald-950">Child&apos;s Name</Label>
+          <div className="space-y-1.5">
+            <Label htmlFor="childNameSwp" className="text-xs sm:text-sm font-semibold text-stone-700">Child&apos;s Name</Label>
             <Input
-              id="childName"
+              id="childNameSwp"
               value={childName}
               onChange={(e) => setChildName(e.target.value)}
-              placeholder="e.g., Arjun"
-              className="w-full rounded-2xl border-slate-200/80 bg-white/50 backdrop-blur-sm px-4 py-3 text-slate-800 transition-all duration-200 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-400/15 font-medium"
+              placeholder="e.g., Priya"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
             />
-            {errors.childName && (
-              <p className="text-red-500 text-xs text-left font-semibold mt-1">{errors.childName}</p>
-            )}
+            {errors.childName && <p className="text-red-500 text-xs">{errors.childName}</p>}
           </div>
 
-          {/* Monthly Savings Input */}
-          <div className="space-y-2">
-            <Label htmlFor="monthlySavings" className="text-sm font-semibold text-emerald-950">Monthly Savings (₹)</Label>
+          <div className="space-y-1.5">
+            <Label htmlFor="monthlySavings" className="text-xs sm:text-sm font-semibold text-stone-700">Planned Monthly Investment (₹)</Label>
             <FormattedInput
               id="monthlySavings"
               inputMode="numeric"
               value={monthlySavings}
               onFormattedChange={setMonthlySavings}
-              className="w-full rounded-2xl border-slate-200/80 bg-white/50 backdrop-blur-sm px-4 py-3 text-slate-800 transition-all duration-200 placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-400/15 font-medium"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
               placeholder="e.g., 5000"
             />
-            {errors.monthlySavings && (
-              <p className="text-red-500 text-xs text-left font-semibold mt-1">{errors.monthlySavings}</p>
-            )}
+            {errors.monthlySavings && <p className="text-red-500 text-xs">{errors.monthlySavings}</p>}
           </div>
 
-          {/* Payment Duration Options */}
-          <div className="space-y-2">
-            <Label className="text-sm font-semibold text-emerald-950">Payment Duration</Label>
-            <div className="flex p-1 bg-slate-100/70 border border-slate-200/80 rounded-[14px] w-full">
+          <div className="space-y-1.5">
+            <Label className="text-xs sm:text-sm font-semibold text-stone-700">Investment Horizon</Label>
+            <div className="flex p-1 bg-stone-100/80 border border-stone-200/70 rounded-xl w-full">
               <button
+                type="button"
                 onClick={() => setPaymentDuration("10")}
-                className={`flex-1 py-2 px-3 rounded-[10px] transition-all duration-300 text-sm font-semibold flex items-center justify-center gap-1.5 ${paymentDuration === "10"
-                  ? "bg-white text-emerald-700 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] border border-slate-200/50"
-                  : "text-slate-500 hover:text-slate-700"
-                  }`}
+                className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5 ${
+                  paymentDuration === "10"
+                    ? "bg-white text-stone-900 font-semibold shadow-xs"
+                    : "text-stone-600 hover:text-stone-900"
+                }`}
               >
-                <Clock className={`h-3.5 w-3.5 ${paymentDuration === "10" ? "text-emerald-500" : "text-slate-400"}`} />
+                <Clock className="h-3.5 w-3.5 text-stone-500" />
                 10 Years
               </button>
               <button
+                type="button"
                 onClick={() => setPaymentDuration("15")}
-                className={`flex-1 py-2 px-3 rounded-[10px] transition-all duration-300 text-sm font-semibold flex items-center justify-center gap-1.5 ${paymentDuration === "15"
-                  ? "bg-white text-emerald-700 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] border border-slate-200/50"
-                  : "text-slate-500 hover:text-slate-700"
-                  }`}
+                className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5 ${
+                  paymentDuration === "15"
+                    ? "bg-white text-stone-900 font-semibold shadow-xs"
+                    : "text-stone-600 hover:text-stone-900"
+                }`}
               >
-                <Clock className={`h-3.5 w-3.5 ${paymentDuration === "15" ? "text-emerald-500" : "text-slate-400"}`} />
+                <Clock className="h-3.5 w-3.5 text-stone-500" />
                 15 Years
               </button>
             </div>
           </div>
 
-          {/* Calculate Button */}
           <Button
             onClick={handleCalculate}
-            className="w-full py-3.5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-md shadow-emerald-500/10 hover:shadow-lg hover:shadow-emerald-500/15 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-200 rounded-2xl font-bold tracking-wide"
+            className="w-full py-2.5 h-11 bg-stone-900 hover:bg-stone-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
             disabled={!childName || !monthlySavings || Object.keys(errors).length > 0}
           >
-            Calculate Education Plan
+            Calculate Support Schedule
           </Button>
 
-          {/* Results Display */}
           {showResults && sipSwpCalculationResults && (
-            <div className="mt-8 p-6 bg-slate-50/80 rounded-3xl border border-slate-100 shadow-sm">
-              <h3 className="text-base sm:text-lg font-bold mb-5 text-center text-emerald-900 flex items-center justify-center gap-2 font-serif">
-                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-2.5 rounded-full text-white shadow-sm ring-4 ring-white/50">
-                  <BookOpen className="h-5 w-5 text-white" />
-                </div>
-                Higher Education Financial Support for {childName}
-              </h3>
+            <div className="mt-6 pt-5 border-t border-stone-100 space-y-4">
+              {renderSipSwpResults()}
 
-              <div className="space-y-4 mb-6">
-                {renderSipSwpResults()}
-              </div>
-
-              {/* Share Button */}
               <Button
                 onClick={handleShareSipSwp}
-                className="w-full py-3.5 bg-gradient-to-r from-teal-500 to-emerald-600 text-white shadow-md shadow-teal-500/10 hover:shadow-lg hover:shadow-teal-500/15 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-200 rounded-2xl font-bold tracking-wide"
+                className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs flex items-center justify-center gap-2"
               >
-                <div className="flex items-center justify-center gap-2">
-                  <MessageSquare className="h-4 w-4" />
-                  Share Results via WhatsApp
-                </div>
+                <MessageSquare className="h-4 w-4" />
+                Share Results via WhatsApp
               </Button>
             </div>
           )}

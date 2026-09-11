@@ -15,47 +15,40 @@ export function TestimonialCard({
   avatarSrc,
 }: TestimonialCardProps) {
   return (
-    <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-slate-100 flex flex-col items-center text-center h-full transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 relative transform-gpu">
+    <div className="bg-white/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-stone-200/80 hover:border-stone-300 hover:shadow-xs transition-all duration-200 flex flex-col justify-between text-left h-full group">
+      {/* 5-Star Row */}
+      <div className="flex items-center gap-1 mb-3.5" aria-label="5 out of 5 stars">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" aria-hidden="true" />
+        ))}
+      </div>
       
-      {/* Profile Picture Frame with custom borders */}
-      <div className="mb-4 flex items-center justify-center relative">
-        {avatarSrc ? (
-          <div className="relative rounded-full border-2 border-white shadow-sm w-16 h-16 overflow-hidden ring-1 ring-slate-100">
+      {/* Quote */}
+      <p className="text-[13.5px] sm:text-sm text-stone-700 leading-relaxed flex-grow mb-5">
+        &ldquo;{testimonial}&rdquo;
+      </p>
+      
+      {/* Author Lockup (Avatar + Name/Role united) */}
+      <div className="flex items-center gap-3 pt-3.5 border-t border-stone-100/90 w-full mt-auto">
+        <div className="relative shrink-0 w-10 h-10 rounded-full overflow-hidden border border-stone-200/90 shadow-2xs bg-stone-100">
+          {avatarSrc ? (
             <Image
               src={avatarSrc}
               alt={name}
               fill
               className="object-cover"
-              sizes="64px"
+              sizes="40px"
             />
-          </div>
-        ) : (
-          <div className="bg-gradient-to-br from-emerald-100 to-teal-100 border-2 border-white rounded-full w-16 h-16 flex items-center justify-center shadow-sm ring-1 ring-slate-100">
-            <div className="bg-gradient-to-br from-emerald-300 to-teal-300 rounded-full w-12 h-12 flex items-center justify-center">
-              <span className="text-emerald-700 font-bold text-xl">
-                {name.charAt(0)}
-              </span>
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-stone-700 font-bold text-xs">
+              {name.charAt(0)}
             </div>
-          </div>
-        )}
-      </div>
-
-      {/* 5-Star Rating Row for Authority */}
-      <div className="flex items-center gap-1 mb-3.5" aria-label="5 out of 5 stars rating">
-        {[...Array(5)].map((_, i) => (
-          <Star key={i} className="w-3.5 h-3.5 text-amber-500 fill-amber-500" aria-hidden="true" />
-        ))}
-      </div>
-      
-      {/* Styled Testimonial text with serif design and subtle height */}
-      <p className="text-xs sm:text-sm text-slate-700 mb-5 font-serif italic leading-relaxed text-pretty flex-grow">
-        &ldquo;{testimonial}&rdquo;
-      </p>
-      
-      {/* Card Footer: Client Info */}
-      <div className="mt-auto pt-3.5 border-t border-slate-100/50 w-full">
-        <p className="font-bold text-xs sm:text-sm text-slate-900 leading-none">{name}</p>
-        <p className="text-[10px] sm:text-xs text-slate-500 mt-1 font-medium">{role}</p>
+          )}
+        </div>
+        <div className="min-w-0">
+          <p className="font-bold text-xs sm:text-sm text-stone-900 leading-tight truncate">{name}</p>
+          <p className="text-[11px] text-stone-500 mt-0.5 truncate">{role}</p>
+        </div>
       </div>
     </div>
   );

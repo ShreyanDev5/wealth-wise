@@ -68,23 +68,10 @@ export default function InsuranceContent() {
       }
     };
 
-    // Run immediately
     checkHash();
-
-    // Check at multiple intervals to handle any router hydration/navigation delays
-    const interval = setInterval(checkHash, 100);
-
-    // Add event listener for hash changes
     window.addEventListener("hashchange", checkHash);
 
-    // Clean up after 1.5 seconds to prevent continuous background polling
-    const timeout = setTimeout(() => {
-      clearInterval(interval);
-    }, 1500);
-
     return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
       window.removeEventListener("hashchange", checkHash);
     };
   }, []);
@@ -92,117 +79,107 @@ export default function InsuranceContent() {
   const insuranceServices = [
     {
       title: "Health Insurance",
-      description: "Partner Insurers: Star Health & Care Health Insurance",
+      description: "Comprehensive medical coverage from Star Health and Care Health Insurance with cashless hospitalisation networks.",
       benefits: [
-        "Cashless hospitalisation.",
-        "Covers in-patient, pre/post-hospitalisation.",
-        "Includes daycare and AYUSH treatments.",
+        "Direct cashless admission at network hospitals nationwide.",
+        "In-patient, daycare, and pre/post-hospitalisation coverage.",
+        "Restoration of sum insured and annual health checkups.",
       ],
       documents: [
-        "ID/Address Proof (Aadhaar, PAN).",
-        "Age Proof (Birth/School Certificate).",
-        "Medical history.",
-        "Previous policy for renewals.",
-        "Bank details for reimbursement.",
+        "KYC Proof (Aadhaar, PAN)",
+        "Age Proof (Birth Certificate, 10th Admit)",
+        "Medical history / discharge summaries (if pre-existing conditions)",
+        "Existing policy copy (for renewals or porting)",
       ],
       process: [
-        "Compare plans and select add-ons.",
-        "Fill application with medical history.",
-        "Pay premium online or via agent.",
-        "Receive policy and ID card.",
-        "Notify insurer and submit documents for claims.",
+        "Select sum insured and optional riders with advisor",
+        "Submit medical history & basic KYC",
+        "Instant policy issuance upon online premium payment",
+        "Assistance with pre-authorization during claim requests",
       ],
       costs: [
-        "Premiums vary by age, sum insured, and family size", 
-        "Individual plans: ₹5k-₹20k/year", 
-        "Family plans: ₹10k-₹50k/year", 
-        "(Indicative ranges. Use calculator for exact quote.)"
+        "Individual plans: Typically ₹5,000 – ₹20,000/yr (based on age)",
+        "Family Floater plans: Typically ₹12,000 – ₹45,000/yr",
+        "Exact premium calculated according to age, city, and sum insured",
       ],
       icon: Heart,
-      colorScheme: "emerald",
-    },
-    {
-      title: "Two-Wheeler Insurance",
-      description: "Comprehensive coverage for your motorcycle or scooter.",
-      benefits: [
-        "Mandatory third-party liability cover.",
-        "Comprehensive cover for own-damage, theft, and disasters.",
-      ],
-      documents: [
-        "Vehicle RC and owner's DL.",
-        "ID/Address Proof (Aadhaar, PAN).",
-        "Previous policy for renewals.",
-        "Claim docs: FIR, bills, photos.",
-      ],
-      process: [
-        "Choose Third-Party or Comprehensive cover.",
-        "Get a quote with RC, DL, and ID.",
-        "Pay premium for instant policy.",
-        "For claims, contact insurer for inspection and cashless repair.",
-      ],
-      costs: [
-        "Third-Party: ₹1.3k-₹3k/year (IRDAI regulated)", 
-        "Comprehensive: ₹1.5k-₹6k/year (based on IDV, model, age)", 
-        "(Indicative ranges. Use calculator for exact quote.)"
-      ],
-      icon: Bike,
-      colorScheme: "blue",
-    },
-    {
-      title: "Four-Wheeler (Car) Insurance",
-      description: "Complete protection with comprehensive coverage options.",
-      benefits: [
-        "Mandatory third-party liability cover.",
-        "Comprehensive cover for own-damage, theft, and accidents.",
-        "Optional add-ons: Zero Depreciation, Engine Cover.",
-      ],
-      documents: [
-        "Vehicle RC and driver's DL.",
-        "ID/Address Proof (Aadhaar, PAN).",
-        "Previous policy/NCB for renewals.",
-        "Claim docs: FIR, police reports.",
-      ],
-      process: [
-        "Select policy type, IDV, and add-ons.",
-        "Get quote with vehicle and owner details.",
-        "Pay premium for e-policy.",
-        "For claims, contact insurer for assessment and cashless service.",
-      ],
-      costs: [
-        "Third-Party: From ₹2k-₹3k/year (by engine size)", 
-        "Comprehensive: Hatchback (₹7k-₹15k), Sedan (₹10k-₹20k), SUV (₹15k-₹30k)", 
-        "(Based on IDV, model, NCB. Indicative ranges only.)"
-      ],
-      icon: Car,
-      colorScheme: "purple",
     },
     {
       title: "Life Insurance",
-      description: "Secure your family's future with life insurance from LIC.",
+      description: "Pure protection term plans, guaranteed savings, and pension solutions backed by LIC.",
       benefits: [
-        "Financial security for your family.",
-        "Term, Endowment, Pension, and ULIP plans available.",
+        "High sum-assured term insurance at affordable premiums.",
+        "Guaranteed maturity and pension plans for long-term safety.",
+        "Tax benefits under Section 80C and Section 10(10D).",
       ],
       documents: [
-        "ID/Address Proof (Aadhaar, PAN).",
-        "Age Proof (Birth/School Certificate).",
-        "Bank and nominee details.",
-        "Medical reports if required.",
+        "Identity Proof (PAN & Aadhaar)",
+        "Income Proof (Form 16 / ITR / Salary Slip for higher sum assured)",
+        "Age proof and nominee KYC details",
+        "Medical test reports (if required by underwriter)",
       ],
       process: [
-        "Choose plan, sum assured, and term.",
-        "Complete application with health details.",
-        "Undergo medical tests if required.",
-        "Pay premium to issue policy.",
-        "Nominee files claim with death certificate.",
+        "Determine life cover required based on family liabilities",
+        "Choose between Pure Term, Endowment, or Pension plans",
+        "Complete proposal form & schedule medical check if needed",
+        "Policy bond issued upon underwriter approval",
       ],
       costs: [
-        "Premiums depend on age, health, sum assured, and plan type", 
-        "Term plans are most affordable", 
-        "Endowment/ULIPs include savings, costing more"
+        "Term plans start as low as ₹500 – ₹1,500/month for ₹50L–₹1Cr cover",
+        "Endowment and savings premiums depend on target corpus",
       ],
       icon: ShieldCheck,
-      colorScheme: "red",
+    },
+    {
+      title: "Two-Wheeler Insurance",
+      description: "Third-party mandatory cover and comprehensive own-damage protection for motorcycles and scooters.",
+      benefits: [
+        "Mandatory legal third-party liability protection.",
+        "Complete coverage against accident damage, fire, and theft.",
+        "No Claim Bonus (NCB) retention and transfer support.",
+      ],
+      documents: [
+        "Vehicle Registration Certificate (RC)",
+        "Owner's Driving Licence and Aadhaar",
+        "Previous year policy document (for NCB claims)",
+      ],
+      process: [
+        "Share RC and previous policy on WhatsApp",
+        "Receive competitive comparative quotes instantly",
+        "Pay premium directly to insurer",
+        "Instant policy PDF delivered via WhatsApp & email",
+      ],
+      costs: [
+        "Third-party: IRDAI regulated rates (approx. ₹1,200 – ₹2,800/yr)",
+        "Comprehensive: Based on vehicle age, cubic capacity, and IDV",
+      ],
+      icon: Bike,
+    },
+    {
+      title: "Four-Wheeler (Car) Insurance",
+      description: "Zero-depreciation, engine protect, and cashless accident claim settlement for personal and commercial cars.",
+      benefits: [
+        "Zero-depreciation bumper-to-bumper coverage available.",
+        "Protection against flood, theft, engine damage, and vandalism.",
+        "Cashless repairs across authorized manufacturer garages.",
+      ],
+      documents: [
+        "Vehicle RC copy",
+        "Owner's Driving Licence & Aadhaar",
+        "Previous insurance policy with NCB proof",
+      ],
+      process: [
+        "Send car model and RC details for comparison",
+        "Choose IDV and preferred add-ons (Zero Dep, RSA, Engine Cover)",
+        "Online payment confirmation",
+        "Policy issued immediately without garage inspection (if active)",
+      ],
+      costs: [
+        "Hatchback: Approx. ₹6,000 – ₹14,000/yr",
+        "Sedan / Compact SUV: Approx. ₹9,000 – ₹22,000/yr",
+        "Luxury / Large SUV: Quotes generated based on current IDV",
+      ],
+      icon: Car,
     },
   ];
 
@@ -218,125 +195,99 @@ export default function InsuranceContent() {
   });
 
   return (
-    <div className="pb-16 sm:pb-24 pt-8 relative overflow-hidden w-full">
-      {/* Subtle Static Ambient Background Orbs */}
-      <div className="absolute top-[10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-blue-500/3 blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[450px] h-[450px] rounded-full bg-purple-500/3 blur-[130px] pointer-events-none -z-10" />
+    <div className="max-w-4xl mx-auto space-y-8">
+      <div className="flex flex-col items-center">
+        <SimplePageHeader 
+          title="Insurance Solutions" 
+          description="Independent advice across health, life, and motor protection with end-to-end claims assistance." 
+          badge="Risk & Protection"
+        />
 
-      {/* Premium subtle dotted background overlay */}
-      <div 
-        className="absolute inset-0 bg-[radial-gradient(#80808008_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]" 
-        aria-hidden="true"
-      />
+        {/* Category Filters */}
+        <div className="relative w-full max-w-md mx-auto overflow-hidden z-20 py-1">
+          <button 
+            type="button"
+            onClick={() => scroll("left")}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-30 transition-opacity duration-200 sm:hidden ${
+              showLeftScroll ? "opacity-100 cursor-pointer" : "opacity-0 pointer-events-none"
+            }`}
+            aria-label="Scroll left"
+          >
+            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-white shadow-xs border border-stone-200">
+              <ChevronLeft className="w-3.5 h-3.5 text-stone-700" />
+            </span>
+          </button>
 
-      <div className="container mx-auto space-y-6 sm:space-y-8 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col items-center gap-2.5 sm:gap-3.5 mb-2 w-full">
-          <SimplePageHeader 
-            title="Insurance" 
-            description="Protect what matters most." 
-            badge="Risk & Protection"
-            badgeColorScheme="blue"
-            className="mb-0" 
-            color="from-blue-700 via-blue-600 to-blue-800" 
-          />
+          <button 
+            type="button"
+            onClick={() => scroll("right")}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-30 transition-opacity duration-200 sm:hidden ${
+              showRightScroll ? "opacity-100 cursor-pointer" : "opacity-0 pointer-events-none"
+            }`}
+            aria-label="Scroll right"
+          >
+            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-white shadow-xs border border-stone-200">
+              <ChevronRight className="w-3.5 h-3.5 text-stone-700" />
+            </span>
+          </button>
 
-          {/* Category Filter Pills Wrapper */}
-          <div className="relative w-full max-w-xl mx-auto overflow-hidden z-20 py-0.5">
-            {/* Left fade scroll indicator */}
-            <button 
-              type="button"
-              onClick={() => scroll("left")}
-              className={`absolute left-1 top-1/2 -translate-y-1/2 z-30 transition-opacity duration-300 sm:hidden ${
-                showLeftScroll ? "opacity-100 cursor-pointer" : "opacity-0 pointer-events-none"
+          <div 
+            ref={scrollContainerRef}
+            onScroll={checkScrollLimits}
+            className="flex overflow-x-auto sm:overflow-x-visible no-scrollbar w-full justify-start sm:justify-center gap-1.5 p-1 bg-stone-100/80 rounded-full border border-stone-200/70"
+          >
+            <button
+              onClick={() => setActiveCategory('all')}
+              className={`px-4 py-1.5 text-xs rounded-full font-medium transition-all ${
+                activeCategory === 'all'
+                  ? 'bg-white text-stone-900 shadow-xs font-semibold'
+                  : 'text-stone-600 hover:text-stone-900'
               }`}
-              aria-label="Scroll left"
             >
-              <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md shadow-sm border border-white/50 ring-1 ring-black/[0.04]"><ChevronLeft className="flex-shrink-0 w-3.5 h-3.5 -translate-x-[0.5px] text-blue-600 animate-pulse-slow" /></span>
+              All Policies
             </button>
-
-            {/* Right fade scroll indicator */}
-            <button 
-              type="button"
-              onClick={() => scroll("right")}
-              className={`absolute right-1 top-1/2 -translate-y-1/2 z-30 transition-opacity duration-300 sm:hidden ${
-                showRightScroll ? "opacity-100 cursor-pointer" : "opacity-0 pointer-events-none"
+            <button
+              onClick={() => setActiveCategory('health-life')}
+              className={`px-4 py-1.5 text-xs rounded-full font-medium transition-all ${
+                activeCategory === 'health-life'
+                  ? 'bg-white text-stone-900 shadow-xs font-semibold'
+                  : 'text-stone-600 hover:text-stone-900'
               }`}
-              aria-label="Scroll right"
             >
-              <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md shadow-sm border border-white/50 ring-1 ring-black/[0.04]"><ChevronRight className="flex-shrink-0 w-3.5 h-3.5 translate-x-[0.5px] text-blue-600 animate-pulse-slow" /></span>
+              Health &amp; Life
             </button>
-
-            <div 
-              ref={scrollContainerRef}
-              onScroll={checkScrollLimits}
-              className="flex overflow-x-auto sm:overflow-x-visible whitespace-nowrap [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] w-full justify-start sm:justify-center gap-2 px-4 sm:px-0 py-2 relative z-20"
+            <button
+              onClick={() => setActiveCategory('vehicle')}
+              className={`px-4 py-1.5 text-xs rounded-full font-medium transition-all ${
+                activeCategory === 'vehicle'
+                  ? 'bg-white text-stone-900 shadow-xs font-semibold'
+                  : 'text-stone-600 hover:text-stone-900'
+              }`}
             >
-              <button
-                onClick={() => setActiveCategory('all')}
-                className={`px-4 py-1.5 sm:px-5 sm:py-2 text-xs font-medium rounded-full border transition-all duration-200 ${
-                  activeCategory === 'all'
-                    ? 'bg-white/70 backdrop-blur-md text-slate-900 border-slate-300/50 shadow-sm shadow-slate-200/30'
-                    : 'bg-slate-50/30 text-slate-500 border-transparent hover:bg-white/50 hover:text-slate-800 hover:border-slate-200/50'
-                }`}
-              >
-                All Insurance
-              </button>
-              <button
-                onClick={() => setActiveCategory('health-life')}
-                className={`px-4 py-1.5 sm:px-5 sm:py-2 text-xs font-medium rounded-full border transition-all duration-200 ${
-                  activeCategory === 'health-life'
-                    ? 'bg-white/70 backdrop-blur-md text-slate-900 border-slate-300/50 shadow-sm shadow-slate-200/30'
-                    : 'bg-slate-50/30 text-slate-500 border-transparent hover:bg-white/50 hover:text-slate-800 hover:border-slate-200/50'
-                }`}
-              >
-                Health & Life
-              </button>
-              <button
-                onClick={() => setActiveCategory('vehicle')}
-                className={`px-4 py-1.5 sm:px-5 sm:py-2 text-xs font-medium rounded-full border transition-all duration-200 ${
-                  activeCategory === 'vehicle'
-                    ? 'bg-white/70 backdrop-blur-md text-slate-900 border-slate-300/50 shadow-sm shadow-slate-200/30'
-                    : 'bg-slate-50/30 text-slate-500 border-transparent hover:bg-white/50 hover:text-slate-800 hover:border-slate-200/50'
-                }`}
-              >
-                Motor Insurance
-              </button>
-            </div>
+              Motor Insurance
+            </button>
           </div>
         </div>
+      </div>
 
-        <div className="space-y-6 sm:space-y-8">
-          {filteredServices.map((service, index) => (
-            <div key={index}>
-              <div id={service.title.toLowerCase().replace(/\s+/g, '-')} className="scroll-mt-28 sm:scroll-mt-32">
-                <ServiceCard
-                  className="sm:max-w-3xl sm:mx-auto"
-                  title={service.title}
-                  description={service.description}
-                  benefits={service.benefits}
-                  documents={service.documents}
-                  process={service.process}
-                  costs={service.costs}
-                  icon={service.icon}
-                  ctaText="Get Started"
-                  colorScheme={service.colorScheme}
-                  delay={0}
-                  animation="elegant-fade"
-                  whatsAppMessage={`Hi ${clientFirstName}, I'm interested in ${service.title.toLowerCase()}. Could you please help me understand the coverage options and premium details?`}
-                />
-              </div>
-
-              {/* Modern minimal neutral divider between cards */}
-              {index < filteredServices.length - 1 && (
-                <div className="flex items-center justify-center gap-1.5 my-6 sm:my-8" aria-hidden="true">
-                  <div className="h-1 w-1 rounded-full bg-slate-300/50 dark:bg-slate-700/50" />
-                  <div className="h-1 w-5 rounded-full bg-slate-200/50 dark:bg-slate-800/40" />
-                  <div className="h-1 w-1 rounded-full bg-slate-300/50 dark:bg-slate-700/50" />
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+      <div className="space-y-6 sm:space-y-8">
+        {filteredServices.map((service, index) => (
+          <div key={index} id={service.title.toLowerCase().replace(/\s+/g, '-')} className="scroll-mt-28">
+            <ServiceCard
+              title={service.title}
+              description={service.description}
+              benefits={service.benefits}
+              documents={service.documents}
+              process={service.process}
+              costs={service.costs}
+              icon={service.icon}
+              ctaText="Inquire on WhatsApp"
+              delay={0}
+              animation="elegant-fade"
+              whatsAppMessage={`Hi ${clientFirstName}, I'm interested in ${service.title.toLowerCase()}. Could you please help me understand the coverage options and quote?`}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

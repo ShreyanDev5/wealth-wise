@@ -8,53 +8,24 @@ export default function Footer() {
   const pathname = usePathname();
 
   const tabs = [
-    { id: "home", href: "/", label: "Home", icon: Home, colorScheme: "emerald" as const },
-    { id: "insurance", href: "/insurance", label: "Insurance", icon: Shield, colorScheme: "blue" as const },
-    { id: "invest", href: "/invest", label: "Invest", icon: TrendingUp, colorScheme: "orange" as const },
-    { id: "documents", href: "/documents", label: "Document", icon: FileText, colorScheme: "purple" as const },
-    { id: "calculators", href: "/calculators", label: "Calculator", icon: Calculator, colorScheme: "red" as const },
+    { id: "home", href: "/", label: "Home", icon: Home },
+    { id: "insurance", href: "/insurance", label: "Insurance", icon: Shield },
+    { id: "invest", href: "/invest", label: "Invest", icon: TrendingUp },
+    { id: "documents", href: "/documents", label: "Documents", icon: FileText },
+    { id: "calculators", href: "/calculators", label: "Calculators", icon: Calculator },
   ];
 
-  const tabSchemes = {
-    emerald: {
-      textActive: "text-emerald-600 dark:text-emerald-400",
-      bgActive: "bg-emerald-500/[0.06] dark:bg-emerald-400/[0.08]",
-      hoverText: "group-hover:text-emerald-500 dark:group-hover:text-emerald-400",
-    },
-    blue: {
-      textActive: "text-blue-600 dark:text-blue-400",
-      bgActive: "bg-blue-500/[0.06] dark:bg-blue-400/[0.08]",
-      hoverText: "group-hover:text-blue-500 dark:group-hover:text-blue-400",
-    },
-    orange: {
-      textActive: "text-orange-600 dark:text-orange-400",
-      bgActive: "bg-orange-500/[0.06] dark:bg-orange-400/[0.08]",
-      hoverText: "group-hover:text-orange-500 dark:group-hover:text-orange-400",
-    },
-    purple: {
-      textActive: "text-purple-600 dark:text-purple-400",
-      bgActive: "bg-purple-500/[0.06] dark:bg-purple-400/[0.08]",
-      hoverText: "group-hover:text-purple-500 dark:group-hover:text-purple-400",
-    },
-    red: {
-      textActive: "text-red-600 dark:text-red-400",
-      bgActive: "bg-red-500/[0.06] dark:bg-red-400/[0.08]",
-      hoverText: "group-hover:text-red-500 dark:group-hover:text-red-400",
-    },
-  };
-
   return (
-    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[480px] z-50">
-      {/* High-end iOS Glassmorphism Container */}
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[460px] z-50 md:hidden">
+      {/* Warm Frosted Glass Floating Dock */}
       <div 
-        className="bg-white/75 dark:bg-slate-900/75 backdrop-blur-xl border border-slate-200/40 dark:border-slate-800/40 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.06),0_8px_16px_-6px_rgba(0,0,0,0.04)] rounded-2xl py-1.5 px-2 flex justify-around items-center" 
+        className="bg-white/90 dark:bg-stone-900/90 backdrop-blur-xl border border-stone-200/70 dark:border-stone-800/70 shadow-[0_10px_30px_-6px_rgba(28,25,23,0.07),0_4px_12px_-4px_rgba(28,25,23,0.04)] rounded-2xl py-1.5 px-2 flex justify-around items-center" 
         role="tablist" 
         aria-label="Primary navigation"
       >
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = pathname === tab.href;
-          const scheme = tabSchemes[tab.colorScheme];
 
           return (
             <Link 
@@ -62,26 +33,29 @@ export default function Footer() {
               key={tab.id} 
               className={`
                 relative flex flex-col items-center justify-center pt-1.5 pb-1 rounded-xl
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500/50
-                transition-all duration-300 ease-in-out
-                transform active:scale-95 hover:scale-[1.03]
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/40
+                transition-all duration-200 ease-out
                 w-1/5 group
               `} 
               role="tab" 
               aria-selected={isActive} 
               aria-label={tab.label}
             >
-              {/* Subtle background glow circle behind the icon */}
+              {/* Icon Container */}
               <div 
                 className={`
-                  p-1.5 rounded-full transition-all duration-300 flex items-center justify-center mb-0.5
-                  ${isActive ? scheme.bgActive : "bg-transparent group-hover:bg-slate-100/50 dark:group-hover:bg-slate-800/40"}
+                  p-1.5 rounded-xl transition-all duration-200 flex items-center justify-center mb-0.5
+                  ${isActive 
+                    ? "bg-emerald-900/[0.08] dark:bg-emerald-400/[0.12]" 
+                    : "bg-transparent group-hover:bg-stone-100/60 dark:group-hover:bg-stone-800/50"}
                 `}
               >
                 <Icon 
                   className={`
-                    w-[18px] h-[18px] sm:w-5 sm:h-5 transition-all duration-300
-                    ${isActive ? scheme.textActive + " scale-110" : "text-slate-400 dark:text-slate-500 " + scheme.hoverText}
+                    w-[18px] h-[18px] sm:w-[19px] sm:h-[19px] transition-all duration-200
+                    ${isActive 
+                      ? "text-emerald-800 dark:text-emerald-300 scale-105" 
+                      : "text-stone-400 dark:text-stone-500 group-hover:text-stone-700 dark:group-hover:text-stone-300"}
                   `} 
                   aria-hidden="true" 
                 />
@@ -90,18 +64,20 @@ export default function Footer() {
               {/* Minimal Label */}
               <span 
                 className={`
-                  text-[10px] sm:text-[10.5px] tracking-wide transition-all duration-300 font-medium
-                  ${isActive ? scheme.textActive + " font-semibold" : "text-slate-400 dark:text-slate-500 " + scheme.hoverText}
+                  text-[10px] sm:text-[10.5px] tracking-tight transition-all duration-200 font-medium
+                  ${isActive 
+                    ? "text-emerald-900 dark:text-emerald-200 font-semibold" 
+                    : "text-stone-400 dark:text-stone-500 group-hover:text-stone-700 dark:group-hover:text-stone-300"}
                 `}
               >
                 {tab.label}
               </span>
 
-              {/* Elegant iOS-style active indicator dot */}
+              {/* Active indicator dot */}
               <span 
                 className={`
-                  absolute -bottom-[2px] w-1 h-1 rounded-full transition-all duration-300 bg-current
-                  ${isActive ? scheme.textActive + " opacity-100 scale-100" : "opacity-0 scale-0"}
+                  absolute -bottom-[2px] w-1 h-1 rounded-full transition-all duration-200 bg-emerald-700 dark:bg-emerald-400
+                  ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"}
                 `}
               />
             </Link>
