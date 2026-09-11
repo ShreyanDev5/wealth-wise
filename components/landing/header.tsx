@@ -47,23 +47,18 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
           {/* Left - Brand Identity */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none">
+          <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none">
             <Image
               src={logoSrc}
               alt={`${clientName} Logo`}
-              width={44}
-              height={44}
-              className="w-9 h-9 sm:w-10 sm:h-10 object-contain transition-transform duration-200 group-hover:scale-105"
+              width={32}
+              height={32}
+              className="w-7 h-7 sm:w-[30px] sm:h-[30px] object-contain transition-transform duration-200 group-hover:scale-105"
               priority
             />
-            <div className="flex flex-col justify-center leading-none">
-              <span className="text-base sm:text-lg font-bold font-serif text-stone-900 tracking-tight">
-                WealthWise
-              </span>
-              <span className="text-[10px] sm:text-[11px] text-stone-500 font-medium tracking-normal mt-0.5">
-                Financial Advisory &bull; Monotosh Sardar
-              </span>
-            </div>
+            <span className="text-[15px] sm:text-base font-bold font-serif text-stone-900 tracking-tight">
+              WealthWise
+            </span>
           </Link>
 
           {/* Center - Desktop Navigation Links */}

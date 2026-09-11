@@ -39,7 +39,7 @@ export function ScrollToTop({ threshold = 400, className }: ScrollToTopProps) {
         "fixed z-40 flex items-center justify-center w-10 h-10 rounded-full",
         "bg-white/95 backdrop-blur-md border border-stone-200/80 shadow-2xs hover:shadow-xs",
         "text-stone-600 hover:text-stone-900 hover:border-stone-300",
-        "bottom-20 right-4 sm:right-6 md:bottom-8 md:right-8",
+        "bottom-[180px] right-4 sm:right-6 md:bottom-20 md:right-8",
         "transition-all duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/40",
         isVisible
           ? "opacity-100 translate-y-0 pointer-events-auto"

@@ -16,7 +16,7 @@ export default function Footer() {
   ];
 
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[460px] z-50 md:hidden">
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[400px] z-50 md:hidden">
       {/* Warm Frosted Glass Floating Dock */}
       <div 
         className="bg-white/90 dark:bg-stone-900/90 backdrop-blur-xl border border-stone-200/70 dark:border-stone-800/70 shadow-[0_10px_30px_-6px_rgba(28,25,23,0.07),0_4px_12px_-4px_rgba(28,25,23,0.04)] rounded-2xl py-1.5 px-2 flex justify-around items-center" 
@@ -31,12 +31,7 @@ export default function Footer() {
             <Link 
               href={tab.href} 
               key={tab.id} 
-              className={`
-                relative flex flex-col items-center justify-center pt-1.5 pb-1 rounded-xl
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/40
-                transition-all duration-200 ease-out
-                w-1/5 group
-              `} 
+              className="relative flex flex-col items-center justify-center py-1 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/40 transition-all duration-200 ease-out w-1/5 group active:scale-95" 
               role="tab" 
               aria-selected={isActive} 
               aria-label={tab.label}
@@ -72,14 +67,6 @@ export default function Footer() {
               >
                 {tab.label}
               </span>
-
-              {/* Active indicator dot */}
-              <span 
-                className={`
-                  absolute -bottom-[2px] w-1 h-1 rounded-full transition-all duration-200 bg-emerald-700 dark:bg-emerald-400
-                  ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"}
-                `}
-              />
             </Link>
           );
         })}

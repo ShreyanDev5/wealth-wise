@@ -87,20 +87,16 @@ export default function HomeContent() {
         duration={400}
         className="max-w-4xl mx-auto pt-4 sm:pt-10 text-center flex flex-col items-center px-4"
       >
-        <span className="inline-block text-xs font-semibold text-emerald-800 bg-emerald-50 px-3.5 py-1 rounded-full border border-emerald-200/60 mb-3 sm:mb-4">
-          19+ Years Trusted Advisory &bull; Kolkata &amp; West Bengal
-        </span>
-
         <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold font-serif text-stone-900 tracking-tight leading-[1.15] text-balance">
           Personalized Financial Planning
         </h1>
 
-        <p className="text-sm sm:text-base lg:text-lg text-stone-600 max-w-2xl mx-auto mt-4 leading-relaxed text-pretty">
-          Independent guidance from <span className="font-semibold text-stone-900">{clientName}</span> to protect your family, grow your wealth, and streamline essential government documentation.
+        <p className="text-sm sm:text-base text-stone-600 max-w-xl mx-auto mt-3 sm:mt-4 leading-normal text-pretty">
+          Independent guidance from <span className="font-semibold text-stone-900">{clientName}</span> to protect your family and grow your wealth with disciplined, personalized advisory.
         </p>
 
         {/* Primary Call to Actions */}
-        <div className="flex flex-col sm:flex-row gap-3 items-center justify-center mt-7 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row gap-3 items-center justify-center mt-5 sm:mt-7 w-full max-w-xs sm:max-w-none mx-auto">
           <a
             href={`https://wa.me/${whatsAppNumber}?text=Hi%20${encodeURIComponent(clientFirstName)}%2C%20I'd%20like%20to%20schedule%20a%20free%20consultation%20to%20discuss%20my%20financial%20goals.`}
             target="_blank"
@@ -128,8 +124,8 @@ export default function HomeContent() {
         </div>
 
         {/* Clean Proof Metrics Bar (No Nested Boxiness) */}
-        <div className="w-full max-w-3xl mt-12 sm:mt-16 pt-8 border-t border-stone-200/60">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+        <div className="w-full max-w-3xl mt-8 sm:mt-16 pt-6 sm:pt-8 border-t border-stone-200/60">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 sm:gap-8">
             {proofMetrics.map((metric, idx) => (
               <div key={idx} className="flex flex-col items-center text-center">
                 <span className="text-2xl sm:text-3xl font-bold font-sans text-stone-900 tracking-tight">
@@ -147,36 +143,30 @@ export default function HomeContent() {
       {/* Core Services Section */}
       <AnimatedSection id="core-services-section" className="text-center scroll-mt-24 max-w-6xl mx-auto px-4 sm:px-6">
         <div className="mb-8 sm:mb-10 flex flex-col items-center">
-          <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1.5">
-            What We Offer
-          </span>
           <h2 className="text-2xl sm:text-3xl font-bold font-serif text-stone-900 tracking-tight">
-            Advisory &amp; Essential Services
+            Advisory &amp; Services
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 max-w-lg mx-auto mt-1 leading-relaxed">
-            Straightforward help with your investments, insurance, and official paperwork.
-          </p>
         </div>
         
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {coreServices.map((service, index) => (
             <Link href={service.href} key={index} className="h-full block">
-              <div className="p-5 sm:p-6 rounded-2xl border border-stone-200/80 bg-white/80 hover:bg-white hover:border-stone-300 hover:shadow-xs hover:-translate-y-0.5 transition-all duration-200 flex items-start justify-between gap-3 text-left h-full group">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-stone-100 group-hover:bg-emerald-50 text-stone-700 group-hover:text-emerald-700 flex items-center justify-center flex-shrink-0 transition-colors duration-200">
-                    <service.icon className="w-5 h-5" />
+              <div className="p-4 sm:p-5 rounded-2xl border border-stone-200/70 bg-white/70 hover:bg-white hover:border-stone-300/90 hover:shadow-xs hover:-translate-y-0.5 active:scale-[0.99] active:bg-stone-50/90 transition-all duration-200 flex items-start justify-between gap-3 text-left h-full group">
+                <div className="flex items-start gap-3.5">
+                  <div className="mt-0.5 text-stone-600 group-hover:text-emerald-700 transition-colors duration-200 flex-shrink-0">
+                    <service.icon className="w-5 h-5" strokeWidth={1.8} />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-stone-900 group-hover:text-emerald-950 transition-colors">
+                    <h3 className="font-sans font-semibold text-[15px] sm:text-base text-stone-900 group-hover:text-emerald-950 transition-colors tracking-tight">
                       {service.title}
                     </h3>
-                    <p className="text-xs text-stone-500 mt-1 leading-relaxed">
+                    <p className="text-xs text-stone-500 mt-1 leading-snug">
                       {service.description}
                     </p>
                   </div>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-stone-300 group-hover:text-stone-700 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 flex-shrink-0 mt-0.5" />
+                <ArrowUpRight className="w-4 h-4 text-stone-400 group-hover:text-stone-800 opacity-40 sm:opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 flex-shrink-0 mt-0.5" />
               </div>
             </Link>
           ))}
@@ -184,19 +174,18 @@ export default function HomeContent() {
       </AnimatedSection>
 
       {/* Advisor Profile Section */}
-      <Advisor />
+      <AnimatedSection>
+        <Advisor />
+      </AnimatedSection>
 
       {/* Client Testimonials */}
       <AnimatedSection className="text-center max-w-6xl mx-auto px-4 sm:px-6">
         <div className="mb-8 sm:mb-10 flex flex-col items-center">
-          <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1.5">
-            Client Experiences
-          </span>
           <h2 className="text-2xl sm:text-3xl font-bold font-serif text-stone-900 tracking-tight">
             Trusted by Working Families &amp; Professionals
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full">
           <TestimonialCard
             name="Apurbo Saha"
             role="CEO, GS Diesel Company"
@@ -219,7 +208,9 @@ export default function HomeContent() {
       </AnimatedSection>
 
       {/* Trusted Partners */}
-      <Partners />
+      <AnimatedSection>
+        <Partners />
+      </AnimatedSection>
 
     </div>
   );
