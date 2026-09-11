@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { BookOpen, Shield, TrendingUp, Receipt, HelpCircle, ChevronRight } from "lucide-react";
+import { BookOpen, Shield, TrendingUp, Receipt } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 
 interface FaqItem {
   question: string;
@@ -90,77 +91,67 @@ export default function InvestFaq() {
   const activeCat = categories.find((c) => c.id === activeCategory) ?? categories[0];
 
   return (
-    <AnimatedSection animation="elegant-fade" delay={100} duration={350}>
-      <div className="w-full max-w-3xl mx-auto">
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1">
-            <HelpCircle className="w-3.5 h-3.5 text-emerald-700" />
-            Common Investor Questions
-          </div>
-          <h2 className="text-2xl font-bold font-serif text-stone-900 tracking-tight">
+    <AnimatedSection animation="fade-up" delay={50} duration={350}>
+      <div className="w-full">
+        {/* Header & Floating Segmented Tabs */}
+        <div className="text-center mb-6 flex flex-col items-center">
+          <span className="inline-block text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60 mb-2">
+            Investor Guidance
+          </span>
+          <h2 className="text-xl sm:text-2xl font-bold font-serif text-stone-900 tracking-tight mb-4">
             Frequently Asked Questions
           </h2>
-        </div>
 
-        <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-sm border border-stone-200/80 overflow-hidden">
-          {/* Category Tabs */}
-          <div className="p-2 border-b border-stone-100 bg-stone-50/50">
-            <div className="flex gap-1 overflow-x-auto no-scrollbar justify-start sm:justify-center">
-              {categories.map((cat) => {
-                const Icon = cat.icon;
-                const isActive = cat.id === activeCategory;
+          {/* Floating Category Filter Pills */}
+          <div className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full">
+            {categories.map((cat) => {
+              const Icon = cat.icon;
+              const isActive = cat.id === activeCategory;
 
-                return (
-                  <button
-                    key={cat.id}
-                    onClick={() => setActiveCategory(cat.id)}
-                    className={`
-                      inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap
-                      ${
-                        isActive
-                          ? 'bg-stone-900 text-white shadow-xs font-semibold'
-                          : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/60'
-                      }
-                    `}
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                    {cat.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Questions Accordion */}
-          <div className="p-4 sm:p-6">
-            <Accordion type="single" collapsible defaultValue={`${activeCat.id}-0`} className="space-y-2">
-              {activeCat.items.map((item, idx) => (
-                <AccordionItem
-                  key={idx}
-                  value={`${activeCat.id}-${idx}`}
-                  className="border border-stone-200/60 rounded-2xl px-4 overflow-hidden data-[state=open]:border-stone-300 data-[state=open]:bg-stone-50/40 transition-all"
+              return (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={cn(
+                    "inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap",
+                    isActive
+                      ? "bg-white text-stone-900 shadow-xs font-semibold"
+                      : "text-stone-600 hover:text-stone-900"
+                  )}
                 >
-                  <AccordionTrigger className="text-left text-xs sm:text-sm font-semibold text-stone-900 hover:no-underline py-3.5 leading-snug">
-                    <span className="flex items-center gap-2">
-                      <ChevronRight className="w-3.5 h-3.5 text-emerald-700 opacity-60 flex-shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-90" />
-                      <span>{item.question}</span>
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-xs sm:text-[13px] text-stone-600 pl-5 pb-4 leading-relaxed">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-
-          {/* Subtle Disclaimer */}
-          <div className="px-6 py-3 bg-stone-50/70 border-t border-stone-100 text-center">
-            <p className="text-[10px] text-stone-500 leading-tight">
-              Mutual fund investments are subject to market risks. Read all scheme-related documents carefully before investing.
-            </p>
+                  <Icon className="w-3.5 h-3.5 text-stone-500" />
+                  <span>{cat.label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
+
+        {/* Clean Unified FAQ Card */}
+        <div className="bg-white/95 rounded-2xl sm:rounded-3xl shadow-2xs border border-stone-200/80 p-5 sm:p-7 text-left font-sans">
+          <Accordion type="single" collapsible defaultValue={`${activeCat.id}-0`}>
+            {activeCat.items.map((item, idx) => (
+              <AccordionItem
+                key={idx}
+                value={`${activeCat.id}-${idx}`}
+                className="border-b border-stone-100 last:border-b-0"
+              >
+                <AccordionTrigger className="text-left text-xs sm:text-sm font-medium text-stone-900 hover:no-underline py-3.5 leading-snug font-sans group">
+                  <span>{item.question}</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-xs sm:text-[13px] text-stone-600 pb-3.5 leading-relaxed font-sans pr-6">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+
+        {/* Quiet Regulatory Disclaimer */}
+        <p className="text-[11px] text-stone-400 text-center mt-3 leading-relaxed">
+          Mutual fund investments are subject to market risks. Read all scheme-related documents carefully before investing.
+        </p>
       </div>
     </AnimatedSection>
   );
