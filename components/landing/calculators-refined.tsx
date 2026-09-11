@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowRight, PhoneCall, ShieldCheck, Coins, CalendarCheck } from "lucide-react";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
 import { AnimatedSection } from "@/components/ui/animated-section";
-import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import InvestmentCalculatorRefined from "@/components/landing/investment-return-calculator-refined";
 import { ChildEducationCalculatorWithToggleRefined } from "@/components/landing/child-education-planner-refined";
 import ChildMarriageCalculatorRefined from "@/components/landing/child-marriage-planner-refined";
@@ -221,9 +220,6 @@ export default function CalculatorsContentRefined() {
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
-
-      {/* Floating Scroll to Top Button */}
-      <ScrollToTop />
     </div>
   );
 }

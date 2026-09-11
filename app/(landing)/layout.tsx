@@ -1,5 +1,6 @@
 import Header from "@/components/landing/header";
 import Footer from "@/components/landing/footer";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 
 export default function LandingLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
         {children}
       </main>
 
+      <ScrollToTop />
       <Footer />
     </div>
   );

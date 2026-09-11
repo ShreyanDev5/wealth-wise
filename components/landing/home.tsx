@@ -87,6 +87,10 @@ export default function HomeContent() {
         duration={400}
         className="max-w-4xl mx-auto pt-4 sm:pt-10 text-center flex flex-col items-center px-4"
       >
+        <span className="inline-block text-xs font-semibold text-emerald-800 bg-emerald-50 px-3.5 py-1 rounded-full border border-emerald-200/60 mb-3 sm:mb-4">
+          19+ Years Trusted Advisory &bull; Kolkata &amp; West Bengal
+        </span>
+
         <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold font-serif text-stone-900 tracking-tight leading-[1.15] text-balance">
           Personalized Financial Planning
         </h1>
@@ -128,7 +132,7 @@ export default function HomeContent() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
             {proofMetrics.map((metric, idx) => (
               <div key={idx} className="flex flex-col items-center text-center">
-                <span className="text-2xl sm:text-3xl font-bold font-serif text-stone-900 tracking-tight">
+                <span className="text-2xl sm:text-3xl font-bold font-sans text-stone-900 tracking-tight">
                   {metric.value}
                 </span>
                 <span className="text-xs sm:text-[13px] text-stone-500 font-medium mt-1">
