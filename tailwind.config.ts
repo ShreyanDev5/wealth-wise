@@ -44,8 +44,8 @@ const config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['var(--font-plus-jakarta-sans)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        serif: ['var(--font-playfair-display)', 'Georgia', 'serif'],
       },
       animation: {
         "accordion-down": "accordion-down 150ms cubic-bezier(0.16, 1, 0.3, 1)",

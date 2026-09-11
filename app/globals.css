@@ -63,25 +63,25 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-playfair-display), Georgia, serif;
-  letter-spacing: -0.02em;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-playfair-display), Georgia, serif;
+    letter-spacing: -0.02em;
+  }
 
-body,
-p,
-input,
-button,
-select,
-textarea {
-  font-family: var(--font-plus-jakarta-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  body,
+  p,
+  input,
+  button,
+  select,
+  textarea {
+    font-family: var(--font-plus-jakarta-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  }
 }
 
 @layer utilities {
