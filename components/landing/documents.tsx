@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { cn } from "@/lib/utils";
 
 interface CostItem {
@@ -839,6 +840,9 @@ export default function DocumentsContent() {
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
+
+      {/* Floating Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 }
