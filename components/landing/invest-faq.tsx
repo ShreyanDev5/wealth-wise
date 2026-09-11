@@ -94,7 +94,7 @@ export default function InvestFaq() {
           <h2 className="text-xl sm:text-2xl font-bold font-serif text-stone-900 tracking-tight mb-2">
             Frequently Asked Questions
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 max-w-md mx-auto mb-4 leading-relaxed text-pretty">
+          <p className="text-xs sm:text-sm text-stone-600 max-w-md mx-auto mb-4 leading-normal text-pretty">
             Straightforward answers on safety, returns, liquidity, and taxation before you invest.
           </p>
 

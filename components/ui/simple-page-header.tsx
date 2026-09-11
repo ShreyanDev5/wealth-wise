@@ -29,7 +29,7 @@ export function SimplePageHeader({
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-serif text-stone-900 mb-2 tracking-tight">
         {title}
       </h1>
-      <p className="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto px-4 sm:px-0 leading-relaxed text-pretty">
+      <p className="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto px-4 sm:px-0 leading-normal text-pretty">
         {description}
       </p>
     </AnimatedSection>

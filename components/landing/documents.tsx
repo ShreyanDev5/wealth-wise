@@ -547,13 +547,13 @@ export default function DocumentsContent() {
           description="End-to-end guidance for government identity cards, RTO vehicle documentation, trade permits, and tax filings." 
         />
 
-        {/* Clean Segmented Category Filter */}
-        <div className="p-1 bg-stone-100/90 rounded-2xl sm:rounded-full border border-stone-200/70 w-full sm:w-auto grid grid-cols-2 sm:flex gap-1">
+        {/* Segmented Category Filter */}
+        <div className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full justify-start sm:justify-center">
           <button
             type="button"
             onClick={() => setActiveCategory('all')}
             className={cn(
-              "px-2.5 sm:px-3.5 py-1.5 text-[11px] sm:text-xs rounded-xl sm:rounded-full font-medium transition-all text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
               activeCategory === 'all'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -565,7 +565,7 @@ export default function DocumentsContent() {
             type="button"
             onClick={() => setActiveCategory('personal')}
             className={cn(
-              "px-2.5 sm:px-3.5 py-1.5 text-[11px] sm:text-xs rounded-xl sm:rounded-full font-medium transition-all text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
               activeCategory === 'personal'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -577,7 +577,7 @@ export default function DocumentsContent() {
             type="button"
             onClick={() => setActiveCategory('vehicle')}
             className={cn(
-              "px-2.5 sm:px-3.5 py-1.5 text-[11px] sm:text-xs rounded-xl sm:rounded-full font-medium transition-all text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
               activeCategory === 'vehicle'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -589,7 +589,7 @@ export default function DocumentsContent() {
             type="button"
             onClick={() => setActiveCategory('business')}
             className={cn(
-              "px-2.5 sm:px-3.5 py-1.5 text-[11px] sm:text-xs rounded-xl sm:rounded-full font-medium transition-all text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
               activeCategory === 'business'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -648,7 +648,7 @@ export default function DocumentsContent() {
                 </div>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-stone-600 mt-3 leading-relaxed">
+                <p className="text-xs sm:text-sm text-stone-600 mt-2.5 sm:mt-3 leading-normal">
                   {service.description}
                 </p>
 
@@ -656,7 +656,7 @@ export default function DocumentsContent() {
                 <div className="mt-4 pt-3.5 border-t border-stone-100">
                   <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-x-6">
                     {service.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-relaxed font-normal">
+                      <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-normal font-normal">
                         <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
                         <span>{highlight}</span>
                       </li>
@@ -692,9 +692,9 @@ export default function DocumentsContent() {
                           </div>
                           <ul className="space-y-1.5">
                             {service.documents.map((doc, idx) => (
-                              <li key={idx} className="text-xs text-stone-600 flex items-start gap-2 leading-relaxed">
+                              <li key={idx} className="text-xs text-stone-600 flex items-start gap-2 leading-normal">
                                 <span className="w-1.5 h-1.5 rounded-full bg-stone-300 mt-1.5 flex-shrink-0" />
-                                <span>{doc}</span>
+                                <span className="flex-1">{doc}</span>
                               </li>
                             ))}
                           </ul>
@@ -705,10 +705,11 @@ export default function DocumentsContent() {
                           <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
                             How the process works
                           </div>
-                          <ol className="space-y-1.5 list-decimal list-inside text-xs text-stone-600 marker:text-stone-400 marker:font-medium leading-relaxed">
+                          <ol className="space-y-1.5 text-xs text-stone-600 leading-normal">
                             {service.process.map((step, idx) => (
-                              <li key={idx}>
-                                <span className="text-stone-700">{step}</span>
+                              <li key={idx} className="flex items-start gap-2">
+                                <span className="text-stone-400 font-medium tabular-nums flex-shrink-0">{idx + 1}.</span>
+                                <span className="text-stone-700 flex-1">{step}</span>
                               </li>
                             ))}
                           </ol>

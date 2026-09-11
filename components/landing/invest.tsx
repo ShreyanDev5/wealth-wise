@@ -95,7 +95,7 @@ export default function InvestContent() {
             </div>
 
             {/* Description */}
-            <p className="text-xs sm:text-sm text-stone-600 mt-3 leading-relaxed">
+            <p className="text-xs sm:text-sm text-stone-600 mt-2.5 sm:mt-3 leading-normal">
               Disciplined wealth creation through systematic investing (SIP) and goal-based asset allocation tailored to your family&apos;s financial milestones and time horizon.
             </p>
 
@@ -103,7 +103,7 @@ export default function InvestContent() {
             <div className="mt-4 pt-3.5 border-t border-stone-100">
               <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-x-6">
                 {highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-relaxed font-normal">
+                  <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-normal font-normal">
                     <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
                     <span>{highlight}</span>
                   </li>
@@ -139,9 +139,9 @@ export default function InvestContent() {
                       </div>
                       <ul className="space-y-1.5">
                         {documents.map((doc, idx) => (
-                          <li key={idx} className="text-xs text-stone-600 flex items-start gap-2 leading-relaxed">
+                          <li key={idx} className="text-xs text-stone-600 flex items-start gap-2 leading-normal">
                             <span className="w-1.5 h-1.5 rounded-full bg-stone-300 mt-1.5 flex-shrink-0" />
-                            <span>{doc}</span>
+                            <span className="flex-1">{doc}</span>
                           </li>
                         ))}
                       </ul>
@@ -152,10 +152,11 @@ export default function InvestContent() {
                       <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
                         How onboarding works
                       </div>
-                      <ol className="space-y-1.5 list-decimal list-inside text-xs text-stone-600 marker:text-stone-400 marker:font-medium leading-relaxed">
+                      <ol className="space-y-1.5 text-xs text-stone-600 leading-normal">
                         {processSteps.map((step, idx) => (
-                          <li key={idx}>
-                            <span className="text-stone-700">{step}</span>
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="text-stone-400 font-medium tabular-nums flex-shrink-0">{idx + 1}.</span>
+                            <span className="text-stone-700 flex-1">{step}</span>
                           </li>
                         ))}
                       </ol>
