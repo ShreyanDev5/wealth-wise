@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { BookOpen, Shield, TrendingUp, Receipt } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
@@ -15,7 +13,6 @@ interface FaqItem {
 interface FaqCategory {
   id: string;
   label: string;
-  icon: LucideIcon;
   items: FaqItem[];
 }
 
@@ -23,7 +20,6 @@ const categories: FaqCategory[] = [
   {
     id: 'basics',
     label: 'Getting Started',
-    icon: BookOpen,
     items: [
       {
         question: 'How do mutual funds work?',
@@ -42,7 +38,6 @@ const categories: FaqCategory[] = [
   {
     id: 'safety',
     label: 'Safety & Risk',
-    icon: Shield,
     items: [
       {
         question: 'Is my money safe? What if the fund company closes?',
@@ -57,7 +52,6 @@ const categories: FaqCategory[] = [
   {
     id: 'returns',
     label: 'Returns & Growth',
-    icon: TrendingUp,
     items: [
       {
         question: 'What returns can I realistically expect?',
@@ -72,7 +66,6 @@ const categories: FaqCategory[] = [
   {
     id: 'tax',
     label: 'Tax Rules (Budget 2024)',
-    icon: Receipt,
     items: [
       {
         question: 'How are mutual fund profits taxed in India?',
@@ -87,60 +80,69 @@ const categories: FaqCategory[] = [
 ];
 
 export default function InvestFaq() {
-  const [activeCategory, setActiveCategory] = useState(categories[0].id);
-  const activeCat = categories.find((c) => c.id === activeCategory) ?? categories[0];
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+
+  const displayedItems = activeCategory === 'all'
+    ? categories.flatMap((cat) => cat.items)
+    : (categories.find((c) => c.id === activeCategory)?.items ?? []);
 
   return (
     <AnimatedSection animation="fade-up" delay={50} duration={350}>
       <div className="w-full">
-        {/* Header & Floating Segmented Tabs */}
-        <div className="text-center mb-6 flex flex-col items-center">
-          <span className="inline-block text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60 mb-2">
-            Investor Guidance
-          </span>
-          <h2 className="text-xl sm:text-2xl font-bold font-serif text-stone-900 tracking-tight mb-4">
+        {/* Header & Segmented Filter */}
+        <div className="text-center mb-6 sm:mb-7 flex flex-col items-center">
+          <h2 className="text-xl sm:text-2xl font-bold font-serif text-stone-900 tracking-tight mb-2">
             Frequently Asked Questions
           </h2>
+          <p className="text-xs sm:text-sm text-stone-600 max-w-md mx-auto mb-4 leading-relaxed text-pretty">
+            Straightforward answers on safety, returns, liquidity, and taxation before you invest.
+          </p>
 
-          {/* Floating Category Filter Pills */}
+          {/* Clean Segmented Category Filter */}
           <div className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full">
-            {categories.map((cat) => {
-              const Icon = cat.icon;
-              const isActive = cat.id === activeCategory;
-
-              return (
-                <button
-                  key={cat.id}
-                  type="button"
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={cn(
-                    "inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap",
-                    isActive
-                      ? "bg-white text-stone-900 shadow-xs font-semibold"
-                      : "text-stone-600 hover:text-stone-900"
-                  )}
-                >
-                  <Icon className="w-3.5 h-3.5 text-stone-500" />
-                  <span>{cat.label}</span>
-                </button>
-              );
-            })}
+            <button
+              type="button"
+              onClick={() => setActiveCategory('all')}
+              className={cn(
+                "px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-center",
+                activeCategory === 'all'
+                  ? "bg-white text-stone-900 shadow-xs font-semibold"
+                  : "text-stone-600 hover:text-stone-900"
+              )}
+            >
+              All Questions
+            </button>
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setActiveCategory(cat.id)}
+                className={cn(
+                  "px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-center",
+                  activeCategory === cat.id
+                    ? "bg-white text-stone-900 shadow-xs font-semibold"
+                    : "text-stone-600 hover:text-stone-900"
+                )}
+              >
+                {cat.label}
+              </button>
+            ))}
           </div>
         </div>
 
         {/* Clean Unified FAQ Card */}
         <div className="bg-white/95 rounded-2xl sm:rounded-3xl shadow-2xs border border-stone-200/80 p-5 sm:p-7 text-left font-sans">
-          <Accordion type="single" collapsible defaultValue={`${activeCat.id}-0`}>
-            {activeCat.items.map((item, idx) => (
+          <Accordion type="single" collapsible defaultValue="faq-0">
+            {displayedItems.map((item, idx) => (
               <AccordionItem
-                key={idx}
-                value={`${activeCat.id}-${idx}`}
+                key={`${item.question}-${idx}`}
+                value={`faq-${idx}`}
                 className="border-b border-stone-100 last:border-b-0"
               >
-                <AccordionTrigger className="text-left text-xs sm:text-sm font-medium text-stone-900 hover:no-underline py-3.5 leading-snug font-sans group">
-                  <span>{item.question}</span>
+                <AccordionTrigger className="text-left text-xs sm:text-sm font-medium text-stone-900 hover:text-emerald-800 hover:no-underline py-3.5 sm:py-4 leading-snug font-sans group">
+                  <span className="pr-4">{item.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-xs sm:text-[13px] text-stone-600 pb-3.5 leading-relaxed font-sans pr-6">
+                <AccordionContent className="text-xs sm:text-[13px] text-stone-600 pb-3.5 sm:pb-4 leading-relaxed font-sans pr-6">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

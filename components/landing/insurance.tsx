@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Heart,
   Bike,
@@ -12,9 +11,6 @@ import {
   ArrowRight,
   MessageCircle,
   ChevronDown,
-  PhoneCall,
-  Clock,
-  ShieldAlert,
   FileText,
 } from "lucide-react";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
@@ -232,16 +228,15 @@ export default function InsuranceContent() {
         <SimplePageHeader 
           title="Insurance & Family Protection" 
           description="Independent advice across health, life, and motor insurance—with direct personal claim support when you need it most." 
-          badge="Risk & Family Protection"
         />
 
         {/* Segmented Category Filter */}
-        <div className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 max-w-sm w-full sm:w-auto grid grid-cols-3 sm:flex gap-1">
+        <div className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full justify-start sm:justify-center">
           <button
             type="button"
             onClick={() => setActiveCategory('all')}
             className={cn(
-              "px-2.5 sm:px-3.5 py-1.5 text-[11px] sm:text-xs rounded-full font-medium transition-all text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
               activeCategory === 'all'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -253,7 +248,7 @@ export default function InsuranceContent() {
             type="button"
             onClick={() => setActiveCategory('health-life')}
             className={cn(
-              "px-2.5 sm:px-3.5 py-1.5 text-[11px] sm:text-xs rounded-full font-medium transition-all text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
               activeCategory === 'health-life'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -265,7 +260,7 @@ export default function InsuranceContent() {
             type="button"
             onClick={() => setActiveCategory('vehicle')}
             className={cn(
-              "px-2.5 sm:px-3.5 py-1.5 text-[11px] sm:text-xs rounded-full font-medium transition-all text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
               activeCategory === 'vehicle'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -293,38 +288,14 @@ export default function InsuranceContent() {
             >
               <div className="bg-white/95 rounded-2xl sm:rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-2xs hover:shadow-xs hover:border-stone-300 transition-all duration-200 text-left">
                 {/* Header Row */}
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                  <div className="flex items-start gap-3.5">
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-stone-100 flex items-center justify-center text-stone-800 border border-stone-200/60 flex-shrink-0 mt-0.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-stone-100 flex items-center justify-center text-stone-800 border border-stone-200/60 flex-shrink-0">
                       <PolicyIcon className="w-5 h-5 text-emerald-800" />
                     </div>
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-bold font-serif text-stone-900 leading-tight">
-                        {policy.title}
-                      </h3>
-
-                      {/* Underwriter Trust Badges */}
-                      <div className="flex items-center gap-1.5 flex-wrap mt-1.5 text-xs text-stone-500">
-                        <span>{policy.underwriters.label}:</span>
-                        {policy.underwriters.items.map((item, idx) => (
-                          <span 
-                            key={idx} 
-                            className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-stone-50 rounded-md border border-stone-200/70 text-xs text-stone-700"
-                          >
-                            {item.logo && (
-                              <Image 
-                                src={item.logo} 
-                                alt={item.name} 
-                                width={36} 
-                                height={14} 
-                                className="h-3 w-auto object-contain" 
-                              />
-                            )}
-                            <span className="font-medium">{item.name}</span>
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold font-serif text-stone-900 leading-tight">
+                      {policy.title}
+                    </h3>
                   </div>
 
                   {/* Desktop WhatsApp Action */}
@@ -332,10 +303,10 @@ export default function InsuranceContent() {
                     href={`https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(policy.whatsAppMsg)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-medium text-xs shadow-2xs hover:shadow-xs transition-all flex-shrink-0 self-start mt-0.5"
+                    className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-medium text-xs shadow-2xs hover:shadow-xs transition-all flex-shrink-0"
                     aria-label={`Get quote for ${policy.title} on WhatsApp`}
                   >
-                    <MessageCircle className="w-3.5 h-3.5 text-emerald-200" />
+                    <MessageCircle className="w-3.5 h-3.5 text-emerald-100" />
                     <span>Get Quote on WhatsApp</span>
                   </a>
                 </div>
@@ -350,7 +321,7 @@ export default function InsuranceContent() {
                   <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-x-6">
                     {policy.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-relaxed font-normal">
-                        <Check className="w-3.5 h-3.5 text-emerald-700 flex-shrink-0 mt-0.5" />
+                        <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
                         <span>{highlight}</span>
                       </li>
                     ))}
@@ -365,11 +336,13 @@ export default function InsuranceContent() {
                     className="w-full flex items-center justify-between text-xs font-medium text-stone-500 hover:text-stone-900 py-1 transition-colors group"
                     aria-expanded={isExpanded}
                   >
-                    <span className="flex items-center gap-1.5">
-                      <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors" />
-                      <span>{isExpanded ? "Hide paperwork, issuance steps & estimated premiums" : "View paperwork, issuance steps & estimated premiums"}</span>
+                    <span className="flex items-center gap-1.5 min-w-0 pr-2">
+                      <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0" />
+                      <span className="truncate sm:whitespace-normal">
+                        {isExpanded ? "Hide paperwork, issuance steps & estimated premiums" : "View paperwork, issuance steps & estimated premiums"}
+                      </span>
                     </span>
-                    <ChevronDown className={cn("w-4 h-4 text-stone-400 group-hover:text-stone-700 transition-transform duration-200", isExpanded && "rotate-180")} />
+                    <ChevronDown className={cn("w-4 h-4 text-stone-400 group-hover:text-stone-700 transition-transform duration-200 flex-shrink-0", isExpanded && "rotate-180")} />
                   </button>
 
                   {/* Clean Sans-Serif Drawer Content */}
@@ -433,10 +406,10 @@ export default function InsuranceContent() {
                     href={`https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(policy.whatsAppMsg)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium text-xs shadow-2xs"
+                    className="w-full inline-flex items-center justify-center gap-2 h-10 px-5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-medium text-xs shadow-2xs transition-all"
                     aria-label={`Get quote for ${policy.title} on WhatsApp`}
                   >
-                    <MessageCircle className="w-4 h-4 text-emerald-200" />
+                    <MessageCircle className="w-4 h-4 text-emerald-100" />
                     <span>Get Quote on WhatsApp</span>
                   </a>
                 </div>
@@ -446,65 +419,7 @@ export default function InsuranceContent() {
         })}
       </div>
 
-      {/* Personal Claim Support Reassurance Section */}
-      <AnimatedSection animation="fade-up" delay={50} duration={350}>
-        <div className="rounded-2xl sm:rounded-3xl border border-stone-200/80 bg-white/95 p-6 sm:p-8 shadow-2xs text-left">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone-200/70">
-            <div>
-              <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
-                The Advisory Advantage
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold font-serif text-stone-900 mt-2">
-                Personal Claim Assistance When It Counts
-              </h3>
-              <p className="text-xs sm:text-sm text-stone-600 mt-1 max-w-xl leading-relaxed">
-                The real value of insurance is tested when a claim occurs—not during purchase. You reach Monotosh directly, never an automated call center.
-              </p>
-            </div>
-            <a
-              href={`https://wa.me/${whatsAppNumber}?text=Hi%20${encodeURIComponent(clientFirstName)}%2C%20I%20have%20an%20insurance%20claim%20or%20policy%20question%20I'd%20like%20guidance%20on.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-medium text-xs sm:text-sm shadow-2xs hover:shadow-xs transition-all flex-shrink-0 self-start sm:self-auto"
-            >
-              <PhoneCall className="w-4 h-4 text-emerald-200" />
-              <span>Direct Support</span>
-            </a>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-6 font-sans">
-            <div className="space-y-1">
-              <div className="text-sm font-medium text-stone-900 flex items-center gap-2">
-                <Clock className="w-4 h-4 text-emerald-700 flex-shrink-0" />
-                <span>Fast TPA Coordination</span>
-              </div>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                Direct liaison with hospital insurance desks in Kolkata and beyond to accelerate cashless pre-authorizations.
-              </p>
-            </div>
-
-            <div className="space-y-1">
-              <div className="text-sm font-medium text-stone-900 flex items-center gap-2">
-                <ShieldAlert className="w-4 h-4 text-emerald-700 flex-shrink-0" />
-                <span>Unbiased Representation</span>
-              </div>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                We represent your family's interests against the insurer, ensuring fair evaluation and maximum eligible claim payout.
-              </p>
-            </div>
-
-            <div className="space-y-1">
-              <div className="text-sm font-medium text-stone-900 flex items-center gap-2">
-                <FileText className="w-4 h-4 text-emerald-700 flex-shrink-0" />
-                <span>Zero Paperwork Friction</span>
-              </div>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                From hospital discharge bill sorting to reimbursement documentation, we guide you through every step.
-              </p>
-            </div>
-          </div>
-        </div>
-      </AnimatedSection>
 
       {/* Cross-Navigation Next Step */}
       <div className="pt-2 sm:pt-4 text-center">
