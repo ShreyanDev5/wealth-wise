@@ -186,8 +186,8 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
 
   return (
     <div className="w-full bg-white/95 rounded-2xl sm:rounded-3xl border border-stone-200/80 shadow-2xs hover:shadow-xs hover:border-stone-300 transition-all duration-200 overflow-hidden text-left">
-      <div className="py-4 px-6 border-b border-stone-100 bg-stone-50/50 flex flex-row items-center justify-center gap-2.5">
-        <div className="w-8 h-8 rounded-xl bg-stone-200/60 text-stone-700 flex items-center justify-center">
+      <div className="py-3.5 px-5 sm:py-4 sm:px-6 border-b border-stone-100 bg-stone-50/50 flex flex-row items-center justify-center gap-2.5">
+        <div className="w-8 h-8 rounded-xl bg-stone-100 text-emerald-800 border border-stone-200/60 flex items-center justify-center">
           {investmentType === "sip" && <RotateCcw className="h-4 w-4" />}
           {investmentType === "lumpsum" && <CircleDollarSign className="h-4 w-4" />}
           {investmentType === "swp" && <CreditCard className="h-4 w-4" />}
@@ -199,18 +199,18 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
         </h3>
       </div>
 
-      <div className="p-5 sm:p-8">
-        <div className="space-y-6 sm:space-y-8">
+      <div className="p-4 sm:p-7">
+        <div className="space-y-5 sm:space-y-7">
           {investmentType === "sip" && (
             <div className="space-y-2">
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center justify-between gap-3 sm:gap-4">
                 <Label htmlFor="investmentAmount" className="text-xs sm:text-sm font-semibold text-stone-700">Monthly SIP Amount (₹)</Label>
                 <FormattedInput
                   id="investmentAmount"
                   inputMode="numeric"
                   value={investmentAmount}
                   onFormattedChange={setInvestmentAmount}
-                  className="w-36 sm:w-44 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-1.5"
+                  className="w-32 sm:w-44 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-1.5 h-9"
                 />
               </div>
               {errors.investmentAmount && (
@@ -222,14 +222,14 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
 
           {investmentType === "lumpsum" && (
             <div className="space-y-2">
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center justify-between gap-3 sm:gap-4">
                 <Label htmlFor="totalInvestment" className="text-xs sm:text-sm font-semibold text-stone-700">Total Investment (₹)</Label>
                 <FormattedInput
                   id="totalInvestment"
                   inputMode="numeric"
                   value={totalInvestment}
                   onFormattedChange={setTotalInvestment}
-                  className="w-36 sm:w-44 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-1.5"
+                  className="w-32 sm:w-44 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-1.5 h-9"
                 />
               </div>
               {errors.totalInvestment && (
@@ -242,14 +242,14 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
           {investmentType === "swp" && (
             <>
               <div className="space-y-2">
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center justify-between gap-3 sm:gap-4">
                   <Label htmlFor="totalInvestment" className="text-xs sm:text-sm font-semibold text-stone-700">Initial Corpus (₹)</Label>
                   <FormattedInput
                     id="totalInvestment"
                     inputMode="numeric"
                     value={totalInvestment}
                     onFormattedChange={setTotalInvestment}
-                    className="w-36 sm:w-44 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-1.5"
+                    className="w-32 sm:w-44 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-1.5 h-9"
                   />
                 </div>
                 {errors.totalInvestment && (
@@ -259,14 +259,14 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
               </div>
 
               <div className="space-y-2">
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center justify-between gap-3 sm:gap-4">
                   <Label htmlFor="withdrawalAmount" className="text-xs sm:text-sm font-semibold text-stone-700">Monthly Withdrawal (₹)</Label>
                   <FormattedInput
                     id="withdrawalAmount"
                     inputMode="numeric"
                     value={withdrawalAmount}
                     onFormattedChange={setWithdrawalAmount}
-                    className="w-36 sm:w-44 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-1.5"
+                    className="w-32 sm:w-44 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-1.5 h-9"
                   />
                 </div>
                 {errors.withdrawalAmount && (
@@ -278,14 +278,14 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
           )}
 
           <div className="space-y-2">
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center justify-between gap-3 sm:gap-4">
               <Label htmlFor="expectedReturnRate" className="text-xs sm:text-sm font-semibold text-stone-700">Expected Annual Return (% p.a.)</Label>
               <Input
                 id="expectedReturnRate"
                 inputMode="decimal"
                 value={expectedReturnRate}
                 onChange={(e) => setExpectedReturnRate(e.target.value)}
-                className="w-24 sm:w-28 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-1.5"
+                className="w-20 sm:w-28 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-1.5 h-9"
               />
             </div>
             {errors.expectedReturnRate && (
@@ -295,14 +295,14 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
           </div>
 
           <div className="space-y-2">
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center justify-between gap-3 sm:gap-4">
               <Label htmlFor="timePeriod" className="text-xs sm:text-sm font-semibold text-stone-700">Time Horizon (Years)</Label>
               <Input
                 id="timePeriod"
                 inputMode="numeric"
                 value={timePeriod}
                 onChange={(e) => setTimePeriod(e.target.value)}
-                className="w-24 sm:w-28 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-1.5"
+                className="w-20 sm:w-28 text-right rounded-xl border-stone-200 bg-stone-50/60 font-semibold text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-1.5 h-9"
               />
             </div>
             {errors.timePeriod && (
@@ -313,8 +313,8 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
 
           {/* Results Block */}
           {calculatedResult && (
-            <div className="pt-4 border-t border-stone-100">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-stone-50/70 p-5 sm:p-6 rounded-2xl border border-stone-200/70">
+            <div className="pt-3 border-t border-stone-100">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-center bg-stone-50/70 p-4 sm:p-6 rounded-2xl border border-stone-200/70">
                 {/* Left: Donut Chart */}
                 <div className="md:col-span-5 flex justify-center">
                   {!isMounted ? (
@@ -378,7 +378,7 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
                     <span className="text-xs sm:text-sm font-semibold text-stone-900">
                       {investmentType === "swp" ? "Projected final balance" : "Projected maturity value"}
                     </span>
-                    <span className="text-xl sm:text-2xl font-bold font-sans text-stone-900 tracking-tight">
+                    <span className="text-lg sm:text-2xl font-bold font-sans text-stone-900 tracking-tight">
                       {formatLargeNumber(
                         investmentType === "swp"
                           ? (calculatedResult as SWPResult).finalBalance

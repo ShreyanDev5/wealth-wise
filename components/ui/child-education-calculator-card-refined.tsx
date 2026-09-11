@@ -7,7 +7,7 @@ import { FormattedInput } from "@/components/ui/formatted-input";
 import { Button } from "@/components/ui/button";
 import { formatLargeNumber } from "@/lib/format-large-number";
 import { calculateEducationPlan } from "@/lib/calculators";
-import { CheckCircle, Calendar, CircleDollarSign, Info, MessageSquare, Clock } from "lucide-react";
+import { CheckCircle, Calendar, CircleDollarSign, Info, MessageCircle, Clock } from "lucide-react";
 
 interface SipCalculationResults {
   projectedCost: number;
@@ -175,21 +175,21 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
 
     return (
       <div className="space-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 bg-stone-50 rounded-2xl border border-stone-200/70 text-center">
-          <div className="flex flex-col items-center justify-center p-2">
-            <span className="text-stone-500 font-medium text-[11px] uppercase tracking-wider mb-1">Projected Cost</span>
-            <span className="text-lg sm:text-xl font-bold text-stone-900 font-sans">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 p-3.5 sm:p-4 bg-stone-50 rounded-2xl border border-stone-200/70 text-center">
+          <div className="flex flex-col items-center justify-center p-1.5 sm:p-2">
+            <span className="text-stone-500 font-medium text-[10px] sm:text-[11px] uppercase tracking-wider mb-0.5">Projected Cost</span>
+            <span className="text-base sm:text-xl font-bold text-stone-900 font-sans">
               {formatLargeNumber(projectedCost)}
             </span>
-            <span className="text-[11px] text-stone-400 mt-0.5">In {yearsUntilEducation} years</span>
+            <span className="text-[10px] sm:text-[11px] text-stone-400 mt-0.5">In {yearsUntilEducation} years</span>
           </div>
 
-          <div className="flex flex-col items-center justify-center p-2 border-t sm:border-t-0 sm:border-l border-stone-200/60">
-            <span className="text-stone-500 font-medium text-[11px] uppercase tracking-wider mb-1">Required Monthly SIP</span>
-            <span className="text-lg sm:text-xl font-bold text-emerald-800 font-sans">
+          <div className="flex flex-col items-center justify-center p-1.5 sm:p-2 border-l border-stone-200/60">
+            <span className="text-stone-500 font-medium text-[10px] sm:text-[11px] uppercase tracking-wider mb-0.5">Monthly SIP Needed</span>
+            <span className="text-base sm:text-xl font-bold text-emerald-800 font-sans">
               {formatLargeNumber(monthlyInvestment)}
             </span>
-            <span className="text-[11px] text-emerald-700/80 mt-0.5">To reach goal</span>
+            <span className="text-[10px] sm:text-[11px] text-emerald-700/80 mt-0.5">To reach goal</span>
           </div>
         </div>
 
@@ -258,11 +258,11 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
               value={childName}
               onChange={(e) => setChildName(e.target.value)}
               placeholder="e.g., Arjun"
-              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <div className="space-y-1.5">
               <Label htmlFor="childAge" className="text-xs sm:text-sm font-semibold text-stone-700">Current Age</Label>
               <FormattedInput
@@ -270,20 +270,20 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
                 inputMode="numeric"
                 value={childAge}
                 onFormattedChange={setChildAge}
-                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
                 placeholder="e.g., 5"
               />
               {errors.childAge && <p className="text-red-500 text-xs">{errors.childAge}</p>}
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="educationStartAge" className="text-xs sm:text-sm font-semibold text-stone-700">Higher Education Start Age</Label>
+              <Label htmlFor="educationStartAge" className="text-xs sm:text-sm font-semibold text-stone-700">College Age</Label>
               <FormattedInput
                 id="educationStartAge"
                 inputMode="numeric"
                 value={educationStartAge}
                 onFormattedChange={setEducationStartAge}
-                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
                 placeholder="e.g., 18"
               />
               {errors.educationStartAge && <p className="text-red-500 text-xs">{errors.educationStartAge}</p>}
@@ -297,34 +297,34 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
               inputMode="numeric"
               value={presentCost}
               onFormattedChange={setPresentCost}
-              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
               placeholder="e.g., 1200000"
             />
             {errors.presentCost && <p className="text-red-500 text-xs">{errors.presentCost}</p>}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="inflationRate" className="text-xs sm:text-sm font-semibold text-stone-700">Education Inflation (% p.a.)</Label>
+              <Label htmlFor="inflationRate" className="text-xs sm:text-sm font-semibold text-stone-700">Inflation (% p.a.)</Label>
               <FormattedInput
                 id="inflationRate"
                 inputMode="decimal"
                 value={inflationRate}
                 onFormattedChange={setInflationRate}
-                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
                 placeholder="e.g., 8"
               />
               {errors.inflationRate && <p className="text-red-500 text-xs">{errors.inflationRate}</p>}
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="expectedReturn" className="text-xs sm:text-sm font-semibold text-stone-700">Expected Return (% p.a.)</Label>
+              <Label htmlFor="expectedReturn" className="text-xs sm:text-sm font-semibold text-stone-700">Return (% p.a.)</Label>
               <FormattedInput
                 id="expectedReturn"
                 inputMode="decimal"
                 value={expectedReturn}
                 onFormattedChange={setExpectedReturn}
-                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
                 placeholder="e.g., 12"
               />
               {errors.expectedReturn && <p className="text-red-500 text-xs">{errors.expectedReturn}</p>}
@@ -338,7 +338,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
               inputMode="numeric"
               value={amountSaved}
               onFormattedChange={setAmountSaved}
-              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
               placeholder="e.g., 100000"
             />
             {errors.amountSaved && <p className="text-red-500 text-xs">{errors.amountSaved}</p>}
@@ -346,7 +346,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
 
           <Button
             onClick={handleCalculate}
-            className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
+            className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs"
             disabled={!childAge || !educationStartAge || !presentCost || !inflationRate || !expectedReturn || Object.keys(errors).length > 0}
           >
             Calculate Education Goal
@@ -358,9 +358,9 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
 
               <Button
                 onClick={handleShareSip}
-                className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs flex items-center justify-center gap-2"
+                className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs flex items-center justify-center gap-2"
               >
-                <MessageSquare className="h-4 w-4" />
+                <MessageCircle className="h-4 w-4" />
                 Share Projection via WhatsApp
               </Button>
             </div>
@@ -377,7 +377,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
               value={childName}
               onChange={(e) => setChildName(e.target.value)}
               placeholder="e.g., Priya"
-              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
             />
           </div>
 
@@ -388,7 +388,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
               inputMode="numeric"
               value={monthlySavings}
               onFormattedChange={setMonthlySavings}
-              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
               placeholder="e.g., 5000"
             />
             {errors.monthlySavings && <p className="text-red-500 text-xs">{errors.monthlySavings}</p>}
@@ -396,13 +396,13 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
 
           <div className="space-y-1.5">
             <Label className="text-xs sm:text-sm font-semibold text-stone-700">Investment Horizon</Label>
-            <div className="flex p-1 bg-stone-100/80 border border-stone-200/70 rounded-xl w-full">
+            <div className="flex p-1 bg-stone-100/90 border border-stone-200/70 rounded-full w-full gap-1 shadow-2xs">
               <button
                 type="button"
                 onClick={() => setPaymentDuration("10")}
-                className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5 ${
+                className={`flex-1 py-1.5 px-3 rounded-full text-xs font-medium transition-all flex items-center justify-center gap-1.5 ${
                   paymentDuration === "10"
-                    ? "bg-white text-stone-900 font-semibold shadow-xs"
+                    ? "bg-white text-stone-900 font-semibold shadow-2xs"
                     : "text-stone-600 hover:text-stone-900"
                 }`}
               >
@@ -412,9 +412,9 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
               <button
                 type="button"
                 onClick={() => setPaymentDuration("15")}
-                className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5 ${
+                className={`flex-1 py-1.5 px-3 rounded-full text-xs font-medium transition-all flex items-center justify-center gap-1.5 ${
                   paymentDuration === "15"
-                    ? "bg-white text-stone-900 font-semibold shadow-xs"
+                    ? "bg-white text-stone-900 font-semibold shadow-2xs"
                     : "text-stone-600 hover:text-stone-900"
                 }`}
               >
@@ -426,7 +426,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
 
           <Button
             onClick={handleCalculate}
-            className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
+            className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs"
             disabled={!monthlySavings || Object.keys(errors).length > 0}
           >
             Calculate Support Schedule
@@ -438,9 +438,9 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
 
               <Button
                 onClick={handleShareSipSwp}
-                className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs flex items-center justify-center gap-2"
+                className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs flex items-center justify-center gap-2"
               >
-                <MessageSquare className="h-4 w-4" />
+                <MessageCircle className="h-4 w-4" />
                 Share Results via WhatsApp
               </Button>
             </div>

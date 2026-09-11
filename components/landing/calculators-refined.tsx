@@ -42,22 +42,22 @@ export default function CalculatorsContentRefined() {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
+    <div className="max-w-4xl mx-auto">
       {/* Header & Category Filter */}
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center mb-5 sm:mb-6">
         <SimplePageHeader 
           title="Financial Calculators" 
           description="Interactive planners to project returns on systematic investments (SIP), child higher education, retirement corpus, and major life milestones."
-          badge="Planning Tools"
+          className="mb-4 sm:mb-5"
         />
 
-        {/* Clean Segmented Category Filter */}
-        <div className="p-1 bg-stone-100/90 rounded-2xl sm:rounded-full border border-stone-200/70 w-full sm:w-auto flex flex-wrap sm:flex-nowrap justify-center gap-1">
+        {/* Segmented Category Filter */}
+        <div className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full justify-start sm:justify-center">
           <button
             type="button"
             onClick={() => setActiveCategory('all')}
             className={cn(
-              "px-3 py-1.5 text-[11px] sm:text-xs rounded-xl sm:rounded-full font-medium transition-all text-center",
+              "px-3.5 py-1.5 text-xs rounded-full font-medium transition-all shrink-0",
               activeCategory === 'all'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -69,7 +69,7 @@ export default function CalculatorsContentRefined() {
             type="button"
             onClick={() => setActiveCategory('investment')}
             className={cn(
-              "px-3 py-1.5 text-[11px] sm:text-xs rounded-xl sm:rounded-full font-medium transition-all text-center",
+              "px-3.5 py-1.5 text-xs rounded-full font-medium transition-all shrink-0",
               activeCategory === 'investment'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -81,7 +81,7 @@ export default function CalculatorsContentRefined() {
             type="button"
             onClick={() => setActiveCategory('education')}
             className={cn(
-              "px-3 py-1.5 text-[11px] sm:text-xs rounded-xl sm:rounded-full font-medium transition-all text-center",
+              "px-3.5 py-1.5 text-xs rounded-full font-medium transition-all shrink-0",
               activeCategory === 'education'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -93,7 +93,7 @@ export default function CalculatorsContentRefined() {
             type="button"
             onClick={() => setActiveCategory('retirement')}
             className={cn(
-              "px-3 py-1.5 text-[11px] sm:text-xs rounded-xl sm:rounded-full font-medium transition-all text-center",
+              "px-3.5 py-1.5 text-xs rounded-full font-medium transition-all shrink-0",
               activeCategory === 'retirement'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -105,7 +105,7 @@ export default function CalculatorsContentRefined() {
             type="button"
             onClick={() => setActiveCategory('marriage')}
             className={cn(
-              "px-3 py-1.5 text-[11px] sm:text-xs rounded-xl sm:rounded-full font-medium transition-all text-center",
+              "px-3.5 py-1.5 text-xs rounded-full font-medium transition-all shrink-0",
               activeCategory === 'marriage'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -150,7 +150,7 @@ export default function CalculatorsContentRefined() {
 
 
       {/* Cross-Navigation Next Step (Borderless & Airy) */}
-      <div className="pt-2 sm:pt-4 text-center">
+      <div className="mt-8 sm:mt-10 pt-2 sm:pt-4 text-center">
         <p className="text-xs sm:text-sm text-stone-500">
           Have your target numbers in mind? Start turning them into real-world wealth.
         </p>

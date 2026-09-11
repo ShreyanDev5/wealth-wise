@@ -7,7 +7,7 @@ import { FormattedInput } from "@/components/ui/formatted-input";
 import { Button } from "@/components/ui/button";
 import { formatLargeNumber } from "@/lib/format-large-number";
 import { calculateRetirementPlan, RetirementPlanResult } from "@/lib/calculators";
-import { Umbrella, MessageSquare, CheckCircle } from "lucide-react";
+import { Umbrella, MessageCircle, CheckCircle } from "lucide-react";
 
 export default function IncomePlanningCalculatorRefined() {
   const [name, setName] = useState("");
@@ -88,17 +88,17 @@ export default function IncomePlanningCalculatorRefined() {
 
     return (
       <div className="space-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 bg-stone-50 rounded-2xl border border-stone-200/70 text-center">
-          <div className="flex flex-col items-center justify-center p-2">
-            <span className="text-stone-500 font-medium text-[11px] uppercase tracking-wider mb-1">Years to Retire</span>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 p-3.5 sm:p-4 bg-stone-50 rounded-2xl border border-stone-200/70 text-center">
+          <div className="flex flex-col items-center justify-center p-1.5 sm:p-2">
+            <span className="text-stone-500 font-medium text-[10px] sm:text-[11px] uppercase tracking-wider mb-0.5">Years to Retire</span>
             <span className="text-base sm:text-lg font-bold text-stone-900">{yearsUntilRetirement} Years</span>
           </div>
-          <div className="flex flex-col items-center justify-center p-2 border-t sm:border-t-0 sm:border-l border-stone-200/60">
-            <span className="text-stone-500 font-medium text-[11px] uppercase tracking-wider mb-1">Target Corpus Needed</span>
+          <div className="flex flex-col items-center justify-center p-1.5 sm:p-2 border-t sm:border-t-0 sm:border-l border-stone-200/60">
+            <span className="text-stone-500 font-medium text-[10px] sm:text-[11px] uppercase tracking-wider mb-0.5">Target Corpus Needed</span>
             <span className="text-base sm:text-lg font-bold text-stone-900">{formatLargeNumber(retirementCorpus)}</span>
           </div>
-          <div className="flex flex-col items-center justify-center p-2 border-t sm:border-t-0 sm:border-l border-stone-200/60">
-            <span className="text-stone-500 font-medium text-[11px] uppercase tracking-wider mb-1">Required Monthly SIP</span>
+          <div className="flex flex-col items-center justify-center p-1.5 sm:p-2 border-t sm:border-t-0 sm:border-l border-stone-200/60">
+            <span className="text-stone-500 font-medium text-[10px] sm:text-[11px] uppercase tracking-wider mb-0.5">Required Monthly SIP</span>
             <span className="text-base sm:text-lg font-bold text-emerald-800">{formatLargeNumber(monthlySavingsRequired)}</span>
           </div>
         </div>
@@ -132,8 +132,8 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
 
   return (
     <div className="w-full max-w-3xl mx-auto bg-white/95 rounded-2xl sm:rounded-3xl border border-stone-200/80 shadow-2xs hover:shadow-xs hover:border-stone-300 transition-all duration-200 overflow-hidden text-left">
-      <div className="py-4 px-6 border-b border-stone-100 bg-stone-50/50 flex flex-row items-center justify-center gap-2.5">
-        <div className="w-8 h-8 rounded-xl bg-stone-200/60 text-stone-700 flex items-center justify-center">
+      <div className="py-3.5 px-5 sm:py-4 sm:px-6 border-b border-stone-100 bg-stone-50/50 flex flex-row items-center justify-center gap-2.5">
+        <div className="w-8 h-8 rounded-xl bg-stone-100 text-emerald-800 border border-stone-200/60 flex items-center justify-center">
           <Umbrella className="h-4 w-4" />
         </div>
         <h3 className="text-base sm:text-lg font-serif font-bold text-stone-900 tracking-tight">
@@ -141,7 +141,7 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
         </h3>
       </div>
 
-      <div className="p-5 sm:p-8">
+      <div className="p-4 sm:p-7">
         <div className="space-y-5 sm:space-y-6">
           <div className="space-y-1.5">
             <Label htmlFor="retirementPlannerName" className="text-xs sm:text-sm font-semibold text-stone-700">Your Name (Optional)</Label>
@@ -150,45 +150,45 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="e.g., Shreyan"
-              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="retirementPlannerCurrentAge" className="text-xs sm:text-sm font-semibold text-stone-700">Current Age</Label>
+              <Label htmlFor="retirementPlannerCurrentAge" className="text-[11px] sm:text-xs font-semibold text-stone-700 truncate block">Current Age</Label>
               <FormattedInput
                 id="retirementPlannerCurrentAge"
                 inputMode="numeric"
                 value={currentAge}
                 onFormattedChange={setCurrentAge}
-                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
                 placeholder="e.g., 30"
               />
               {errors.currentAge && <p className="text-red-500 text-xs">{errors.currentAge}</p>}
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="retirementPlannerRetirementAge" className="text-xs sm:text-sm font-semibold text-stone-700">Retirement Age</Label>
+              <Label htmlFor="retirementPlannerRetirementAge" className="text-[11px] sm:text-xs font-semibold text-stone-700 truncate block">Retire Age</Label>
               <FormattedInput
                 id="retirementPlannerRetirementAge"
                 inputMode="numeric"
                 value={retirementAge}
                 onFormattedChange={setRetirementAge}
-                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
                 placeholder="e.g., 60"
               />
               {errors.retirementAge && <p className="text-red-500 text-xs">{errors.retirementAge}</p>}
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="retirementPlannerLifeExpectancy" className="text-xs sm:text-sm font-semibold text-stone-700">Life Expectancy</Label>
+              <Label htmlFor="retirementPlannerLifeExpectancy" className="text-[11px] sm:text-xs font-semibold text-stone-700 truncate block">Expectancy</Label>
               <FormattedInput
                 id="retirementPlannerLifeExpectancy"
                 inputMode="numeric"
                 value={lifeExpectancy}
                 onFormattedChange={setLifeExpectancy}
-                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
                 placeholder="e.g., 85"
               />
               {errors.lifeExpectancy && <p className="text-red-500 text-xs">{errors.lifeExpectancy}</p>}
@@ -202,34 +202,34 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
               inputMode="numeric"
               value={monthlyExpenses}
               onFormattedChange={setMonthlyExpenses}
-              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+              className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
               placeholder="e.g., 50000"
             />
             {errors.monthlyExpenses && <p className="text-red-500 text-xs">{errors.monthlyExpenses}</p>}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="retirementPlannerInflationRate" className="text-xs sm:text-sm font-semibold text-stone-700">Expected Inflation (% p.a.)</Label>
+              <Label htmlFor="retirementPlannerInflationRate" className="text-xs sm:text-sm font-semibold text-stone-700">Inflation (% p.a.)</Label>
               <FormattedInput
                 id="retirementPlannerInflationRate"
                 inputMode="decimal"
                 value={inflationRate}
                 onFormattedChange={setInflationRate}
-                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
                 placeholder="e.g., 6"
               />
               {errors.inflationRate && <p className="text-red-500 text-xs">{errors.inflationRate}</p>}
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="retirementPlannerExpectedReturn" className="text-xs sm:text-sm font-semibold text-stone-700">Expected Pre-Retirement Return (% p.a.)</Label>
+              <Label htmlFor="retirementPlannerExpectedReturn" className="text-xs sm:text-sm font-semibold text-stone-700">Return (% p.a.)</Label>
               <FormattedInput
                 id="retirementPlannerExpectedReturn"
                 inputMode="decimal"
                 value={expectedReturn}
                 onFormattedChange={setExpectedReturn}
-                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
+                className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-base sm:text-sm py-2 h-10"
                 placeholder="e.g., 12"
               />
               {errors.expectedReturn && <p className="text-red-500 text-xs">{errors.expectedReturn}</p>}
@@ -238,7 +238,7 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
 
           <Button
             onClick={handleCalculate}
-            className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
+            className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs"
             disabled={!currentAge || !retirementAge || !lifeExpectancy || !monthlyExpenses || !inflationRate || !expectedReturn || Object.keys(errors).length > 0}
           >
             Calculate Retirement Plan
@@ -250,9 +250,9 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
 
               <Button
                 onClick={handleShare}
-                className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs flex items-center justify-center gap-2"
+                className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs flex items-center justify-center gap-2"
               >
-                <MessageSquare className="h-4 w-4" />
+                <MessageCircle className="h-4 w-4" />
                 Share Projection via WhatsApp
               </Button>
             </div>
