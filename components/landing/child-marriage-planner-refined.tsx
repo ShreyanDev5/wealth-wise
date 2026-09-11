@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { FormattedInput } from "@/components/ui/formatted-input";
@@ -23,10 +22,6 @@ export default function ChildMarriageCalculatorRefined() {
   // Validation checks
   const errors = useMemo(() => {
     const errs: Record<string, string> = {};
-
-    if (childName === "" && showResults) {
-      errs.childName = "Please enter your child's name";
-    }
 
     const age = parseInt(currentAge);
     if (currentAge !== "") {
@@ -137,7 +132,8 @@ export default function ChildMarriageCalculatorRefined() {
     if (!calculationResults) return;
     const { futureCostOfMarriage, sipInvestment, lumpSumInvestment, yearsUntilMarriage } = calculationResults;
 
-    const shareText = `Child Marriage Goal Projection for ${childName}:
+    const shareTitle = childName.trim() ? `Child Marriage Goal Projection for ${childName}` : "Child Marriage Goal Projection";
+    const shareText = `${shareTitle}:
 Estimated Cost in ${yearsUntilMarriage} years: ${formatLargeNumber(futureCostOfMarriage)}
 Required Monthly SIP: ${formatLargeNumber(sipInvestment)}
 One-time Investment Alternative: ${formatLargeNumber(lumpSumInvestment)}`;
@@ -147,20 +143,20 @@ One-time Investment Alternative: ${formatLargeNumber(lumpSumInvestment)}`;
   };
 
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-white/90 backdrop-blur-xl border border-stone-200/80 shadow-sm rounded-3xl overflow-hidden">
-      <CardHeader className="py-4 px-6 border-b border-stone-100 bg-stone-50/50 flex flex-row items-center justify-center gap-2.5">
+    <div className="w-full max-w-3xl mx-auto bg-white/95 rounded-2xl sm:rounded-3xl border border-stone-200/80 shadow-2xs hover:shadow-xs hover:border-stone-300 transition-all duration-200 overflow-hidden text-left">
+      <div className="py-4 px-6 border-b border-stone-100 bg-stone-50/50 flex flex-row items-center justify-center gap-2.5">
         <div className="w-8 h-8 rounded-xl bg-stone-200/60 text-stone-700 flex items-center justify-center">
           <Heart className="h-4 w-4" />
         </div>
-        <CardTitle className="text-base sm:text-lg font-serif font-bold text-stone-900 tracking-tight">
+        <h3 className="text-base sm:text-lg font-serif font-bold text-stone-900 tracking-tight">
           Child Marriage Expense Planner
-        </CardTitle>
-      </CardHeader>
+        </h3>
+      </div>
 
-      <CardContent className="p-5 sm:p-8">
+      <div className="p-5 sm:p-8">
         <div className="space-y-5 sm:space-y-6">
           <div className="space-y-1.5">
-            <Label htmlFor="childMarriageChildName" className="text-xs sm:text-sm font-semibold text-stone-700">Child&apos;s Name</Label>
+            <Label htmlFor="childMarriageChildName" className="text-xs sm:text-sm font-semibold text-stone-700">Child&apos;s Name (Optional)</Label>
             <Input
               id="childMarriageChildName"
               value={childName}
@@ -168,7 +164,6 @@ One-time Investment Alternative: ${formatLargeNumber(lumpSumInvestment)}`;
               placeholder="e.g., Aarav"
               className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
             />
-            {errors.childName && <p className="text-red-500 text-xs">{errors.childName}</p>}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -255,8 +250,8 @@ One-time Investment Alternative: ${formatLargeNumber(lumpSumInvestment)}`;
 
           <Button
             onClick={handleCalculate}
-            className="w-full py-2.5 h-11 bg-stone-900 hover:bg-stone-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
-            disabled={!childName || !currentAge || !marriageAge || !estimatedExpenditure || !inflationRate || !amountSaved || !expectedReturn || Object.keys(errors).length > 0}
+            className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
+            disabled={!currentAge || !marriageAge || !estimatedExpenditure || !inflationRate || !amountSaved || !expectedReturn || Object.keys(errors).length > 0}
           >
             Calculate Marriage Goal
           </Button>
@@ -275,7 +270,7 @@ One-time Investment Alternative: ${formatLargeNumber(lumpSumInvestment)}`;
             </div>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

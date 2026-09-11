@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { FormattedInput } from "@/components/ui/formatted-input";
@@ -23,10 +22,6 @@ export default function IncomePlanningCalculatorRefined() {
   // Validation checks
   const errors = useMemo(() => {
     const errs: Record<string, string> = {};
-
-    if (name === "" && showResults) {
-      errs.name = "Please enter your name";
-    }
 
     const current = parseInt(currentAge);
     if (currentAge !== "") {
@@ -124,7 +119,8 @@ export default function IncomePlanningCalculatorRefined() {
     if (!calculationResults) return;
     const { retirementCorpus, monthlySavingsRequired, yearsUntilRetirement, futureMonthlyExpenses } = calculationResults;
 
-    const shareText = `Retirement Plan Projection for ${name}:
+    const shareTitle = name.trim() ? `Retirement Plan Projection for ${name}` : "Retirement Plan Projection";
+    const shareText = `${shareTitle}:
 Target Corpus: ${formatLargeNumber(retirementCorpus)}
 Required Monthly SIP: ${formatLargeNumber(monthlySavingsRequired)}
 Time to Retirement: ${yearsUntilRetirement} years
@@ -135,20 +131,20 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
   };
 
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-white/90 backdrop-blur-xl border border-stone-200/80 shadow-sm rounded-3xl overflow-hidden">
-      <CardHeader className="py-4 px-6 border-b border-stone-100 bg-stone-50/50 flex flex-row items-center justify-center gap-2.5">
+    <div className="w-full max-w-3xl mx-auto bg-white/95 rounded-2xl sm:rounded-3xl border border-stone-200/80 shadow-2xs hover:shadow-xs hover:border-stone-300 transition-all duration-200 overflow-hidden text-left">
+      <div className="py-4 px-6 border-b border-stone-100 bg-stone-50/50 flex flex-row items-center justify-center gap-2.5">
         <div className="w-8 h-8 rounded-xl bg-stone-200/60 text-stone-700 flex items-center justify-center">
           <Umbrella className="h-4 w-4" />
         </div>
-        <CardTitle className="text-base sm:text-lg font-serif font-bold text-stone-900 tracking-tight">
+        <h3 className="text-base sm:text-lg font-serif font-bold text-stone-900 tracking-tight">
           Retirement Income Planner
-        </CardTitle>
-      </CardHeader>
+        </h3>
+      </div>
 
-      <CardContent className="p-5 sm:p-8">
+      <div className="p-5 sm:p-8">
         <div className="space-y-5 sm:space-y-6">
           <div className="space-y-1.5">
-            <Label htmlFor="retirementPlannerName" className="text-xs sm:text-sm font-semibold text-stone-700">Your Name</Label>
+            <Label htmlFor="retirementPlannerName" className="text-xs sm:text-sm font-semibold text-stone-700">Your Name (Optional)</Label>
             <Input
               id="retirementPlannerName"
               value={name}
@@ -156,7 +152,6 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
               placeholder="e.g., Shreyan"
               className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
             />
-            {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -243,8 +238,8 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
 
           <Button
             onClick={handleCalculate}
-            className="w-full py-2.5 h-11 bg-stone-900 hover:bg-stone-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
-            disabled={!name || !currentAge || !retirementAge || !lifeExpectancy || !monthlyExpenses || !inflationRate || !expectedReturn || Object.keys(errors).length > 0}
+            className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
+            disabled={!currentAge || !retirementAge || !lifeExpectancy || !monthlyExpenses || !inflationRate || !expectedReturn || Object.keys(errors).length > 0}
           >
             Calculate Retirement Plan
           </Button>
@@ -263,7 +258,7 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
             </div>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

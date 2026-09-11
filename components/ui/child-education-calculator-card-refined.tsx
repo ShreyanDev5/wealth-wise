@@ -43,10 +43,6 @@ export function ChildEducationCalculatorCardRefined({ calculatorType }: { calcul
   const errors = useMemo(() => {
     const errs: Record<string, string> = {};
 
-    if (childName === "" && showResults) {
-      errs.childName = "Please enter your child's name";
-    }
-
     if (calculatorType === "sip") {
       const age = parseInt(childAge);
       if (childAge !== "") {
@@ -151,7 +147,8 @@ export function ChildEducationCalculatorCardRefined({ calculatorType }: { calcul
     if (!sipCalculationResults) return;
     const { projectedCost, monthlyInvestment, yearsUntilEducation } = sipCalculationResults;
 
-    const shareText = `Child Education Plan for ${childName}:
+    const shareTitle = childName.trim() ? `Child Education Plan for ${childName}` : "Child Education Plan";
+    const shareText = `${shareTitle}:
 Estimated Cost in ${yearsUntilEducation} years: ${formatLargeNumber(projectedCost)}
 Required Monthly SIP: ${formatLargeNumber(monthlyInvestment)}`;
 
@@ -163,7 +160,8 @@ Required Monthly SIP: ${formatLargeNumber(monthlyInvestment)}`;
     if (!sipSwpCalculationResults) return;
     const { yearlyAmount, careerFund, educationYears } = sipSwpCalculationResults;
 
-    const shareTextContent = `Higher Education Support Plan for ${childName}:
+    const shareTitle = childName.trim() ? `Higher Education Support Plan for ${childName}` : "Higher Education Support Plan";
+    const shareTextContent = `${shareTitle}:
 Yearly Support: ${formatLargeNumber(yearlyAmount)}/year (for ${educationYears} years)
 End Career Fund: ${formatLargeNumber(careerFund)}`;
 
@@ -180,7 +178,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 bg-stone-50 rounded-2xl border border-stone-200/70 text-center">
           <div className="flex flex-col items-center justify-center p-2">
             <span className="text-stone-500 font-medium text-[11px] uppercase tracking-wider mb-1">Projected Cost</span>
-            <span className="text-lg sm:text-xl font-bold text-stone-900 font-serif">
+            <span className="text-lg sm:text-xl font-bold text-stone-900 font-sans">
               {formatLargeNumber(projectedCost)}
             </span>
             <span className="text-[11px] text-stone-400 mt-0.5">In {yearsUntilEducation} years</span>
@@ -188,7 +186,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
 
           <div className="flex flex-col items-center justify-center p-2 border-t sm:border-t-0 sm:border-l border-stone-200/60">
             <span className="text-stone-500 font-medium text-[11px] uppercase tracking-wider mb-1">Required Monthly SIP</span>
-            <span className="text-lg sm:text-xl font-bold text-emerald-800 font-serif">
+            <span className="text-lg sm:text-xl font-bold text-emerald-800 font-sans">
               {formatLargeNumber(monthlyInvestment)}
             </span>
             <span className="text-[11px] text-emerald-700/80 mt-0.5">To reach goal</span>
@@ -254,7 +252,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
       {calculatorType === "sip" && (
         <>
           <div className="space-y-1.5">
-            <Label htmlFor="childName" className="text-xs sm:text-sm font-semibold text-stone-700">Child&apos;s Name</Label>
+            <Label htmlFor="childName" className="text-xs sm:text-sm font-semibold text-stone-700">Child&apos;s Name (Optional)</Label>
             <Input
               id="childName"
               value={childName}
@@ -262,7 +260,6 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
               placeholder="e.g., Arjun"
               className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
             />
-            {errors.childName && <p className="text-red-500 text-xs">{errors.childName}</p>}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -349,8 +346,8 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
 
           <Button
             onClick={handleCalculate}
-            className="w-full py-2.5 h-11 bg-stone-900 hover:bg-stone-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
-            disabled={!childName || !childAge || !educationStartAge || !presentCost || !inflationRate || !expectedReturn || Object.keys(errors).length > 0}
+            className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
+            disabled={!childAge || !educationStartAge || !presentCost || !inflationRate || !expectedReturn || Object.keys(errors).length > 0}
           >
             Calculate Education Goal
           </Button>
@@ -374,7 +371,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
       {calculatorType === "sip-swp" && (
         <>
           <div className="space-y-1.5">
-            <Label htmlFor="childNameSwp" className="text-xs sm:text-sm font-semibold text-stone-700">Child&apos;s Name</Label>
+            <Label htmlFor="childNameSwp" className="text-xs sm:text-sm font-semibold text-stone-700">Child&apos;s Name (Optional)</Label>
             <Input
               id="childNameSwp"
               value={childName}
@@ -382,7 +379,6 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
               placeholder="e.g., Priya"
               className="rounded-xl border-stone-200 bg-stone-50/60 font-medium text-stone-900 focus:border-emerald-600 focus:ring-emerald-600/10 text-sm py-2"
             />
-            {errors.childName && <p className="text-red-500 text-xs">{errors.childName}</p>}
           </div>
 
           <div className="space-y-1.5">
@@ -430,8 +426,8 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
 
           <Button
             onClick={handleCalculate}
-            className="w-full py-2.5 h-11 bg-stone-900 hover:bg-stone-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
-            disabled={!childName || !monthlySavings || Object.keys(errors).length > 0}
+            className="w-full py-2.5 h-11 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-medium tracking-wide transition-all shadow-xs"
+            disabled={!monthlySavings || Object.keys(errors).length > 0}
           >
             Calculate Support Schedule
           </Button>

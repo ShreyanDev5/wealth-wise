@@ -1,5 +1,4 @@
 import { useState, useMemo, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { FormattedInput } from "@/components/ui/formatted-input";
@@ -178,29 +177,29 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
   const gainsValue = Math.max(0, calculatedResult ? calculatedResult.wealthGained : 0);
   const totalChartValue = investedValue + gainsValue;
 
-  const investedColor = "#78716c"; // Warm stone-500
-  const gainsColor = "#15803d"; // Clean emerald-700
+  const investedColor = "#94a3b8"; // Clean modern slate-400
+  const gainsColor = "#10b981"; // Luminous, vibrant emerald-500
   const donutSize = 220;
   const r = 70;
   const strokeWidth = 36;
   const circumference = 2 * Math.PI * r;
 
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-white/90 backdrop-blur-xl border border-stone-200/80 shadow-sm rounded-3xl overflow-hidden">
-      <CardHeader className="py-4 px-6 border-b border-stone-100 bg-stone-50/50 flex flex-row items-center justify-center gap-2.5">
+    <div className="w-full bg-white/95 rounded-2xl sm:rounded-3xl border border-stone-200/80 shadow-2xs hover:shadow-xs hover:border-stone-300 transition-all duration-200 overflow-hidden text-left">
+      <div className="py-4 px-6 border-b border-stone-100 bg-stone-50/50 flex flex-row items-center justify-center gap-2.5">
         <div className="w-8 h-8 rounded-xl bg-stone-200/60 text-stone-700 flex items-center justify-center">
           {investmentType === "sip" && <RotateCcw className="h-4 w-4" />}
           {investmentType === "lumpsum" && <CircleDollarSign className="h-4 w-4" />}
           {investmentType === "swp" && <CreditCard className="h-4 w-4" />}
         </div>
-        <CardTitle className="text-base sm:text-lg font-serif font-bold text-stone-900 tracking-tight">
+        <h3 className="text-base sm:text-lg font-serif font-bold text-stone-900 tracking-tight">
           {investmentType === "sip" && "SIP Return Estimator"}
           {investmentType === "lumpsum" && "Lump Sum Return Estimator"}
           {investmentType === "swp" && "SWP Cash Flow Estimator"}
-        </CardTitle>
-      </CardHeader>
+        </h3>
+      </div>
 
-      <CardContent className="p-5 sm:p-8">
+      <div className="p-5 sm:p-8">
         <div className="space-y-6 sm:space-y-8">
           {investmentType === "sip" && (
             <div className="space-y-2">
@@ -354,32 +353,32 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
                 </div>
 
                 {/* Right: Numbers Summary */}
-                <div className="md:col-span-7 flex flex-col justify-center gap-3 text-left">
+                <div className="md:col-span-7 flex flex-col justify-center gap-3 text-left font-sans">
                   <div className="flex items-center justify-between pb-2 border-b border-stone-200/60">
                     <div className="flex items-center gap-2">
                       <span className="w-3 h-3 rounded-full" style={{ backgroundColor: investedColor }} />
-                      <span className="text-xs text-stone-600 font-medium">Total Invested</span>
+                      <span className="text-xs sm:text-[13px] text-stone-600 font-medium">Total invested</span>
                     </div>
-                    <span className="text-sm sm:text-base font-bold text-stone-800">{formatLargeNumber(investedValue)}</span>
+                    <span className="text-sm sm:text-base font-semibold text-stone-900">{formatLargeNumber(investedValue)}</span>
                   </div>
 
                   <div className="flex items-center justify-between pb-2 border-b border-stone-200/60">
                     <div className="flex items-center gap-2">
                       <span className="w-3 h-3 rounded-full" style={{ backgroundColor: gainsColor }} />
-                      <span className="text-xs text-stone-600 font-medium">
-                        {investmentType === "swp" ? "Total Withdrawn" : "Estimated Returns"}
+                      <span className="text-xs sm:text-[13px] text-stone-600 font-medium">
+                        {investmentType === "swp" ? "Total withdrawn" : "Estimated returns"}
                       </span>
                     </div>
-                    <span className="text-sm sm:text-base font-bold text-emerald-800">
+                    <span className="text-sm sm:text-base font-semibold text-emerald-700">
                       {formatLargeNumber(investmentType === "swp" ? (calculatedResult as SWPResult).totalWithdrawn : gainsValue)}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between pt-1">
-                    <span className="text-xs font-bold uppercase tracking-wider text-stone-500">
-                      {investmentType === "swp" ? "Final Balance" : "Maturity Value"}
+                    <span className="text-xs sm:text-sm font-semibold text-stone-900">
+                      {investmentType === "swp" ? "Projected final balance" : "Projected maturity value"}
                     </span>
-                    <span className="text-xl sm:text-2xl font-bold font-serif text-stone-900">
+                    <span className="text-xl sm:text-2xl font-bold font-sans text-stone-900 tracking-tight">
                       {formatLargeNumber(
                         investmentType === "swp"
                           ? (calculatedResult as SWPResult).finalBalance
@@ -392,7 +391,7 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
             </div>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }
