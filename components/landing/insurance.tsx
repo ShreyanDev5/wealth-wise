@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef } from "react";
-import { Heart, Bike, Car, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { Heart, Bike, Car, ShieldCheck, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { ServiceCard } from "@/components/ui/service-card";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
 
@@ -284,10 +285,24 @@ export default function InsuranceContent() {
               ctaText="Inquire on WhatsApp"
               delay={0}
               animation="elegant-fade"
-              whatsAppMessage={`Hi ${clientFirstName}, I'm interested in ${service.title.toLowerCase()}. Could you please help me understand the coverage options and quote?`}
+              whatsAppMessage={`Hi ${clientFirstName}, I'd like help reviewing coverage options for ${service.title.toLowerCase()}.`}
             />
           </div>
         ))}
+      </div>
+
+      {/* Cross-Navigation Next Step */}
+      <div className="pt-8 sm:pt-10 text-center border-t border-stone-200/60">
+        <p className="text-xs sm:text-sm text-stone-500">
+          Protecting your family is step one. Looking to grow wealth alongside it?
+        </p>
+        <Link 
+          href="/invest" 
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-900 mt-1.5 transition-colors group"
+        >
+          <span>Explore Mutual Funds &amp; SIP Portfolios</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </Link>
       </div>
     </div>
   );

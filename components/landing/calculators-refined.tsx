@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
 import InvestmentCalculatorRefined from "@/components/landing/investment-return-calculator-refined";
 import { ChildEducationCalculatorWithToggleRefined } from "@/components/landing/child-education-planner-refined";
@@ -9,6 +9,11 @@ import ChildMarriageCalculatorRefined from "@/components/landing/child-marriage-
 import IncomePlanningCalculatorRefined from "@/components/landing/retirement-planner-refined";
 
 export default function CalculatorsContentRefined() {
+  const clientFirstName = process.env.NEXT_PUBLIC_CLIENT_FIRST_NAME || "Monotosh";
+  const rawPhone = process.env.NEXT_PUBLIC_CLIENT_PHONE || "98364 72260";
+  const cleanPhone = rawPhone.replace(/\s/g, '');
+  const whatsAppNumber = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
+
   const [activeCategory, setActiveCategory] = useState<'all' | 'investment' | 'education' | 'retirement' | 'marriage'>('all');
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -201,6 +206,22 @@ export default function CalculatorsContentRefined() {
             <ChildMarriageCalculatorRefined />
           </div>
         )}
+      </div>
+
+      {/* Consultation Bridge */}
+      <div className="pt-8 sm:pt-10 text-center border-t border-stone-200/60">
+        <p className="text-xs sm:text-sm text-stone-500">
+          Ready to turn these estimates into an actionable investment plan?
+        </p>
+        <a
+          href={`https://wa.me/${whatsAppNumber}?text=Hi%20${encodeURIComponent(clientFirstName)}%2C%20I%20used%20your%20financial%20calculators%20and%20would%20like%20to%20discuss%20a%20personalized%20plan.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-900 mt-1.5 transition-colors group"
+        >
+          <span>Discuss Your Numbers with Monotosh Sardar</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </a>
       </div>
     </div>
   );

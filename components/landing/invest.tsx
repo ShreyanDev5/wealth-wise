@@ -1,6 +1,7 @@
 'use client';
 
-import { TrendingUp } from "lucide-react";
+import Link from "next/link";
+import { TrendingUp, ArrowRight } from "lucide-react";
 import { ServiceCard } from "@/components/ui/service-card";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
 import InvestFaq from "@/components/landing/invest-faq";
@@ -56,13 +57,27 @@ export default function InvestContent() {
           ctaText="Start Investing via WhatsApp"
           delay={0}
           animation="elegant-fade"
-          whatsAppMessage={`Hi ${clientFirstName}, I'm interested in mutual funds and would like to start investing. Could you please help me understand the best options for my goals?`}
+          whatsAppMessage={`Hi ${clientFirstName}, I'd like to discuss starting a disciplined SIP or mutual fund portfolio.`}
         />
       </div>
 
       {/* FAQ Section */}
       <div id="mutual-fund-faq" className="scroll-mt-28 pt-2">
         <InvestFaq />
+      </div>
+
+      {/* Cross-Navigation Next Step */}
+      <div className="pt-8 sm:pt-10 text-center border-t border-stone-200/60">
+        <p className="text-xs sm:text-sm text-stone-500">
+          Want to see how your money could compound over time?
+        </p>
+        <Link 
+          href="/calculators" 
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-900 mt-1.5 transition-colors group"
+        >
+          <span>Project with Financial Calculators</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </Link>
       </div>
     </div>
   );

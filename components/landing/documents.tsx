@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef } from "react";
-import { UserCheck, FileCheck, Car, Briefcase, Calculator, FileText, ScrollText, BookUser, Handshake, HeartHandshake, Coins, ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { UserCheck, FileCheck, Car, Briefcase, Calculator, FileText, ScrollText, BookUser, Handshake, HeartHandshake, Coins, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { ServiceCard } from "@/components/ui/service-card";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
 
@@ -533,23 +534,48 @@ export default function DocumentsContent() {
       </div>
 
       <div className="space-y-6 sm:space-y-8">
-        {filteredServices.map((service, index) => (
-          <div key={index} id={service.title.toLowerCase().replace(/\s+/g, '-')} className="scroll-mt-28">
-            <ServiceCard
-              title={service.title}
-              description={service.description}
-              benefits={service.benefits}
-              documents={service.documents}
-              process={service.process}
-              costs={service.costs}
-              icon={service.icon}
-              ctaText="Inquire on WhatsApp"
-              delay={0}
-              animation="elegant-fade"
-              whatsAppMessage={service.whatsAppMessage.replace("Monotosh", clientFirstName)}
-            />
-          </div>
-        ))}
+        {filteredServices.map((service, index) => {
+          const isITR = service.title.includes("Income Tax");
+          const slug = isITR ? "income-tax-filing" : service.title.toLowerCase().replace(/\s+/g, '-');
+
+          return (
+            <div key={index} id={slug} className="scroll-mt-28 relative">
+              {isITR && (
+                <>
+                  <span id="income-tax-filing-(itr)" className="absolute -top-28 pointer-events-none" />
+                  <span id="income-tax-filing-services" className="absolute -top-28 pointer-events-none" />
+                </>
+              )}
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                benefits={service.benefits}
+                documents={service.documents}
+                process={service.process}
+                costs={service.costs}
+                icon={service.icon}
+                ctaText="Inquire on WhatsApp"
+                delay={0}
+                animation="elegant-fade"
+                whatsAppMessage={service.whatsAppMessage.replace("Monotosh", clientFirstName)}
+              />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Cross-Navigation Next Step */}
+      <div className="pt-8 sm:pt-10 text-center border-t border-stone-200/60">
+        <p className="text-xs sm:text-sm text-stone-500">
+          Paperwork sorted? Ensure your family and health are protected.
+        </p>
+        <Link 
+          href="/insurance" 
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-900 mt-1.5 transition-colors group"
+        >
+          <span>Explore Health &amp; Life Insurance</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </Link>
       </div>
     </div>
   );

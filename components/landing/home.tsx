@@ -55,7 +55,7 @@ export default function HomeContent() {
       title: "Income Tax Filing (ITR)",
       description: "CA-assisted return filing, deductions, and TDS verification.",
       icon: ClipboardList,
-      href: "/documents#income-tax-filing-services",
+      href: "/documents#income-tax-filing",
     },
     {
       title: "Document Services",
