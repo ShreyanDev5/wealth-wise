@@ -3,7 +3,6 @@
 A modern financial advisory and services platform based in Kolkata. Features goal-based investment calculators, insurance and mutual fund guides, a bilingual Bengali FAQ, and direct WhatsApp inquiries.
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-monotosh.vercel.app-emerald?style=flat-square)](https://monotosh.vercel.app/)
-[![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen?style=flat-square)](#tests)
 
 ---
 
@@ -62,7 +61,4 @@ npm test
 
 ## Author
 
-**Shreyan Sardar**
-- Website: [shreyandev.vercel.app](https://shreyandev.vercel.app)
-- GitHub: [@ShreyanDev5](https://github.com/ShreyanDev5)
-- LinkedIn: [shreyansardar](https://www.linkedin.com/in/shreyansardar/)
+**Shreyan Sardar** — [Portfolio](https://shreyandev.vercel.app) · [GitHub](https://github.com/ShreyanDev5) · [LinkedIn](https://www.linkedin.com/in/shreyansardar/)
