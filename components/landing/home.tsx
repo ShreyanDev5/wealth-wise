@@ -190,19 +190,16 @@ export default function HomeContent() {
             name="Apurbo Saha"
             role="CEO, GS Diesel Company"
             testimonial={`${clientFirstName} simplified our family's health cover and mutual funds from day one. Honest advice, zero sales pressure.`}
-            avatarSrc="/Apurbo Saha.png"
           />
           <TestimonialCard
             name="Sanchita Mondal"
             role="Cashier, State Bank of India"
             testimonial={`He cuts through financial jargon and explains exactly where your money goes. Always just a quick call away when questions come up.`}
-            avatarSrc="/Sanchita Mondal.png"
           />
           <TestimonialCard
             name="Dr. Debashis Sarkar"
             role="Physician"
             testimonial={`With my busy hospital schedule, I have very little free time. ${clientFirstName} sorted our family's term and medical coverage with zero paperwork hassle.`}
-            avatarSrc="/Dr. Debashis Sarkar.png"
           />
         </div>
       </AnimatedSection>

@@ -55,7 +55,7 @@ export function AdvisorSection({ advisor }: { advisor: AdvisorInfo }) {
                 href={`https://wa.me/${whatsAppNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-between sm:justify-start gap-2 px-3.5 py-2.5 sm:px-3 sm:py-1.5 rounded-xl bg-stone-50/80 hover:bg-emerald-50 active:bg-emerald-50 active:scale-[0.99] text-stone-700 hover:text-emerald-900 border border-stone-200/60 hover:border-emerald-200/80 transition-all duration-200 text-xs font-medium w-full sm:w-auto whitespace-nowrap"
+                className="group inline-flex items-center justify-between sm:justify-start gap-2 px-3.5 py-2.5 sm:px-3 sm:py-1.5 rounded-xl bg-stone-50/80 hover:bg-emerald-50/90 hover:border-emerald-300 hover:shadow-xs active:bg-emerald-100/70 active:scale-[0.99] text-stone-700 hover:text-emerald-950 border border-stone-200/60 transition-all duration-200 text-xs font-medium w-full sm:w-auto whitespace-nowrap"
               >
                 <div className="flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5 text-stone-500 group-hover:text-emerald-700 transition-colors shrink-0" />
@@ -66,7 +66,7 @@ export function AdvisorSection({ advisor }: { advisor: AdvisorInfo }) {
 
               <a 
                 href={`mailto:${advisor.email}`}
-                className="group inline-flex items-center justify-between sm:justify-start gap-2 px-3.5 py-2.5 sm:px-3 sm:py-1.5 rounded-xl bg-stone-50/80 hover:bg-emerald-50 active:bg-emerald-50 active:scale-[0.99] text-stone-700 hover:text-emerald-900 border border-stone-200/60 hover:border-emerald-200/80 transition-all duration-200 text-xs font-medium w-full sm:w-auto whitespace-nowrap"
+                className="group inline-flex items-center justify-between sm:justify-start gap-2 px-3.5 py-2.5 sm:px-3 sm:py-1.5 rounded-xl bg-stone-50/80 hover:bg-emerald-50/90 hover:border-emerald-300 hover:shadow-xs active:bg-emerald-100/70 active:scale-[0.99] text-stone-700 hover:text-emerald-950 border border-stone-200/60 transition-all duration-200 text-xs font-medium w-full sm:w-auto whitespace-nowrap"
               >
                 <div className="flex items-center gap-2">
                   <Mail className="w-3.5 h-3.5 text-stone-500 group-hover:text-emerald-700 transition-colors shrink-0" />
@@ -79,7 +79,7 @@ export function AdvisorSection({ advisor }: { advisor: AdvisorInfo }) {
                 href={`https://maps.google.com/?q=${encodeURIComponent(advisor.address)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-between sm:justify-start gap-2 px-3.5 py-2.5 sm:px-3 sm:py-1.5 rounded-xl bg-stone-50/80 hover:bg-emerald-50 active:bg-emerald-50 active:scale-[0.99] text-stone-700 hover:text-emerald-900 border border-stone-200/60 hover:border-emerald-200/80 transition-all duration-200 text-xs font-medium w-full sm:w-auto whitespace-nowrap"
+                className="group inline-flex items-center justify-between sm:justify-start gap-2 px-3.5 py-2.5 sm:px-3 sm:py-1.5 rounded-xl bg-stone-50/80 hover:bg-emerald-50/90 hover:border-emerald-300 hover:shadow-xs active:bg-emerald-100/70 active:scale-[0.99] text-stone-700 hover:text-emerald-950 border border-stone-200/60 transition-all duration-200 text-xs font-medium w-full sm:w-auto whitespace-nowrap"
               >
                 <div className="flex items-center gap-2">
                   <MapPin className="w-3.5 h-3.5 text-stone-500 group-hover:text-emerald-700 transition-colors shrink-0" />
