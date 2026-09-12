@@ -17,7 +17,6 @@ import {
   Briefcase,
   ScrollText,
   Coins,
-  Clock,
 } from "lucide-react";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
 import { AnimatedSection } from "@/components/ui/animated-section";
@@ -103,7 +102,7 @@ export default function DocumentsContent() {
       category: "personal",
       title: "PAN Card Services",
       authority: "NSDL / UTIITSL (Income Tax Dept)",
-      description: "New PAN applications, detail corrections, duplicate card reprints, and Aadhaar-PAN linking.",
+      description: "Fast new applications, detail corrections, duplicate reprints, and Aadhaar-PAN linking.",
       highlights: [
         "Essential ID for opening bank accounts, investing, and salary credits",
         "Digital e-PAN delivered to your email within 24–48 hours",
@@ -136,7 +135,7 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Aadhaar Card Services",
       authority: "UIDAI (Govt. of India)",
-      description: "Address updates, demographic corrections, PVC smart cards, and official e-Aadhaar downloads.",
+      description: "Address updates, demographic corrections, official PVC smart cards, and e-Aadhaar downloads.",
       highlights: [
         "Universal identity proof for government benefits, banking, and SIM cards",
         "Fast address updates with verified electricity bills, bank passbooks, or rent deeds",
@@ -169,7 +168,7 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Voter ID Card Services",
       authority: "Election Commission of India (ECI)",
-      description: "New voter registration, constituency transfers, detail corrections, and digital card downloads.",
+      description: "New voter registrations, assembly transfers, corrections, and official e-EPIC downloads.",
       highlights: [
         "Official photo identity and valid citizenship proof",
         "Easy assembly constituency transfers across Kolkata and West Bengal",
@@ -202,7 +201,7 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Ration Card Services",
       authority: "Food & Supplies Dept., Govt. of W.B.",
-      description: "Digital ration cards (Khadya Sathi), adding family members, ration shop transfers, and Aadhaar e-KYC.",
+      description: "Digital e-Ration cards, family member additions, dealer transfers, and Aadhaar e-KYC linking.",
       highlights: [
         "Subsidized food grains and recognized family address proof",
         "Digital e-Ration card under the West Bengal Khadya Sathi portal",
@@ -235,7 +234,7 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Passport Services",
       authority: "Passport Seva, Ministry of External Affairs",
-      description: "New passports, renewals, Tatkaal booking, PSK appointments, and document checks.",
+      description: "Fresh applications, renewals, Tatkaal bookings, and verified document checks for PSK visits.",
       highlights: [
         "Appointment booking at PSK Kolkata (Ruby/Anandapur) or local Post Office PSKs",
         "Thorough document pre-check to prevent counter rejections",
@@ -268,7 +267,7 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Marriage Registration",
       authority: "Office of the Registrar of Marriages, W.B.",
-      description: "Legal marriage registration under the Special Marriage Act or Hindu Marriage Act with official certificate.",
+      description: "Government-authenticated marriage registration under the Special or Hindu Marriage Act.",
       highlights: [
         "Legally recognized certificate for spouse visas, joint accounts, and home loans",
         "Complete management of the statutory 30-day notice and registrar appearance",
@@ -303,7 +302,7 @@ export default function DocumentsContent() {
       category: "vehicle",
       title: "New Driving Licence",
       authority: "Sarathi Parivahan, MoRTH",
-      description: "Learner Licence applications, test preparation, RTO driving test slot booking, and smart card dispatch.",
+      description: "Learner Licence filings, test slot bookings, and chip-based smart card delivery to your home.",
       highlights: [
         "Official permit to ride motorcycles (MCWG) and drive cars (LMV)",
         "Online test preparation and sample question guidance",
@@ -336,7 +335,7 @@ export default function DocumentsContent() {
       category: "vehicle",
       title: "Licence Renewal & Corrections",
       authority: "Sarathi Parivahan, MoRTH",
-      description: "Expired licence renewals, duplicate licence re-issuance, and address or name corrections.",
+      description: "Timely expired licence renewals, duplicate DL re-issuance, and name or address corrections.",
       highlights: [
         "Timely renewal to avoid traffic fines and keep your motor insurance valid",
         "Fast duplicate licence issuance with police report and affidavit",
@@ -369,7 +368,7 @@ export default function DocumentsContent() {
       category: "vehicle",
       title: "Vehicle Ownership Transfer",
       authority: "Vahan Citizen Services, MoRTH (WB RTOs)",
-      description: "RC transfer from seller to buyer for bikes and cars, bank loan removal (HPT), and RTO NOCs.",
+      description: "RC ownership transfers for bikes and cars, bank loan hypothecation removal, and RTO NOCs.",
       highlights: [
         "Protects the seller from future accident liabilities or traffic fines",
         "Ensures clear vehicle title and valid insurance for the buyer",
@@ -404,7 +403,7 @@ export default function DocumentsContent() {
       category: "business",
       title: "Income Tax Filing (ITR)",
       authority: "Income Tax Department (Govt. of India)",
-      description: "CA-guided tax return filing for salaried employees, investors, business owners, and retirees.",
+      description: "Expert-assisted ITR filing for salaried professionals, investors, business owners, and retirees.",
       highlights: [
         "Essential income proof for home loans, credit cards, and visa applications",
         "Checked against AIS, TIS, and Form 26AS to prevent tax notices",
@@ -437,7 +436,7 @@ export default function DocumentsContent() {
       category: "business",
       title: "Trade License Services",
       authority: "KMC / Municipalities / Gram Panchayats",
-      description: "New trade licenses, certificates of enlistment (CE), and annual renewals for shops and businesses.",
+      description: "New trade licenses, Certificates of Enlistment (CE), and prompt annual municipal renewals.",
       highlights: [
         "Mandatory legal permit to operate any business or shop in West Bengal",
         "Required for opening a business current account and GST registration",
@@ -470,7 +469,7 @@ export default function DocumentsContent() {
       category: "business",
       title: "Agreements & Affidavits",
       authority: "Legal Advocates & Notary Public (Govt. of India / WB)",
-      description: "Residential rent agreements, commercial leases, partnership deeds, and notarized affidavits.",
+      description: "Advocate-drafted rent agreements, commercial lease deeds, partnership deeds, and affidavits.",
       highlights: [
         "Drafted by experienced legal advocates with balanced, protective clauses",
         "Protects against future disputes between landlords, tenants, or partners",
@@ -503,7 +502,7 @@ export default function DocumentsContent() {
       category: "business",
       title: "Professional Tax (P.Tax)",
       authority: "Directorate of Commercial Taxes, Govt. of W.B.",
-      description: "West Bengal professional tax enrolment (EC), employer registration (RC), and annual returns.",
+      description: "West Bengal P.Tax enrolment (EC), employer registration (RC), and statutory return filing.",
       highlights: [
         "Mandatory statutory compliance for self-employed professionals and business owners",
         "Provides Enrolment Certificate (EC) required for trade license renewals",
@@ -647,13 +646,8 @@ export default function DocumentsContent() {
                   </a>
                 </div>
 
-                {/* Description */}
-                <p className="text-xs sm:text-sm text-stone-600 mt-2.5 sm:mt-3 leading-normal">
-                  {service.description}
-                </p>
-
                 {/* Symmetrical 2x2 Highlights Grid */}
-                <div className="mt-4 pt-3.5 border-t border-stone-100">
+                <div className="mt-4 sm:mt-5">
                   <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-x-6">
                     {service.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-normal font-normal">
@@ -672,10 +666,10 @@ export default function DocumentsContent() {
                     className="w-full flex items-center justify-between text-xs font-medium text-stone-500 hover:text-stone-900 py-1 transition-colors group"
                     aria-expanded={isExpanded}
                   >
-                    <span className="flex items-center gap-1.5 min-w-0 pr-2">
-                      <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0" />
-                      <span className="truncate sm:whitespace-normal">
-                        {isExpanded ? "Hide required documents, steps & fees" : "View required documents, steps & fees"}
+                    <span className="flex items-center gap-2 min-w-0 pr-2 text-left">
+                      <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0 mt-0.5" />
+                      <span className="leading-snug">
+                        {isExpanded ? "Hide documents, process & official fees" : "View documents, process & official fees"}
                       </span>
                     </span>
                     <ChevronDown className={cn("w-4 h-4 text-stone-400 group-hover:text-stone-700 transition-transform duration-200 flex-shrink-0", isExpanded && "rotate-180")} />
@@ -683,13 +677,13 @@ export default function DocumentsContent() {
 
                   {/* Clean Sans-Serif Drawer Content */}
                   {isExpanded && (
-                    <div className="mt-4 pt-4 border-t border-stone-100 space-y-5 font-sans">
+                    <div className="mt-3 pt-1 space-y-5 font-sans">
                       <div className="grid gap-6 sm:grid-cols-2">
                         {/* Documents */}
                         <div>
-                          <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
-                            Required documents
-                          </div>
+                          <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
+                            Required Documents
+                          </h4>
                           <ul className="space-y-1.5">
                             {service.documents.map((doc, idx) => (
                               <li key={idx} className="text-xs text-stone-600 flex items-start gap-2 leading-normal">
@@ -702,36 +696,36 @@ export default function DocumentsContent() {
 
                         {/* Process */}
                         <div>
-                          <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
-                            How it works
-                          </div>
+                          <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
+                            How It Works
+                          </h4>
                           <ol className="space-y-1.5 text-xs text-stone-600 leading-normal">
                             {service.process.map((step, idx) => (
                               <li key={idx} className="flex items-start gap-2">
                                 <span className="text-stone-400 font-medium tabular-nums flex-shrink-0">{idx + 1}.</span>
-                                <span className="text-stone-700 flex-1">{step}</span>
+                                <span className="text-stone-600 flex-1">{step}</span>
                               </li>
                             ))}
                           </ol>
                         </div>
                       </div>
 
-                      {/* Structured Fee Chips */}
-                      <div className="pt-3 border-t border-stone-100 font-sans">
-                        <div className="text-xs font-semibold text-stone-900 mb-2 font-sans">
-                          Fees &amp; government charges
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {/* Fees & Government Charges */}
+                      <div className="pt-1">
+                        <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
+                          Fees &amp; Government Charges
+                        </h4>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-2">
                           {service.costs.map((item, idx) => (
-                            <div
-                              key={idx}
-                              className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl bg-stone-50/80 border border-stone-200/70 text-xs"
-                            >
-                              <span className="text-stone-600 font-medium">{item.label}</span>
-                              <span className="font-semibold text-stone-900 text-right flex-shrink-0">{item.value}</span>
-                            </div>
+                            <li key={idx} className="flex items-start gap-2 text-xs text-stone-600 leading-normal min-w-0">
+                              <span className="w-1.5 h-1.5 rounded-full bg-stone-300 mt-1.5 flex-shrink-0" />
+                              <span className="flex-1 leading-normal break-words">
+                                <span className="font-medium text-stone-600">{item.label}:</span>{" "}
+                                <span className="font-semibold text-stone-900">{item.value}</span>
+                              </span>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </div>
                     </div>
                   )}

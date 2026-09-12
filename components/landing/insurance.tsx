@@ -85,7 +85,7 @@ export default function InsuranceContent() {
           { name: "Care Health", logo: "/care.png" },
         ],
       },
-      description: "Cashless hospitalisation across network hospitals in Kolkata and nationwide, protecting your family from unexpected medical bills.",
+      description: "Cashless hospitalisation across top network hospitals to protect your family from sudden medical bills.",
       highlights: [
         "Cashless admission across network hospitals with quick approvals",
         "Covers hospital stays, daycare treatments, and pre/post-admission costs",
@@ -118,7 +118,7 @@ export default function InsuranceContent() {
         label: "Underwritten by",
         items: [{ name: "LIC of India", logo: "/lic.png" }],
       },
-      description: "Affordable pure term protection, guaranteed savings, and pension policies backed by LIC of India.",
+      description: "Affordable term protection, guaranteed savings, and retirement plans backed by LIC of India.",
       highlights: [
         "High term cover at affordable premiums to secure your family's future",
         "Guaranteed savings and pension plans for milestone goals",
@@ -151,7 +151,7 @@ export default function InsuranceContent() {
         label: "Partner insurers",
         items: [{ name: "HDFC ERGO · Tata AIG · Bajaj Allianz · ICICI Lombard" }],
       },
-      description: "Third-party and comprehensive insurance for bikes and scooters, issued in minutes over WhatsApp.",
+      description: "Instant third-party and comprehensive bike insurance delivered on WhatsApp in minutes.",
       highlights: [
         "Instant policy PDF delivered on WhatsApp in under 15 minutes",
         "Coverage against road accidents, theft, fire, and flood damage",
@@ -183,7 +183,7 @@ export default function InsuranceContent() {
         label: "Partner insurers",
         items: [{ name: "HDFC ERGO · Tata AIG · Bajaj Allianz · ICICI Lombard" }],
       },
-      description: "Comprehensive car insurance with zero depreciation, engine protection, and cashless repairs across authorized workshops.",
+      description: "Comprehensive car insurance with zero depreciation and cashless repairs at authorized workshops.",
       highlights: [
         "Cashless repairs across authorized manufacturer service centers",
         "Zero Depreciation add-on for full claim payouts with no parts deduction",
@@ -311,13 +311,8 @@ export default function InsuranceContent() {
                   </a>
                 </div>
 
-                {/* Description */}
-                <p className="text-xs sm:text-sm text-stone-600 mt-2.5 sm:mt-3 leading-normal">
-                  {policy.description}
-                </p>
-
                 {/* Symmetrical 2x2 Coverage Highlights */}
-                <div className="mt-4 pt-3.5 border-t border-stone-100">
+                <div className="mt-4 sm:mt-5">
                   <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-x-6">
                     {policy.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-normal font-normal">
@@ -336,10 +331,10 @@ export default function InsuranceContent() {
                     className="w-full flex items-center justify-between text-xs font-medium text-stone-500 hover:text-stone-900 py-1 transition-colors group"
                     aria-expanded={isExpanded}
                   >
-                    <span className="flex items-center gap-1.5 min-w-0 pr-2">
-                      <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0" />
-                      <span className="truncate sm:whitespace-normal">
-                        {isExpanded ? "Hide required documents, process & estimated premiums" : "View required documents, process & estimated premiums"}
+                    <span className="flex items-center gap-2 min-w-0 pr-2 text-left">
+                      <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0 mt-0.5" />
+                      <span className="leading-snug">
+                        {isExpanded ? "Hide documents, process & premium guidelines" : "View documents, process & premium guidelines"}
                       </span>
                     </span>
                     <ChevronDown className={cn("w-4 h-4 text-stone-400 group-hover:text-stone-700 transition-transform duration-200 flex-shrink-0", isExpanded && "rotate-180")} />
@@ -347,13 +342,13 @@ export default function InsuranceContent() {
 
                   {/* Clean Sans-Serif Drawer Content */}
                   {isExpanded && (
-                    <div className="mt-4 pt-4 border-t border-stone-100 space-y-5 font-sans">
+                    <div className="mt-3 pt-1 space-y-5 font-sans">
                       <div className="grid gap-6 sm:grid-cols-2">
                         {/* Documents */}
                         <div>
-                          <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
+                          <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
                             Required Documents
-                          </div>
+                          </h4>
                           <ul className="space-y-1.5">
                             {policy.documents.map((doc, idx) => (
                               <li key={idx} className="text-xs text-stone-600 flex items-start gap-2 leading-normal">
@@ -366,36 +361,36 @@ export default function InsuranceContent() {
 
                         {/* Process */}
                         <div>
-                          <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
+                          <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
                             How It Works
-                          </div>
+                          </h4>
                           <ol className="space-y-1.5 text-xs text-stone-600 leading-normal">
                             {policy.process.map((step, idx) => (
                               <li key={idx} className="flex items-start gap-2">
                                 <span className="text-stone-400 font-medium tabular-nums flex-shrink-0">{idx + 1}.</span>
-                                <span className="text-stone-700 flex-1">{step}</span>
+                                <span className="text-stone-600 flex-1">{step}</span>
                               </li>
                             ))}
                           </ol>
                         </div>
                       </div>
 
-                      {/* Structured Premium Range Chips */}
-                      <div className="pt-3 border-t border-stone-100 font-sans">
-                        <div className="text-xs font-semibold text-stone-900 mb-2 font-sans">
+                      {/* Estimated Premium Guidelines */}
+                      <div className="pt-1">
+                        <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
                           Estimated Premium Guidelines
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        </h4>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-2">
                           {policy.costs.map((item, idx) => (
-                            <div 
-                              key={idx} 
-                              className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl bg-stone-50/80 border border-stone-200/70 text-xs"
-                            >
-                              <span className="text-stone-600 font-medium">{item.plan}</span>
-                              <span className="font-semibold text-stone-900 text-right flex-shrink-0">{item.cost}</span>
-                            </div>
+                            <li key={idx} className="flex items-start gap-2 text-xs text-stone-600 leading-normal min-w-0">
+                              <span className="w-1.5 h-1.5 rounded-full bg-stone-300 mt-1.5 flex-shrink-0" />
+                              <span className="flex-1 leading-normal break-words">
+                                <span className="font-medium text-stone-600">{item.plan}:</span>{" "}
+                                <span className="font-semibold text-stone-900">{item.cost}</span>
+                              </span>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </div>
                     </div>
                   )}

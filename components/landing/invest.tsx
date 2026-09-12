@@ -23,13 +23,6 @@ export default function InvestContent() {
 
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
 
-  const partnerAMCs = [
-    { name: "SBI Mutual Fund", logo: "/sbi.png" },
-    { name: "HDFC Mutual Fund", logo: "/hdfc.png" },
-    { name: "ICICI Prudential", logo: "/icici.png" },
-    { name: "Nippon India", logo: "/nippon.png" },
-  ];
-
   const highlights = [
     "Start an SIP from ₹500/month to grow your savings steadily over time",
     "Carefully selected equity, hybrid, and debt funds from India's top fund houses",
@@ -94,13 +87,8 @@ export default function InvestContent() {
               </a>
             </div>
 
-            {/* Description */}
-            <p className="text-xs sm:text-sm text-stone-600 mt-2.5 sm:mt-3 leading-normal">
-              Build wealth steadily through monthly SIPs tailored to your family&apos;s goals and time horizon.
-            </p>
-
             {/* Symmetrical 2x2 Highlights Grid */}
-            <div className="mt-4 pt-3.5 border-t border-stone-100">
+            <div className="mt-4 sm:mt-5">
               <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-x-6">
                 {highlights.map((highlight, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-normal font-normal">
@@ -119,10 +107,10 @@ export default function InvestContent() {
                 className="w-full flex items-center justify-between text-xs font-medium text-stone-500 hover:text-stone-900 py-1 transition-colors group"
                 aria-expanded={isDetailsExpanded}
               >
-                <span className="flex items-center gap-1.5 min-w-0 pr-2">
-                  <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0" />
-                  <span className="truncate sm:whitespace-normal">
-                    {isDetailsExpanded ? "Hide required documents, process & tax rules" : "View required documents, process & tax rules"}
+                <span className="flex items-center gap-2 min-w-0 pr-2 text-left">
+                  <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0 mt-0.5" />
+                  <span className="leading-snug">
+                    {isDetailsExpanded ? "Hide documents, process & tax rules" : "View documents, process & tax rules"}
                   </span>
                 </span>
                 <ChevronDown className={cn("w-4 h-4 text-stone-400 group-hover:text-stone-700 transition-transform duration-200 flex-shrink-0", isDetailsExpanded && "rotate-180")} />
@@ -130,13 +118,13 @@ export default function InvestContent() {
 
               {/* Clean Sans-Serif Drawer Content */}
               {isDetailsExpanded && (
-                <div className="mt-4 pt-4 border-t border-stone-100 space-y-5 font-sans">
+                <div className="mt-3 pt-1 space-y-5 font-sans">
                   <div className="grid gap-6 sm:grid-cols-2">
                     {/* Documents */}
                     <div>
-                      <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
+                      <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
                         Required Documents
-                      </div>
+                      </h4>
                       <ul className="space-y-1.5">
                         {documents.map((doc, idx) => (
                           <li key={idx} className="text-xs text-stone-600 flex items-start gap-2 leading-normal">
@@ -149,36 +137,36 @@ export default function InvestContent() {
 
                     {/* Process */}
                     <div>
-                      <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
+                      <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
                         How It Works
-                      </div>
+                      </h4>
                       <ol className="space-y-1.5 text-xs text-stone-600 leading-normal">
                         {processSteps.map((step, idx) => (
                           <li key={idx} className="flex items-start gap-2">
                             <span className="text-stone-400 font-medium tabular-nums flex-shrink-0">{idx + 1}.</span>
-                            <span className="text-stone-700 flex-1">{step}</span>
+                            <span className="text-stone-600 flex-1">{step}</span>
                           </li>
                         ))}
                       </ol>
                     </div>
                   </div>
 
-                  {/* Structured Tax & Fee Chips */}
-                  <div className="pt-3 border-t border-stone-100 font-sans">
-                    <div className="text-xs font-semibold text-stone-900 mb-2 font-sans">
+                  {/* Fees & Tax Rules */}
+                  <div className="pt-1">
+                    <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
                       Fees &amp; Tax Rules
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    </h4>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-2">
                       {pricingGuidelines.map((item, idx) => (
-                        <div 
-                          key={idx} 
-                          className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl bg-stone-50/80 border border-stone-200/70 text-xs"
-                        >
-                          <span className="text-stone-600 font-medium">{item.label}</span>
-                          <span className="font-semibold text-stone-900 text-right flex-shrink-0">{item.value}</span>
-                        </div>
+                        <li key={idx} className="flex items-start gap-2 text-xs text-stone-600 leading-normal min-w-0">
+                          <span className="w-1.5 h-1.5 rounded-full bg-stone-300 mt-1.5 flex-shrink-0" />
+                          <span className="flex-1 leading-normal break-words">
+                            <span className="font-medium text-stone-600">{item.label}:</span>{" "}
+                            <span className="font-semibold text-stone-900">{item.value}</span>
+                          </span>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
               )}

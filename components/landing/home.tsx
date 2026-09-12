@@ -106,7 +106,7 @@ export default function HomeContent() {
           >
             <Button 
               size="lg" 
-              className="w-full sm:w-auto h-11 px-7 rounded-full font-medium tracking-wide transition-all duration-200 shadow-sm hover:shadow hover:-translate-y-0.5 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white"
+              className="w-full sm:w-52 h-11 px-6 rounded-full font-medium tracking-wide transition-all duration-200 shadow-sm hover:shadow hover:-translate-y-0.5 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white border border-transparent"
             >
               <MessageCircle className="w-4 h-4 text-white" />
               <span>Free Consultation</span>
@@ -116,7 +116,7 @@ export default function HomeContent() {
           <Button 
             onClick={scrollToServices}
             size="lg" 
-            className="group w-full sm:w-auto h-11 px-6 bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 rounded-full font-medium tracking-wide transition-all duration-200 shadow-2xs hover:shadow-xs hover:-translate-y-0.5 flex items-center justify-center gap-1.5 border border-stone-200/90 hover:border-stone-300"
+            className="group w-full sm:w-52 h-11 px-6 bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 rounded-full font-medium tracking-wide transition-all duration-200 shadow-sm hover:shadow hover:-translate-y-0.5 flex items-center justify-center gap-2 border border-stone-200/90 hover:border-stone-300"
           >
             <span>Explore Services</span>
             <ArrowRight className="w-4 h-4 text-stone-500 group-hover:text-stone-800 transition-all duration-200 group-hover:translate-x-1" />
