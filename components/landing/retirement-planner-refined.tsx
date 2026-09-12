@@ -169,7 +169,7 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="retirementPlannerRetirementAge" className="text-[11px] sm:text-xs font-semibold text-stone-700 truncate block">Retire Age</Label>
+              <Label htmlFor="retirementPlannerRetirementAge" className="text-[11px] sm:text-xs font-semibold text-stone-700 truncate block">Retirement Age</Label>
               <FormattedInput
                 id="retirementPlannerRetirementAge"
                 inputMode="numeric"
@@ -182,7 +182,7 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="retirementPlannerLifeExpectancy" className="text-[11px] sm:text-xs font-semibold text-stone-700 truncate block">Expectancy</Label>
+              <Label htmlFor="retirementPlannerLifeExpectancy" className="text-[11px] sm:text-xs font-semibold text-stone-700 truncate block">Life Expectancy</Label>
               <FormattedInput
                 id="retirementPlannerLifeExpectancy"
                 inputMode="numeric"
@@ -253,7 +253,7 @@ Projected Monthly Expense at Retirement: ${formatLargeNumber(futureMonthlyExpens
                 className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs flex items-center justify-center gap-2"
               >
                 <MessageCircle className="h-4 w-4" />
-                Share Projection via WhatsApp
+                Share on WhatsApp
               </Button>
             </div>
           )}

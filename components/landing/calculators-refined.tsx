@@ -47,7 +47,7 @@ export default function CalculatorsContentRefined() {
       <div className="flex flex-col items-center mb-5 sm:mb-6">
         <SimplePageHeader 
           title="Financial Calculators" 
-          description="Interactive planners to project returns on systematic investments (SIP), child higher education, retirement corpus, and major life milestones."
+          description="Plan your investments, child's education, retirement corpus, and major life milestones."
           className="mb-4 sm:mb-5"
         />
 
@@ -152,13 +152,13 @@ export default function CalculatorsContentRefined() {
       {/* Cross-Navigation Next Step (Borderless & Airy) */}
       <div className="mt-8 sm:mt-10 pt-2 sm:pt-4 text-center">
         <p className="text-xs sm:text-sm text-stone-500">
-          Have your target numbers in mind? Start turning them into real-world wealth.
+          Ready to start investing toward your goals?
         </p>
         <Link 
           href="/invest" 
           className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-900 mt-1.5 transition-colors group"
         >
-          <span>Explore Mutual Funds &amp; SIP Portfolios</span>
+          <span>Explore Mutual Fund Investments</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>

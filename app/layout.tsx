@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: "WealthWise — Financial Advisory | Monotosh Sardar",
     template: "%s | WealthWise",
   },
-  description: "Personalized financial planning, insurance portfolios, disciplined mutual funds, and document services with 19+ years of trusted advisory in Kolkata & West Bengal.",
+  description: "Clear, honest financial planning, insurance advisory, mutual fund investments, and document services with 19+ years of experience in Kolkata & West Bengal.",
   keywords: [
     "Financial Advisor Kolkata",
     "Monotosh Sardar",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     url: "https://wealth-wise.vercel.app",
     siteName: "WealthWise Financial Advisory",
     title: "WealthWise — Financial Advisory | Monotosh Sardar",
-    description: "Personalized financial planning, insurance portfolios, disciplined mutual funds, and document services with 19+ years of trusted advisory in Kolkata.",
+    description: "Clear, honest financial planning, insurance advisory, mutual fund investments, and document services with 19+ years of experience in Kolkata.",
     images: [
       {
         url: "/android-chrome-512x512.png",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "WealthWise — Financial Advisory | Monotosh Sardar",
-    description: "Personalized financial planning, insurance portfolios, and mutual funds with 19+ years of trusted advisory in Kolkata.",
+    description: "Clear, honest financial planning, insurance advisory, and mutual fund investments with 19+ years of experience in Kolkata.",
     images: ["/android-chrome-512x512.png"],
   },
   icons: {

@@ -24,7 +24,7 @@ const Partners = ({ className }: { className?: string }) => {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center text-center mb-8 sm:mb-10">
                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-stone-900 tracking-tight">
-                        Direct Products from India&apos;s Trusted Institutions
+                        Partnered with India&apos;s Leading Financial Institutions
                     </h2>
                 </div>
                 <div

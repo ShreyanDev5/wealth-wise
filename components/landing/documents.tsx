@@ -103,29 +103,29 @@ export default function DocumentsContent() {
       category: "personal",
       title: "PAN Card Services",
       authority: "NSDL / UTIITSL (Income Tax Dept)",
-      description: "New PAN applications, demographic corrections, duplicate re-issuance, and Aadhaar-PAN linking assistance.",
+      description: "New PAN applications, detail corrections, duplicate card reprints, and Aadhaar-PAN linking.",
       highlights: [
-        "Mandatory official financial identity for banking, investments, and salary credits",
-        "Instant digital e-PAN delivery within 24–48 hours directly to your email",
-        "Official laminated physical card delivered to your doorstep via India Post",
-        "Aadhaar-PAN linking and penalty resolution assistance to restore inoperative cards",
+        "Essential ID for opening bank accounts, investing, and salary credits",
+        "Digital e-PAN delivered to your email within 24–48 hours",
+        "Official laminated card delivered to your home by India Post",
+        "Aadhaar-PAN linking assistance to reactivate inoperative cards",
       ],
       documents: [
-        "Aadhaar Card (with active linked mobile for OTP verification)",
-        "Valid proof of address & 2 recent passport-size photographs",
-        "Existing PAN copy or FIR copy (for lost/correction applications)",
-        "Certificate of incorporation or partnership deed (for business entities)",
+        "Aadhaar card with active linked mobile for OTP",
+        "Address proof and 2 passport-size photographs",
+        "Old PAN copy or police diary (if applying for correction or lost card)",
+        "Business registration documents (for firm/company PAN)",
       ],
       process: [
-        "Share applicant details and passport photos via WhatsApp",
-        "Verification and online submission on NSDL / UTIITSL portal",
-        "Receive digital e-PAN via email within 24 to 48 hours",
-        "Physical laminated card delivered to your address by India Post",
+        "Share applicant details and photos on WhatsApp",
+        "Online verification and submission on the official NSDL/UTIITSL portal",
+        "Receive digital e-PAN by email in 24–48 hours",
+        "Physical card delivered to your doorstep via India Post",
       ],
       costs: [
         { label: "New PAN Application", value: "₹250" },
         { label: "Correction / Duplicate Card", value: "₹250" },
-        { label: "Aadhaar-PAN Link Penalty Filing", value: "₹1,150" },
+        { label: "Aadhaar-PAN Linking", value: "₹1,150 (incl. ₹1,000 govt fee)" },
         { label: "Physical Card Delivery", value: "Included" },
       ],
       icon: FileText,
@@ -136,24 +136,24 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Aadhaar Card Services",
       authority: "UIDAI (Govt. of India)",
-      description: "Address updates, demographic corrections, PVC smart card orders, and official e-Aadhaar downloads.",
+      description: "Address updates, demographic corrections, PVC smart cards, and official e-Aadhaar downloads.",
       highlights: [
-        "Universal primary identity proof across all government and private institutions",
-        "Rapid address updates with verified electricity, bank, or rent documentation",
-        "Official UIDAI tamper-proof PVC smart card order with secure QR code",
-        "Guidance for mandatory biometric updates and mobile linking at local centers",
+        "Universal identity proof for government benefits, banking, and SIM cards",
+        "Fast address updates with verified electricity bills, bank passbooks, or rent deeds",
+        "Official tamper-proof PVC smart card order with QR code",
+        "Guidance for biometric updates and mobile linking at local centers",
       ],
       documents: [
-        "Aadhaar number with active OTP access on registered mobile",
-        "Valid proof of address (electricity bill, bank passbook, voter ID, rent deed)",
-        "Proof of identity (PAN card, passport, or voter card for demographic updates)",
-        "Supporting court order or gazette notification (for major name alterations)",
+        "Aadhaar number with mobile OTP access",
+        "Valid address proof (electricity bill, bank passbook, voter card, or rent deed)",
+        "Identity proof (PAN card, passport, or voter card for name/DOB changes)",
+        "Gazette notification (only for legal name changes)",
       ],
       process: [
-        "Identify required demographic change (address, name, DOB)",
-        "Submit online update request on UIDAI portal with supporting proofs",
-        "Track Update Request Number (URN) until official approval",
-        "Instant e-Aadhaar download and home dispatch of PVC smart card",
+        "Share the details you need to update",
+        "Submit online request on the UIDAI portal with supporting proofs",
+        "Track Update Request Number (URN) until approved",
+        "Download updated e-Aadhaar and receive the PVC card by post",
       ],
       costs: [
         { label: "Online Address Update", value: "₹250" },
@@ -169,29 +169,29 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Voter ID Card Services",
       authority: "Election Commission of India (ECI)",
-      description: "New voter enrolment (Form 6), constituency transfers (Form 8), demographic corrections, and mobile linking.",
+      description: "New voter registration, constituency transfers, detail corrections, and digital card downloads.",
       highlights: [
-        "Constitutional democratic voting rights and recognized citizenship verification",
-        "Seamless assembly constituency address transfers across Kolkata and West Bengal",
-        "Official digital e-EPIC card download directly to your mobile phone",
-        "Accurate demographic corrections for spellings, birth dates, and relative names",
+        "Official photo identity and valid citizenship proof",
+        "Easy assembly constituency transfers across Kolkata and West Bengal",
+        "Official digital e-EPIC card downloaded directly to your phone",
+        "Corrections for spellings, birth dates, and relative names",
       ],
       documents: [
-        "Aadhaar Card copy (as primary identity and address verification)",
+        "Aadhaar card copy",
         "Age proof (Birth Certificate, Class 10 Admit Card, or PAN)",
-        "Current residential address proof (utility bill or family member's EPIC)",
-        "Recent passport-size color photograph and active mobile number",
+        "Address proof (electricity bill or family member's voter card)",
+        "Recent passport-size photo and active mobile number",
       ],
       process: [
-        "Fill out relevant ECI form (Form 6 for new enrolment, Form 8 for change)",
-        "Upload verified identity, age, and Kolkata residential proofs",
-        "Application tracking through local Booth Level Officer (BLO) verification",
-        "Inclusion in electoral roll and instant digital e-EPIC download",
+        "Fill out official form (Form 6 for new, Form 8 for change/transfer)",
+        "Upload verified identity, age, and address proofs",
+        "Application verified by local Booth Level Officer (BLO)",
+        "Inclusion in electoral roll with instant digital card download",
       ],
       costs: [
-        { label: "New Voter Enrolment (Form 6)", value: "₹200" },
-        { label: "Constituency Transfer (Form 8)", value: "₹200" },
-        { label: "Demographic Correction", value: "₹200" },
+        { label: "New Voter Registration (Form 6)", value: "₹200" },
+        { label: "Address Transfer (Form 8)", value: "₹200" },
+        { label: "Name / Detail Correction", value: "₹200" },
         { label: "Mobile Linking & e-EPIC Download", value: "₹50" },
       ],
       icon: FileCheck,
@@ -202,29 +202,29 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Ration Card Services",
       authority: "Food & Supplies Dept., Govt. of W.B.",
-      description: "Digital ration cards (Khadya Sathi), family member additions, dealership transfers, and e-KYC compliance.",
+      description: "Digital ration cards (Khadya Sathi), adding family members, ration shop transfers, and Aadhaar e-KYC.",
       highlights: [
-        "Subsidized food grain access and valid household family address proof",
-        "Official digital e-Ration card generation under WB Khadya Sathi scheme",
-        "Effortless addition of newborn children or newly married spouse",
-        "Complete Aadhaar e-KYC linking to prevent card deactivation or suspension",
+        "Subsidized food grains and recognized family address proof",
+        "Digital e-Ration card under the West Bengal Khadya Sathi portal",
+        "Quickly add newborns or a newly married spouse to your card",
+        "Aadhaar e-KYC linking to prevent card suspension",
       ],
       documents: [
-        "Aadhaar cards of all family members in the household",
-        "Head of family's photograph and active linked mobile number",
+        "Aadhaar cards of all family members",
+        "Head of family photo and linked mobile number",
         "Birth certificate for minor children or marriage certificate for spouse",
-        "Existing ration card copies (for transfers or corrections)",
+        "Existing ration card copy (for transfers or corrections)",
       ],
       process: [
         "Compile family member documents and Aadhaar details",
-        "Online filing on West Bengal Food & Supplies portal",
-        "Field verification by local municipal or block food inspector",
-        "Official digital e-Ration card issuance and dealer mapping",
+        "Submit application on the WB Food & Supplies portal",
+        "Verification by local municipal or block food inspector",
+        "Digital ration card issued and mapped to your local dealer",
       ],
       costs: [
         { label: "New Family Application", value: "₹300 / person" },
-        { label: "Family Member Addition", value: "₹200" },
-        { label: "Fair Price Shop Transfer", value: "₹200" },
+        { label: "Add Family Member", value: "₹200" },
+        { label: "Ration Shop Transfer", value: "₹200" },
         { label: "Aadhaar e-KYC Linking", value: "₹50" },
       ],
       icon: FileText,
@@ -235,29 +235,29 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Passport Services",
       authority: "Passport Seva, Ministry of External Affairs",
-      description: "Fresh passport applications, renewals, Tatkaal processing, appointment scheduling, and document vetting.",
+      description: "New passports, renewals, Tatkaal booking, PSK appointments, and document checks.",
       highlights: [
-        "End-to-end appointment booking at PSK Kolkata (Ruby/Anandapur) or POPSK",
-        "Thorough pre-verification of names and dates to avoid counter rejections",
-        "Complete guidance for expired passport re-issuance and lost card procedures",
-        "Tatkaal slot scheduling for urgent overseas business, studies, or medical travel",
+        "Appointment booking at PSK Kolkata (Ruby/Anandapur) or local Post Office PSKs",
+        "Thorough document pre-check to prevent counter rejections",
+        "Guidance for renewal of expired passports and lost passport procedures",
+        "Tatkaal slot booking for urgent overseas travel, work, or studies",
       ],
       documents: [
-        "Aadhaar Card (with active linked mobile for Digilocker verification)",
-        "PAN Card and voter ID (as secondary identification)",
-        "Class 10 Pass Certificate / Admit Card (mandatory for Non-ECR status)",
-        "Existing passport copy (for renewal) or Police FIR (for lost passport)",
+        "Aadhaar card (linked with DigiLocker)",
+        "PAN card or voter ID",
+        "Class 10 Pass Certificate or Admit Card (mandatory for Non-ECR status)",
+        "Old passport (for renewal) or police report (if lost)",
       ],
       process: [
-        "Complete application filing and document vetting on Passport Seva portal",
-        "Payment of government fees and scheduling confirmed PSK appointment slot",
-        "Pre-appointment briefing with organized original document folder",
-        "Police verification follow-up and speed post passport tracking",
+        "Application filing and document check on Passport Seva portal",
+        "Pay government fees and book confirmed PSK appointment slot",
+        "Document briefing so you carry exactly what is needed on appointment day",
+        "Police verification guidance and passport dispatch tracking",
       ],
       costs: [
         { label: "Fresh Passport (36 Pages)", value: "₹2,100 (incl. ₹1,500 govt fee)" },
         { label: "Fresh Passport (60 Pages)", value: "₹2,650 (incl. ₹2,000 govt fee)" },
-        { label: "Passport Renewal / Re-issue", value: "₹2,200 (incl. govt fee)" },
+        { label: "Passport Renewal", value: "₹2,200 (incl. govt fee)" },
         { label: "Tatkaal Booking Assistance", value: "Customized quote" },
       ],
       icon: BookUser,
@@ -268,30 +268,30 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Marriage Registration",
       authority: "Office of the Registrar of Marriages, W.B.",
-      description: "Legal marriage registration under Special Marriage Act and Hindu Marriage Act with official certificate.",
+      description: "Legal marriage registration under the Special Marriage Act or Hindu Marriage Act with official certificate.",
       highlights: [
-        "Legally recognized marriage certificate for spouse visa, joint banking, and assets",
-        "End-to-end management of the statutory 30-day notice and registrar appearance",
-        "Experienced advocate drafting of solemnization notices and affidavits",
-        "Flexible scheduling with Kolkata marriage registrars at your venue or office",
+        "Legally recognized certificate for spouse visas, joint accounts, and home loans",
+        "Complete management of the statutory 30-day notice and registrar appearance",
+        "Affidavits and notice drafts prepared by experienced legal advocates",
+        "Flexible scheduling with marriage registrars at their office or your venue",
       ],
       documents: [
-        "Age and address proofs for both bride and groom (Aadhaar, Passport, or Voter ID)",
-        "Class 10 Admit Card / Birth Certificate verifying statutory legal age",
-        "4 passport-size photographs of bride and groom + wedding invitation card",
-        "Identity and residential proofs of 3 adult witnesses",
+        "Age and address proofs for bride and groom (Aadhaar, Passport, or Voter ID)",
+        "Class 10 Admit Card or Birth Certificate (verifying legal age)",
+        "4 passport-size photos of bride and groom + wedding invitation card",
+        "Identity and address proofs of 3 adult witnesses",
       ],
       process: [
-        "Draft and submit formal statutory notice to the marriage officer",
+        "Draft and submit legal notice to the marriage registrar",
         "Verification of witness credentials and original identity documents",
-        "Formal appearance at the marriage registrar's office with 3 witnesses",
-        "Issuance of official government-authenticated marriage registration certificate",
+        "Appearance at the registrar's office with 3 witnesses for signing",
+        "Issuance of official government-authenticated marriage certificate",
       ],
       costs: [
         { label: "Hindu Marriage Act Registration", value: "From ₹3,000" },
         { label: "Special Marriage Act (30-day notice)", value: "From ₹4,500" },
-        { label: "Certified Copy / Urgent Issuance", value: "Consultation" },
-        { label: "Advocate Legal Vetting", value: "Included" },
+        { label: "Certified Copy / Urgent Issuance", value: "Customized quote" },
+        { label: "Legal Vetting & Drafting", value: "Included" },
       ],
       icon: HeartHandshake,
       whatsAppMsg: `Hi ${clientFirstName}, I would like information regarding legal marriage registration services. Could you please guide me?`,
@@ -303,30 +303,30 @@ export default function DocumentsContent() {
       category: "vehicle",
       title: "New Driving Licence",
       authority: "Sarathi Parivahan, MoRTH",
-      description: "Learner Licence (LL) applications, test preparation, permanent Driving Licence (DL) slot booking, and smart card dispatch.",
+      description: "Learner Licence applications, test preparation, RTO driving test slot booking, and smart card dispatch.",
       highlights: [
-        "Authorized legal permit to ride two-wheelers (MCWG) and drive cars (LMV)",
-        "Online Learner Licence exam application guidance and mock question assistance",
-        "Practical driving test appointment scheduling at your local Kolkata RTO",
-        "Tamper-proof chip-embedded smart card DL delivered to your residential address",
+        "Official permit to ride motorcycles (MCWG) and drive cars (LMV)",
+        "Online test preparation and sample question guidance",
+        "Practical driving test appointment booking at your local RTO",
+        "Chip-embedded smart card licence delivered to your home",
       ],
       documents: [
-        "Aadhaar Card (mandatory for instant paperless e-KYC learner licence)",
+        "Aadhaar card (for paperless learner licence)",
         "Age proof (Class 10 Admit Card, Birth Certificate, or PAN)",
-        "Blood group test report or certified declaration",
+        "Blood group test report or declaration",
         "Recent passport-size color photographs",
       ],
       process: [
-        "Online filing of Learner Licence application and theory exam clearance",
-        "Mandatory 30-day waiting period with driving practice",
-        "Permanent Driving Licence slot booking and practical test scheduling at RTO",
-        "Practical driving test clearance and physical smart-card DL delivery",
+        "Apply online for Learner Licence and complete the simple test",
+        "Practice driving during the mandatory 30-day period",
+        "Book permanent driving test slot at your local RTO",
+        "Pass the driving test and receive your smart card DL by post",
       ],
       costs: [
         { label: "Two-Wheeler (MCWG)", value: "₹2,500 (all-inclusive)" },
         { label: "Four-Wheeler (LMV)", value: "₹3,000 (all-inclusive)" },
         { label: "Combined 2-Wheeler + 4-Wheeler", value: "₹4,800 (all-inclusive)" },
-        { label: "RTO Slot & Form Fees", value: "Included" },
+        { label: "RTO Slot & Govt Fees", value: "Included" },
       ],
       icon: Car,
       whatsAppMsg: `Hi ${clientFirstName}, I'd like to apply for a Driving Licence. Could you please guide me through the RTO process?`,
@@ -336,28 +336,28 @@ export default function DocumentsContent() {
       category: "vehicle",
       title: "Licence Renewal & Corrections",
       authority: "Sarathi Parivahan, MoRTH",
-      description: "Expired driving licence renewals, duplicate re-issuance for lost licences, and address or name corrections.",
+      description: "Expired licence renewals, duplicate licence re-issuance, and address or name corrections.",
       highlights: [
-        "Timely renewal to prevent heavy MV Act non-renewal penalties and insurance invalidation",
-        "Rapid duplicate licence issuance with police lost diary and notary affidavit",
-        "Updating old paper/booklet driving licences to digitized national Parivahan smart cards",
-        "Residential address changes and spelling corrections across West Bengal RTOs",
+        "Timely renewal to avoid traffic fines and keep your motor insurance valid",
+        "Fast duplicate licence issuance with police report and affidavit",
+        "Upgrade old booklet licences to modern smart cards",
+        "Address changes and spelling corrections across West Bengal RTOs",
       ],
       documents: [
-        "Original Driving Licence (or GD/FIR copy with affidavit if lost)",
-        "Aadhaar Card with updated residential address",
-        "Medical Fitness Form 1-A signed by a registered MBBS practitioner (if age > 40)",
-        "Current passport-size photographs",
+        "Original licence (or police report and affidavit if lost)",
+        "Aadhaar card with current address",
+        "Medical Fitness Form 1-A from an MBBS doctor (if age > 40)",
+        "Recent passport-size photos",
       ],
       process: [
-        "Submit existing licence details and required change request on WhatsApp",
-        "Application drafting and fee clearance on Sarathi Parivahan portal",
-        "Biometric update or document verification at local RTO (if required)",
-        "Dispatch of renewed or corrected smart card licence to your home",
+        "Send a photo of your licence and requested changes on WhatsApp",
+        "We submit the application and pay fees on the Parivahan portal",
+        "Quick verification at the RTO (if required)",
+        "Renewed smart card delivered to your home by speed post",
       ],
       costs: [
         { label: "Standard DL Renewal (within 1 yr)", value: "₹1,800 (+ govt late fee if > 1 yr)" },
-        { label: "Lost Licence / Duplicate DL", value: "₹2,550 (incl. GD & affidavit)" },
+        { label: "Lost Licence / Duplicate DL", value: "₹2,550 (incl. police report & affidavit)" },
         { label: "Address or Name Correction", value: "₹1,800" },
         { label: "Paper Licence to Smart Card", value: "₹2,000" },
       ],
@@ -369,29 +369,29 @@ export default function DocumentsContent() {
       category: "vehicle",
       title: "Vehicle Ownership Transfer",
       authority: "Vahan Citizen Services, MoRTH (WB RTOs)",
-      description: "RC ownership transfer from seller to buyer for two-wheelers and cars, bank loan hypothecation removal (HPA/HPT), and NOCs.",
+      description: "RC transfer from seller to buyer for bikes and cars, bank loan removal (HPT), and RTO NOCs.",
       highlights: [
-        "Complete legal immunity for the seller against future traffic challans or accidents",
-        "Flawless title transfer ensuring insurance policy validity for the buyer",
-        "Bank hypothecation removal (Form 35) upon auto loan completion",
-        "Local RTO liaison across Beltala, Kasba, Salt Lake, Barasat, and Alipore",
+        "Protects the seller from future accident liabilities or traffic fines",
+        "Ensures clear vehicle title and valid insurance for the buyer",
+        "Bank loan removal (Form 35) once auto loan is fully repaid",
+        "Liaison with RTOs across Beltala, Kasba, Salt Lake, Barasat, and Alipore",
       ],
       documents: [
-        "Original Registration Certificate (RC smart card)",
-        "Valid vehicle insurance policy certificate & active PUC certificate",
-        "Signed RTO transfer forms (Form 29 & Form 30) by buyer and seller",
-        "Bank NOC and Form 35 (if vehicle was financed on an auto loan)",
+        "Original RC smart card",
+        "Valid vehicle insurance copy and active PUC certificate",
+        "Signed RTO transfer forms (Form 29 and Form 30) by buyer and seller",
+        "Bank NOC and Form 35 (if loan is cleared)",
       ],
       process: [
-        "Verification of vehicle hypothecation status, active challans, and blacklisting",
-        "Execution of RTO transfer forms (Forms 29/30/35) and tax assessment",
-        "Physical file submission and vehicle inspection at the jurisdiction RTO",
-        "RTO endorsement and delivery of updated RC smart card in buyer's name",
+        "Check vehicle details, active traffic challans, and loan status",
+        "Prepare transfer forms and calculate statutory RTO fees",
+        "Submit paperwork and complete RTO inspection",
+        "Updated RC smart card delivered in the new owner's name",
       ],
       costs: [
         { label: "Two-Wheeler Ownership Transfer", value: "Approx. ₹4,500" },
         { label: "Four-Wheeler Ownership Transfer", value: "Varies by vehicle age & RTO" },
-        { label: "Bank Hypothecation Removal (HPT)", value: "₹1,800 + govt fees" },
+        { label: "Bank Loan Removal (HPT)", value: "₹1,800 + govt fees" },
         { label: "Inter-State / Inter-RTO NOC", value: "Customized quote" },
       ],
       icon: Car,
@@ -404,30 +404,30 @@ export default function DocumentsContent() {
       category: "business",
       title: "Income Tax Filing (ITR)",
       authority: "Income Tax Department (Govt. of India)",
-      description: "CA-guided ITR filing for salaried professionals, capital gains investors, business owners, and retirees.",
+      description: "CA-guided tax return filing for salaried employees, investors, business owners, and retirees.",
       highlights: [
-        "Essential financial proof for home loans, personal loans, credit cards, and visa stamps",
-        "Meticulous cross-verification with AIS, TIS, and Form 26AS to prevent tax notices",
-        "Maximizing deductions under Sections 80C, 80D, 80G, and home loan interest provisions",
-        "Accurate capital gains computation from mutual funds, shares, and real estate sales",
+        "Essential income proof for home loans, credit cards, and visa applications",
+        "Checked against AIS, TIS, and Form 26AS to prevent tax notices",
+        "Claim all eligible deductions under Sections 80C, 80D, and home loans",
+        "Accurate capital gains calculations from mutual funds, shares, and property",
       ],
       documents: [
-        "PAN Card and Aadhaar (linked)",
-        "Form 16 / Salary slips from employer (for salaried individuals)",
-        "Bank account statements for the financial year (April 1 to March 31)",
-        "Capital gains tax statement from CAMS/KFintech and broker trading ledger",
+        "PAN card and Aadhaar (linked)",
+        "Form 16 or salary slips (for salaried individuals)",
+        "Bank statements for the financial year (April 1 to March 31)",
+        "Capital gains statements from broker or CAMS",
       ],
       process: [
-        "Share your Form 16 and bank statements via WhatsApp or email",
-        "Tax expert computes income, deductions, and prepares optimized tax draft",
-        "Review computation summary and approve draft before online submission",
-        "Instant e-filing with official ITR-V acknowledgment and e-verification",
+        "Share Form 16 and bank statements via WhatsApp or email",
+        "Our tax expert computes income, deductions, and tax draft",
+        "Review computation summary and approve draft before filing",
+        "Instant online e-filing with official ITR-V acknowledgment",
       ],
       costs: [
         { label: "Salaried Individual (ITR-1)", value: "From ₹699" },
         { label: "Capital Gains / Multiple Sources (ITR-2)", value: "From ₹999" },
         { label: "Small Business / Presumptive (ITR-3/4)", value: "From ₹1,699" },
-        { label: "TDS Refund & Notice Rectification", value: "Customized quote" },
+        { label: "TDS Refund & Notice Help", value: "Customized quote" },
       ],
       icon: Calculator,
       whatsAppMsg: `Hi ${clientFirstName}, I'd like help filing my Income Tax Return. Could you please share the checklist and fees?`,
@@ -437,28 +437,28 @@ export default function DocumentsContent() {
       category: "business",
       title: "Trade License Services",
       authority: "KMC / Municipalities / Gram Panchayats",
-      description: "New trade licenses, certificate of enlistment (CE), and annual renewals for retail shops, offices, and commercial establishments.",
+      description: "New trade licenses, certificates of enlistment (CE), and annual renewals for shops and businesses.",
       highlights: [
-        "Mandatory legal authorization to operate any commercial enterprise in West Bengal",
-        "Prerequisite for opening business current bank accounts and GST registration",
-        "Quick annual renewal to prevent hefty municipal compounding penalties",
-        "Coverage across Kolkata Municipal Corporation (KMC) and local Gram Panchayats",
+        "Mandatory legal permit to operate any business or shop in West Bengal",
+        "Required for opening a business current account and GST registration",
+        "Quick annual renewal to avoid municipal compounding penalties",
+        "Covers Kolkata Municipal Corporation (KMC), municipalities, and panchayats",
       ],
       documents: [
-        "Proprietor / Director Aadhaar Card and PAN Card",
-        "Commercial property tax receipt or registered rent agreement with landlord NOC",
-        "Electricity bill for the commercial place of business",
-        "Partnership deed or Certificate of Incorporation (for firms / companies)",
+        "Proprietor or director Aadhaar card and PAN",
+        "Property tax receipt or rent agreement with landlord NOC",
+        "Electricity bill for commercial premises",
+        "Partnership deed or company incorporation certificate (if applicable)",
       ],
       process: [
-        "Submit business category, proposed trade name, and commercial address proofs",
-        "Online application filing with local municipality, corporation, or panchayat",
-        "Assessment and payment of official statutory municipal license fees",
-        "Issuance and download of official Trade License / Certificate of Enlistment",
+        "Share business name, trade category, and address proofs",
+        "Online filing with local municipality, corporation, or panchayat",
+        "Assessment and payment of statutory municipal license fees",
+        "Download official Trade License / Certificate of Enlistment",
       ],
       costs: [
         { label: "Panchayat / Municipality License", value: "From ₹500 + govt fees" },
-        { label: "KMC Municipal Corporation License", value: "From ₹1,000 + govt fees" },
+        { label: "KMC Corporation License", value: "From ₹1,000 + govt fees" },
         { label: "Annual License Renewal", value: "From ₹400 + govt fees" },
         { label: "Trade Name / Category Amendment", value: "₹800 + govt fees" },
       ],
@@ -470,24 +470,24 @@ export default function DocumentsContent() {
       category: "business",
       title: "Agreements & Affidavits",
       authority: "Legal Advocates & Notary Public (Govt. of India / WB)",
-      description: "Legally enforceable rent agreements, commercial leases, partnership deeds, declarations, and notarized sworn affidavits.",
+      description: "Residential rent agreements, commercial leases, partnership deeds, and notarized affidavits.",
       highlights: [
-        "Drafted and vetted by experienced legal advocates with watertight legal clauses",
-        "Prevents costly future landlord-tenant, property, or business partnership disputes",
-        "Executed on valid non-judicial stamp paper with authentic Notary Public attestation",
-        "Fast same-day drafting and doorstep delivery available across Kolkata",
+        "Drafted by experienced legal advocates with balanced, protective clauses",
+        "Protects against future disputes between landlords, tenants, or partners",
+        "Printed on official non-judicial stamp paper with authentic Notary attestation",
+        "Same-day drafting and doorstep delivery available across Kolkata",
       ],
       documents: [
-        "Identity proofs (Aadhaar / PAN) of all executing parties",
-        "Title deed, tax bill, or holding number of the leased/transferred property",
-        "Clear terms: monthly rent, security deposit, lock-in period, and notice terms",
-        "Two passport-size photographs of each party for notarized registry",
+        "Aadhaar and PAN of all involved parties",
+        "Property tax bill, title deed, or holding number of the premises",
+        "Agreed terms: monthly rent, security deposit, and notice period",
+        "Two passport-size photos of each party",
       ],
       process: [
-        "Share agreement covenants, tenancy terms, and party details on WhatsApp",
-        "Legal advocate drafts customized agreement with balanced legal protection",
-        "Review draft copy and approve all terms and commercial conditions",
-        "Print on requisite denomination stamp paper with formal Notary attestation",
+        "Share agreement terms and party details on WhatsApp",
+        "Our legal advocate drafts a clear, customized agreement",
+        "Review and approve the draft copy",
+        "Printed on requisite stamp paper with formal Notary attestation",
       ],
       costs: [
         { label: "Sworn Notarized Affidavit", value: "From ₹350 (incl. stamp & notary)" },
@@ -503,24 +503,24 @@ export default function DocumentsContent() {
       category: "business",
       title: "Professional Tax (P.Tax)",
       authority: "Directorate of Commercial Taxes, Govt. of W.B.",
-      description: "State-level professional tax enrolment (EC), employer registration (RC), monthly challan generation, and annual return filing.",
+      description: "West Bengal professional tax enrolment (EC), employer registration (RC), and annual returns.",
       highlights: [
         "Mandatory statutory compliance for self-employed professionals and business owners",
-        "Obtains Enrolment Certificate (EC) required for trade license renewals and banking",
-        "Registration Certificate (RC) management for businesses deducting employee P.Tax",
-        "Avoids steep compound interest penalties and regulatory enforcement notices",
+        "Provides Enrolment Certificate (EC) required for trade license renewals",
+        "Registration Certificate (RC) management for firms deducting employee P.Tax",
+        "Avoids government interest penalties and compliance notices",
       ],
       documents: [
-        "Business Trade License / Certificate of Enlistment and PAN Card",
-        "Commercial bank account details and active email/mobile",
-        "Proprietor / Partner / Director KYC documents",
-        "Monthly gross income figures or employee payroll summary",
+        "Trade License and business PAN card",
+        "Business bank account details and active contact info",
+        "Proprietor or partner KYC documents",
+        "Monthly turnover or employee payroll summary",
       ],
       process: [
-        "Determine applicable tax slab under West Bengal Professional Tax Schedule",
-        "Online registration and profile creation on the WB Directorate P.Tax portal",
-        "Generation of government e-payment challan and online tax clearance",
-        "Issuance of Enrolment Certificate (EC) or Registration Certificate (RC)",
+        "Determine applicable tax slab under West Bengal rules",
+        "Online registration on the WB Directorate P.Tax portal",
+        "Generate payment challan and clear taxes online",
+        "Download official Enrolment (EC) or Registration Certificate (RC)",
       ],
       costs: [
         { label: "WB Monthly P.Tax Liability", value: "₹110 – ₹200 (statutory slab)" },
@@ -544,7 +544,7 @@ export default function DocumentsContent() {
       <div className="flex flex-col items-center">
         <SimplePageHeader 
           title="Document &amp; Legal Services" 
-          description="End-to-end guidance for government identity cards, RTO vehicle documentation, trade permits, and tax filings." 
+          description="Assistance with government identity cards, vehicle paperwork, business registrations, and tax filing." 
         />
 
         {/* Segmented Category Filter */}
@@ -675,7 +675,7 @@ export default function DocumentsContent() {
                     <span className="flex items-center gap-1.5 min-w-0 pr-2">
                       <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0" />
                       <span className="truncate sm:whitespace-normal">
-                        {isExpanded ? "Hide paperwork, process steps & fees" : "View paperwork, process steps & fees"}
+                        {isExpanded ? "Hide required documents, steps & fees" : "View required documents, steps & fees"}
                       </span>
                     </span>
                     <ChevronDown className={cn("w-4 h-4 text-stone-400 group-hover:text-stone-700 transition-transform duration-200 flex-shrink-0", isExpanded && "rotate-180")} />
@@ -688,7 +688,7 @@ export default function DocumentsContent() {
                         {/* Documents */}
                         <div>
                           <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
-                            Documents required
+                            Required documents
                           </div>
                           <ul className="space-y-1.5">
                             {service.documents.map((doc, idx) => (
@@ -703,7 +703,7 @@ export default function DocumentsContent() {
                         {/* Process */}
                         <div>
                           <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
-                            How the process works
+                            How it works
                           </div>
                           <ol className="space-y-1.5 text-xs text-stone-600 leading-normal">
                             {service.process.map((step, idx) => (
@@ -719,7 +719,7 @@ export default function DocumentsContent() {
                       {/* Structured Fee Chips */}
                       <div className="pt-3 border-t border-stone-100 font-sans">
                         <div className="text-xs font-semibold text-stone-900 mb-2 font-sans">
-                          Fees &amp; official charges
+                          Fees &amp; government charges
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {service.costs.map((item, idx) => (
@@ -761,13 +761,13 @@ export default function DocumentsContent() {
       {/* Cross-Navigation Next Step (Borderless & Airy) */}
       <div className="pt-2 sm:pt-4 text-center">
         <p className="text-xs sm:text-sm text-stone-500">
-          Paperwork sorted? Ensure your family and health are protected.
+          Need coverage for your health, life, or vehicle?
         </p>
         <Link 
           href="/insurance" 
           className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-900 mt-1.5 transition-colors group"
         >
-          <span>Explore Health &amp; Life Insurance</span>
+          <span>Explore Insurance Plans</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>

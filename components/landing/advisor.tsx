@@ -45,7 +45,7 @@ export function AdvisorSection({ advisor }: { advisor: AdvisorInfo }) {
                 {advisor.name}
               </h2>
               <p className="text-xs sm:text-[13px] text-stone-600 mt-2 leading-snug text-pretty">
-                Guiding families and business owners across Kolkata to make clear, confident financial decisions with personalized attention and zero sales pressure.
+                Helping families and business owners in Kolkata make sound financial decisions with honest guidance and zero sales pressure.
               </p>
             </div>
 

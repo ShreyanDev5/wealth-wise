@@ -22,7 +22,6 @@ export default function Header() {
   }, []);
 
   const clientName = process.env.NEXT_PUBLIC_CLIENT_NAME || "Monotosh Sardar";
-  const clientFirstName = process.env.NEXT_PUBLIC_CLIENT_FIRST_NAME || "Monotosh";
   const rawPhone = process.env.NEXT_PUBLIC_CLIENT_PHONE || "98364 72260";
   const cleanPhone = rawPhone.replace(/\s/g, '');
   const whatsAppNumber = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
@@ -84,7 +83,7 @@ export default function Header() {
           {/* Right - Subtle Direct Contact Link */}
           <div className="flex items-center gap-2">
             <a
-              href={`https://wa.me/${whatsAppNumber}?text=Hi%20${encodeURIComponent(clientFirstName)}%2C%20I'd%20like%20to%20learn%20more%20about%20your%20financial%20advisory%20services.`}
+              href={`https://wa.me/${whatsAppNumber}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Connect on WhatsApp"

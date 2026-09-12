@@ -31,39 +31,39 @@ export default function InvestContent() {
   ];
 
   const highlights = [
-    "Systematic Investment Plans (SIP) starting from ₹500/month with automated rupee-cost averaging",
-    "Direct access to top-performing equity, hybrid, and debt funds across India's leading AMCs",
-    "Periodic portfolio rebalancing, milestone reviews, and disciplined asset allocation",
-    "High liquidity with redemption payouts credited directly to your registered bank account",
+    "Start an SIP from ₹500/month to grow your savings steadily over time",
+    "Carefully selected equity, hybrid, and debt funds from India's top fund houses",
+    "Regular portfolio reviews and rebalancing to keep your goals on track",
+    "Easy withdrawals deposited directly into your bank account within 2–3 days",
   ];
 
   const documents = [
-    "PAN Card and Aadhaar for one-time digital KYC verification",
-    "Cancelled cheque or bank passbook copy for automated SIP debit setup",
-    "Nominee KYC details and relationship declaration",
-    "Aadhaar-linked mobile number for instant paperless e-sign verification",
+    "PAN card and Aadhaar for one-time paperless KYC",
+    "Cancelled cheque or bank passbook copy for auto-debit setup",
+    "Nominee identity proof (Aadhaar or PAN)",
+    "Aadhaar-linked phone number for instant OTP verification",
   ];
 
   const processSteps = [
-    "Financial goal & risk profiling consultation with Monotosh",
-    "One-time paperless digital KYC completed in under 5 minutes",
-    "Curated fund selection & automated monthly SIP mandate activation",
-    "Periodic performance reviews and dedicated mobile app portfolio tracking",
+    "Quick consultation with Monotosh to map your financial goals",
+    "Paperless KYC completed online in under 5 minutes",
+    "Fund selection and automatic monthly SIP setup",
+    "Ongoing portfolio tracking and periodic performance check-ins",
   ];
 
   const pricingGuidelines = [
-    { label: "Advisory & Setup", value: "Zero fees for regular plan investors" },
-    { label: "Fund Management", value: "TER capped by SEBI (built into NAV)" },
-    { label: "Equity LTCG (> 1 yr)", value: "12.5% on gains above ₹1.25L / year" },
-    { label: "Equity STCG (< 1 yr)", value: "Flat 20% on short-term capital gains" },
+    { label: "Advisory & Setup", value: "Free" },
+    { label: "Fund Management (TER)", value: "Standard SEBI rates (built into NAV)" },
+    { label: "Long-Term Gains (> 1 yr)", value: "12.5% on profits over ₹1.25L / yr" },
+    { label: "Short-Term Gains (< 1 yr)", value: "Flat 20% on profits" },
   ];
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
       {/* Header */}
       <SimplePageHeader 
-        title="Mutual Funds &amp; Wealth Growth" 
-        description="Disciplined wealth creation through goal-based asset allocation, systematic investing, and professional portfolio monitoring." 
+        title="Mutual Funds &amp; SIPs" 
+        description="Grow your wealth steadily with goal-focused SIPs, handpicked funds, and regular portfolio reviews." 
       />
 
       {/* Main Advisory Card */}
@@ -96,7 +96,7 @@ export default function InvestContent() {
 
             {/* Description */}
             <p className="text-xs sm:text-sm text-stone-600 mt-2.5 sm:mt-3 leading-normal">
-              Disciplined wealth creation through systematic investing (SIP) and goal-based asset allocation tailored to your family&apos;s financial milestones and time horizon.
+              Build wealth steadily through monthly SIPs tailored to your family&apos;s goals and time horizon.
             </p>
 
             {/* Symmetrical 2x2 Highlights Grid */}
@@ -122,7 +122,7 @@ export default function InvestContent() {
                 <span className="flex items-center gap-1.5 min-w-0 pr-2">
                   <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0" />
                   <span className="truncate sm:whitespace-normal">
-                    {isDetailsExpanded ? "Hide paperwork, onboarding steps & tax guidelines" : "View paperwork, onboarding steps & tax guidelines"}
+                    {isDetailsExpanded ? "Hide required documents, process & tax rules" : "View required documents, process & tax rules"}
                   </span>
                 </span>
                 <ChevronDown className={cn("w-4 h-4 text-stone-400 group-hover:text-stone-700 transition-transform duration-200 flex-shrink-0", isDetailsExpanded && "rotate-180")} />
@@ -135,7 +135,7 @@ export default function InvestContent() {
                     {/* Documents */}
                     <div>
                       <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
-                        Documents needed for KYC
+                        Required Documents
                       </div>
                       <ul className="space-y-1.5">
                         {documents.map((doc, idx) => (
@@ -150,7 +150,7 @@ export default function InvestContent() {
                     {/* Process */}
                     <div>
                       <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
-                        How onboarding works
+                        How It Works
                       </div>
                       <ol className="space-y-1.5 text-xs text-stone-600 leading-normal">
                         {processSteps.map((step, idx) => (
@@ -166,7 +166,7 @@ export default function InvestContent() {
                   {/* Structured Tax & Fee Chips */}
                   <div className="pt-3 border-t border-stone-100 font-sans">
                     <div className="text-xs font-semibold text-stone-900 mb-2 font-sans">
-                      Fees &amp; Tax Rules (Finance Act 2024)
+                      Fees &amp; Tax Rules
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {pricingGuidelines.map((item, idx) => (
@@ -209,13 +209,13 @@ export default function InvestContent() {
       {/* Cross-Navigation Next Step (Borderless & Airy) */}
       <div className="pt-2 sm:pt-4 text-center">
         <p className="text-xs sm:text-sm text-stone-500">
-          Want to see how your money could compound over time?
+          Want to see how your money could grow over time?
         </p>
         <Link 
           href="/calculators" 
           className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-900 mt-1.5 transition-colors group"
         >
-          <span>Project with Financial Calculators</span>
+          <span>Calculate Potential Returns</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>

@@ -41,56 +41,56 @@ interface FaqCategory {
 const categoryGuideData: CategoryGuideRow[] = [
   {
     name: { en: "Liquid Funds", bn: "লিকুইড ফান্ড" },
-    purpose: { en: "Emergency Cash & Surplus Savings", bn: "জরুরি ফান্ড ও সেভিংসের বাড়তি টাকা" },
+    purpose: { en: "Emergency funds & surplus cash", bn: "জরুরি প্রয়োজন ও স্বল্পমেয়াদি সঞ্চয়" },
     horizon: { en: "1 – 90 Days", bn: "১ – ৯০ দিন" },
     risk: { en: "Very Low", bn: "খুব কম", level: "very-low" },
     returns: "5% – 6.5%",
   },
   {
     name: { en: "Debt Funds", bn: "ডেট ফান্ড" },
-    purpose: { en: "Reliable Bank FD Alternative", bn: "ব্যাংক FD-র নির্ভরযোগ্য বিকল্প" },
+    purpose: { en: "Better alternative to bank fixed deposits", bn: "ফিক্সড ডিপোজিটের নির্ভরযোগ্য বিকল্প" },
     horizon: { en: "1 – 3 Years", bn: "১ – ৩ বছর" },
     risk: { en: "Low", bn: "কম", level: "low" },
     returns: "6.5% – 8%",
   },
   {
     name: { en: "Gold Funds", bn: "গোল্ড ফান্ড" },
-    purpose: { en: "Gold Investment & Inflation Defense", bn: "সোনায় বিনিয়োগ ও মূল্যবৃদ্ধির সুরক্ষা" },
+    purpose: { en: "Gold investment without storage hassle", bn: "সোনায় বিনিয়োগের সহজ উপায়" },
     horizon: { en: "3 – 5 Years", bn: "৩ – ৫ বছর" },
     risk: { en: "Medium", bn: "মাঝারি", level: "medium" },
     returns: "8% – 10%",
   },
   {
     name: { en: "Balanced Advantage (BAF)", bn: "ব্যালেন্সড অ্যাডভান্টেজ (BAF)" },
-    purpose: { en: "Low-Risk First Step in Equity", bn: "শেয়ার বাজারে কম ঝুঁকিতে প্রথম বিনিয়োগ" },
+    purpose: { en: "Mix of equity and debt with lower risk", bn: "শেয়ার ও বন্ড মিলিয়ে ব্যালেন্সড বিনিয়োগ" },
     horizon: { en: "3 – 5 Years", bn: "৩ – ৫ বছর" },
     risk: { en: "Medium", bn: "মাঝারি", level: "medium" },
     returns: "10% – 12%",
   },
   {
     name: { en: "ELSS Tax Saver", bn: "ELSS ট্যাক্স সেভার" },
-    purpose: { en: "Tax Exemption under Section 80C", bn: "Section 80C অনুযায়ী আয়করে ছাড়" },
+    purpose: { en: "Tax savings under Section 80C", bn: "Section 80C অনুযায়ী ট্যাক্স ছাড় (৩ বছর)" },
     horizon: { en: "3 Yrs (Lock-in)", bn: "৩ বছর (লক-ইন)" },
     risk: { en: "High", bn: "বেশি", level: "high" },
     returns: "12% – 15%",
   },
   {
     name: { en: "Large Cap Bluechips", bn: "লার্জ ক্যাপ ব্লুচিপ" },
-    purpose: { en: "India's Top 100 Giant Companies", bn: "দেশের সেরা ১০০টি ব্লুচিপ কোম্পানি" },
+    purpose: { en: "Top 100 largest and most stable Indian companies", bn: "দেশের শীর্ষ ১০০টি সুপ্রতিষ্ঠিত কোম্পানি" },
     horizon: { en: "5+ Years", bn: "৫+ বছর" },
     risk: { en: "Medium to High", bn: "মাঝারি থেকে বেশি", level: "medium" },
     returns: "11% – 13%",
   },
   {
     name: { en: "Flexi Cap Funds", bn: "ফ্লেক্সি ক্যাপ ফান্ড" },
-    purpose: { en: "Core Long-Term Wealth Creation", bn: "দীর্ঘমেয়াদে সার্বিক সম্পদ তৈরি" },
+    purpose: { en: "All-round growth across large, mid, and small caps", bn: "বড় ও মাঝারি সব ধরনের কোম্পানিতে বিনিয়োগ" },
     horizon: { en: "5+ Years", bn: "৫+ বছর" },
     risk: { en: "High", bn: "বেশি", level: "high" },
     returns: "12% – 15%",
   },
   {
     name: { en: "Mid & Small Cap", bn: "মিড ও স্মল ক্যাপ" },
-    purpose: { en: "High Long-Term Growth Potential", bn: "দীর্ঘমেয়াদে দ্রুত বৃদ্ধির সুযোগ" },
+    purpose: { en: "High growth potential in emerging companies", bn: "দ্রুত বর্ধনশীল নতুন কোম্পানিতে বেশি বৃদ্ধির সুযোগ" },
     horizon: { en: "7 – 10+ Years", bn: "৭ – ১০+ বছর" },
     risk: { en: "Very High", bn: "খুব বেশি", level: "very-high" },
     returns: "14% – 18%+",
@@ -112,30 +112,30 @@ const categories: FaqCategory[] = [
           bn: 'মিউচুয়াল ফান্ড কীভাবে কাজ করে?',
         },
         answer: {
-          en: 'A mutual fund pools money from multiple investors into a diversified basket of stocks, bonds, or government securities managed by professional fund managers. You earn returns as the value of the underlying assets grows. You can start with as little as ₹500/month via SIP.',
-          bn: 'মিউচুয়াল ফান্ড হলো এমন একটি নির্ভরযোগ্য ব্যবস্থা, যেখানে অনেক মানুষের জমানো টাকা অভিজ্ঞ ফান্ড ম্যানেজাররা একত্রিত করে দেশের সেরা কোম্পানি (Stocks) ও সরকারি বন্ডে বিনিয়োগ করেন। এই কোম্পানিগুলির ব্যবসা বৃদ্ধির সাথে সাথে আপনার জমানো টাকার মুনাফাও বাড়ে। আপনি চাইলে প্রতি মাসে মাত্র ₹৫০০ দিয়েও নিয়মিত SIP শুরু করতে পারেন।',
+          en: 'A mutual fund pools money from many investors and invests it across top companies and government bonds. Experienced fund managers handle the investments, and your money grows as these companies succeed. You can start with as little as ₹500 a month via SIP.',
+          bn: 'মিউচুয়াল ফান্ডে অনেক মানুষের জমানো টাকা অভিজ্ঞ ফান্ড ম্যানেজাররা একত্রিত করে দেশের সেরা কোম্পানি ও বন্ডে বিনিয়োগ করেন। সেই কোম্পানিগুলোর বৃদ্ধির সাথে সাথে আপনার জমানো টাকার মূল্যও বাড়ে। আপনি প্রতি মাসে মাত্র ₹৫০০ দিয়েও নিয়মিত SIP শুরু করতে পারেন।',
         },
       },
       {
         id: 'basics-benefits',
         question: {
-          en: 'Why choose Mutual Funds over traditional bank savings or FDs?',
-          bn: 'ব্যাংক ফিক্সড ডিপোজিট (FD) বা ট্র্যাডিশনাল সঞ্চয়ের চেয়ে মিউচুয়াল ফান্ড কেন ভালো?',
+          en: 'Why choose mutual funds over bank fixed deposits?',
+          bn: 'ব্যাংক ফিক্সড ডিপোজিটের (FD) চেয়ে মিউচুয়াল ফান্ড কেন ভালো?',
         },
         answer: {
-          en: 'Mutual funds offer 6 decisive advantages over traditional fixed deposits: (1) Inflation-beating growth (12–15% historical equity average vs. 6–7% in FDs), (2) High liquidity with withdrawals anytime, (3) Wide diversification across 40–80+ top companies, (4) Experienced full-time fund management, (5) Disciplined compounding starting from just ₹500/month, and (6) Superior tax efficiency under Section 80C and LTCG exemption limits.',
-          bn: 'সাধারণ ব্যাংক ফিক্সড ডিপোজিট (FD)-র তুলনায় মিউচুয়াল ফান্ডের প্রধান সুবিধাগুলি হলো: (১) মূল্যবৃদ্ধিকে টেক্কা দেওয়ার ক্ষমতা—FD-তে যেখানে ৬-৭% সুদ মেলে, ভালো ইকুইটি ফান্ডে দীর্ঘমেয়াদে গড়ে ১২-১৫% চক্রবৃদ্ধি রিটার্ন পাওয়ার ইতিহাস রয়েছে; (২) হাই লিকুইডিটি—জরুরি প্রয়োজনে যেকোনো সময় টাকা তুলে নেওয়ার স্বাধীনতা; (৩) ডাইভারসিফিকেশন—৪০ থেকে ৮০টি নামী কোম্পানিতে টাকা ভাগ হয়ে থাকায় ঝুঁকি অনেক কম; (৪) প্রফেশনাল ফান্ড ম্যানেজমেন্ট—অভিজ্ঞ বিশেষজ্ঞদের সার্বক্ষণিক নজরদারি; (৫) মাত্র ₹৫০০ দিয়ে প্রতি মাসে ছোট সঞ্চয় থেকে শুরুর সুযোগ; এবং (৬) আকর্ষণীয় ট্যাক্স সাশ্রয়ের সুবিধা।',
+          en: 'Mutual funds provide three key advantages over bank FDs: higher inflation-beating growth (equity funds have historically delivered 12–15% annual returns over the long term vs. 6–7% in FDs), easy liquidity (withdraw anytime without penalty), and better tax efficiency (equity gains up to ₹1.25L per year are completely tax-free).',
+          bn: 'ব্যাংক ফিক্সড ডিপোজিটের তুলনায় মিউচুয়াল ফান্ডের তিনটি প্রধান সুবিধা রয়েছে: (১) বেশি রিটার্ন—FD-তে যেখানে ৬-৭% সুদ মেলে, ইকুইটি ফান্ডে দীর্ঘমেয়াদে গড়ে ১২-১৫% বার্ষিক রিটার্ন পাওয়া গেছে; (২) সহজ উইথড্রয়াল—কোনো পেনাল্টি ছাড়াই যেকোনো সময় টাকা তুলে নেওয়া যায়; এবং (৩) ট্যাক্স ছাড়—বছরে ₹১.২৫ লাখ পর্যন্ত মুনাফায় কোনো ট্যাক্স লাগে না।',
         },
       },
       {
         id: 'basics-2',
         question: {
           en: 'Do I need a Demat account to invest?',
-          bn: 'মিউচুয়াল ফান্ডে ইনভেস্ট করতে কি Demat অ্যাকাউন্ট লাগবে?',
+          bn: 'মিউচুয়াল ফান্ডে বিনিয়োগ করতে কি Demat অ্যাকাউন্ট লাগবে?',
         },
         answer: {
-          en: 'No. A Demat account is not required for mutual funds. Investments are held directly as units registered with the fund house (AMC). You only need a one-time paperless KYC using your PAN, Aadhaar, and active bank account.',
-          bn: 'না, মিউচুয়াল ফান্ডে বিনিয়োগ করার জন্য কোনো Demat অ্যাকাউন্টের প্রয়োজন নেই। আপনার ইনভেস্টমেন্ট সরাসরি ফান্ড হাউসের (AMC) অধীনে আপনার নিজের নামেই ইউনিট হিসেবে জমা থাকে। শুধু প্যান কার্ড, আধার কার্ড আর ব্যাংক অ্যাকাউন্ট দিয়ে একবার পেপারলেস KYC কমপ্লিট করলেই আপনি শুরু করতে পারবেন।',
+          en: 'No. You do not need a Demat account. Fund units are held directly in your own name with the fund house. You only need a one-time paperless KYC using your PAN, Aadhaar, and bank account.',
+          bn: 'না, মিউচুয়াল ফান্ডে বিনিয়োগের জন্য Demat অ্যাকাউন্টের প্রয়োজন নেই। আপনার ফান্ড ইউনিট সরাসরি আপনার নিজের নামেই ফান্ড হাউসে জমা থাকে। শুধু প্যান কার্ড, আধার ও ব্যাংক অ্যাকাউন্ট দিয়ে একবার পেপারলেস KYC করলেই শুরু করা যায়।',
         },
       },
       {
@@ -145,30 +145,30 @@ const categories: FaqCategory[] = [
           bn: 'SIP এবং লাম্পসাম (Lump Sum)-এর মধ্যে পার্থক্য কী?',
         },
         answer: {
-          en: 'An SIP (Systematic Investment Plan) automatically invests a fixed amount monthly, averaging out market fluctuations (rupee-cost averaging). A Lump Sum is a one-time investment of capital, best suited when deploying bonuses, savings, or business proceeds.',
-          bn: 'SIP (Systematic Investment Plan) হলো প্রতি মাসে একটি নির্দিষ্ট অঙ্কের টাকা নিয়মিত সঞ্চয় করা—ঠিক যেমন ব্যাংকে আরডি (RD) করা হয়। এতে বাজারের ওঠানামার ঝুঁকি স্বাভাবিক হয়ে যায় (Rupee-Cost Averaging)। আর লাম্পসাম (Lump Sum) হলো এককালীন কিছু টাকা একবারে ইনভেস্ট করা—যা বোনাস, গ্র্যাচুইটি বা জমানো পুঁজি একবারে কাজে লাগানোর জন্য সবচেয়ে উপযুক্ত।',
+          en: 'An SIP invests a fixed amount every month, helping you average out market ups and downs. A lump sum is a one-time investment of capital, best suited when you receive a bonus, gratuity, or have accumulated savings ready to invest.',
+          bn: 'SIP হলো প্রতি মাসে একটি নির্দিষ্ট অঙ্কের টাকা নিয়মিত জমানো—যেমন প্রতি মাসে ব্যাংকে RD করা হয়। এতে বাজারের ওঠানামার ঝুঁকি কমে যায়। আর লাম্পসাম হলো এককালীন কিছু টাকা একবারে বিনিয়োগ করা—যা বোনাস বা জমানো টাকা একবারে কাজে লাগানোর জন্য উপযুক্ত।',
         },
       },
       {
         id: 'basics-swp',
         question: {
-          en: 'What are SIP and SWP, and why are they so popular?',
-          bn: 'SIP এবং SWP কেন এত জনপ্রিয়? মাসে মাসে নিয়মিত আয় বা পেনশন কি সম্ভব?',
+          en: 'What is an SWP, and how does it provide monthly income?',
+          bn: 'SWP কী? এটি কীভাবে প্রতি মাসে নিয়মিত আয় বা পেনশন দেয়?',
         },
         answer: {
-          en: 'SIP builds your wealth during your working years by investing a fixed sum monthly. SWP (Systematic Withdrawal Plan) does the exact reverse: it lets you withdraw a fixed monthly income from your accumulated corpus into your bank account. It acts as a reliable, tax-efficient monthly "pension" ideal for retirees and senior citizens, while your remaining fund balance continues to compound.',
-          bn: 'SIP হলো কর্মজীবনে প্রতি মাসে অল্প অল্প টাকা জমিয়ে একটি বড় তহবিল বা ফান্ড তৈরি করার উপায়। আর SWP (Systematic Withdrawal Plan) ঠিক তার উল্টো—আপনার জমানো ফান্ড থেকে প্রতি মাসে পেনশনের মতো একটি নির্দিষ্ট টাকা সরাসরি আপনার ব্যাংক অ্যাকাউন্টে পাওয়ার সুবিধা। বিশেষ করে অবসরপ্রাপ্ত ব্যক্তি ও সিনিয়র সিটিজেনদের জন্য এটি ফিক্সড ডিপোজিটের চেয়েও ভালো ও ট্যাক্স-সাশ্রয়ী নিয়মিত আয়ের মাধ্যম, কারণ বাকি টাকা ফান্ডেই বাড়তে থাকে।',
+          en: 'While an SIP helps you invest money monthly during your working years, an SWP (Systematic Withdrawal Plan) does the opposite: it pays you a fixed monthly amount from your invested savings directly into your bank account. It acts as a tax-friendly monthly pension for retirees while the rest of your fund continues to grow.',
+          bn: 'SIP কর্মজীবনে প্রতি মাসে অল্প অল্প টাকা জমানোর উপায়। আর SWP (Systematic Withdrawal Plan) ঠিক তার উল্টো—আপনার জমানো ফান্ড থেকে প্রতি মাসে পেনশনের মতো একটি নির্দিষ্ট টাকা আপনার ব্যাংক অ্যাকাউন্টে পাওয়ার সুবিধা। বাকি টাকা ফান্ডেই বাড়তে থাকে, যা অবসরপ্রাপ্ত ব্যক্তিদের জন্য অত্যন্ত কার্যকর।',
         },
       },
       {
         id: 'basics-4',
         question: {
-          en: 'Can I pause, increase, or stop my SIP anytime if I face an emergency?',
-          bn: 'জরুরি প্রয়োজনে কি SIP বন্ধ বা Pause করা যায়? কোনো পেনাল্টি আছে কি?',
+          en: 'Can I pause, change, or stop my SIP anytime?',
+          bn: 'জরুরি প্রয়োজনে কি SIP সাময়িক বন্ধ বা পরিবর্তন করা যায়?',
         },
         answer: {
-          en: 'Yes, completely flexible. There is zero penalty or lock-in fee for pausing, stopping, or modifying your SIP amount. You can stop, increase, or resume anytime with a single message to us.',
-          bn: 'হ্যাঁ, সম্পূর্ণ ফ্লেক্সিবল। কোনো জরিমানা বা অতিরিক্ত চার্জ ছাড়াই আপনি যেকোনো সময় SIP সাময়িক পজ (Pause), টাকার পরিমাণ বাড়ানো-কমানো, বা সম্পূর্ণ বন্ধ করতে পারেন। মনতোষবাবুকে শুধু একটি WhatsApp মেসেজ পাঠালেই সব ব্যবস্থা হয়ে যায়।',
+          en: 'Yes, completely flexible. There are zero penalties or fees for pausing, modifying, or stopping your SIP. Just message us on WhatsApp and we will take care of it immediately.',
+          bn: 'হ্যাঁ, সম্পূর্ণ ফ্লেক্সিবল। কোনো জরিমানা বা অতিরিক্ত চার্জ ছাড়াই আপনি যেকোনো সময় SIP বন্ধ, সাময়িক পজ বা টাকার পরিমাণ পরিবর্তন করতে পারেন। শুধু একটি WhatsApp মেসেজ করলেই ব্যবস্থা হয়ে যাবে।',
         },
       },
     ],
@@ -183,56 +183,56 @@ const categories: FaqCategory[] = [
       {
         id: 'safety-scale',
         question: {
-          en: 'How large and trusted is the mutual fund industry in India today?',
-          bn: 'ভারতে মিউচুয়াল ফান্ড ইন্ডাস্ট্রি কতটা বড় এবং মানুষ কতটা ভরসা করছেন?',
+          en: 'How large and regulated is the mutual fund industry in India?',
+          bn: 'ভারতে মিউচুয়াল ফান্ড ইন্ডাস্ট্রি কতটা বড় এবং সুরক্ষিত?',
         },
         answer: {
-          en: 'The mutual fund ecosystem in India is one of the fastest-growing and strictly regulated financial sectors in the world. According to official AMFI data, total Indian mutual fund Assets Under Management (AUM) stands at over ₹86+ Lakh Crore, with more than ₹32,000+ Crore contributed monthly through retail SIPs alone by millions of disciplined Indian families across 50+ regulated fund houses.',
-          bn: 'SEBI-র অত্যন্ত কড়া নজরদারি ও নিয়মের কারণে ভারতে মিউচুয়াল ফান্ডের ওপর সাধারণ মানুষের ভরসা দিন দিন বাড়ছে। AMFI-এর সর্বশেষ তথ্য অনুযায়ী, দেশের ৫০টিরও বেশি ফান্ড হাউসে মানুষের মোট বিনিয়োগের পরিমাণ (AUM) প্রায় ₹৮৬ লক্ষ কোটি টাকা ছাড়িয়ে গেছে। এছাড়া প্রতি মাসে ভারতীয় পরিবারগুলি নিয়মিত SIP-র মাধ্যমে ₹৩২,০০০ কোটি টাকারও বেশি ইনভেস্ট করছেন—যা সাধারণ মানুষের নির্ভরযোগ্য আস্থার বড় প্রমাণ।',
+          en: 'Mutual funds in India are strictly regulated by SEBI. Today, Indian retail investors contribute over ₹32,000 Crore every month through SIPs, and the total industry manages over ₹86 Lakh Crore across 50+ regulated fund houses.',
+          bn: 'ভারতে সমস্ত মিউচুয়াল ফান্ড SEBI দ্বারা অত্যন্ত কড়া নিয়মে পরিচালিত হয়। বর্তমানে দেশের পরিবারগুলো প্রতি মাসে শুধু SIP-র মাধ্যমেই ₹৩২,০০০ কোটি টাকার বেশি বিনিয়োগ করছেন এবং ৫০টিরও বেশি ফান্ড হাউসে মোট বিনিয়োগের পরিমাণ ₹৮৬ লক্ষ কোটি টাকা ছাড়িয়ে গেছে।',
         },
       },
       {
         id: 'safety-1',
         question: {
-          en: 'Does my investment money go into your personal account? How secure is the transaction?',
-          bn: 'বিনিয়োগের টাকা কি আপনার পার্সোনাল অ্যাকাউন্টে যাবে? লেনদেন কতটা নিরাপদ?',
+          en: 'Does my money go into your personal account?',
+          bn: 'বিনিয়োগের টাকা কি আপনার ব্যক্তিগত অ্যাকাউন্টে যাবে?',
         },
         answer: {
-          en: 'Never. Monotosh never accepts or holds investment capital in any personal account. All funds are debited directly from your verified bank account to SEBI-regulated Asset Management Companies (AMCs) through official exchange platforms (BSE Star MF / NSE NMF). Your money is always 100% in your own name.',
-          bn: 'কখনোই নয়। মনতোষবাবু ব্যক্তিগত অ্যাকাউন্টে কোনো ক্লায়েন্টের টাকা গ্রহণ করেন না। সমস্ত টাকা সরাসরি আপনার নিজের ভেরিফায়েড ব্যাংক অ্যাকাউন্ট থেকে SEBI-অনুমোদিত অফিসিয়াল প্ল্যাটফর্মের (BSE Star MF / NSE NMF) মাধ্যমে সংশ্লিষ্ট ফান্ড হাউসে জমা হয়। সমস্ত ইউনিট ১০০% আপনার নিজের নামেই রেজিস্টার্ড থাকে।',
+          en: 'Never. We never accept investment capital into any personal account. All funds are debited directly from your verified bank account to SEBI-regulated fund houses through official exchange platforms (BSE Star MF / NSE NMF). Your investments remain 100% in your own name.',
+          bn: 'কখনোই নয়। কোনো ক্লায়েন্টের টাকা ব্যক্তিগত অ্যাকাউন্টে নেওয়া হয় না। সমস্ত অর্থ সরাসরি আপনার নিজের ব্যাংক অ্যাকাউন্ট থেকে অফিসিয়াল এক্সচেঞ্জ প্ল্যাটফর্মের মাধ্যমে সংশ্লিষ্ট ফান্ড হাউসে জমা হয়। সমস্ত বিনিয়োগ ১০০% আপনার নিজের নামেই থাকে।',
         },
       },
       {
         id: 'safety-2',
         question: {
-          en: 'Is my money safe? Who regulates mutual funds (SEBI) and what if a fund company closes?',
-          bn: 'আমার জমানো টাকা কতটা সুরক্ষিত? মিউচুয়াল ফান্ড কে নিয়ন্ত্রণ করে (SEBI) এবং কোম্পানি বন্ধ হলে কী হবে?',
+          en: 'Who protects my investment, and what if a fund company closes?',
+          bn: 'আমার জমানো টাকা কতটা সুরক্ষিত? ফান্ড কোম্পানি বন্ধ হলে কী হবে?',
         },
         answer: {
-          en: 'Mutual funds in India are strictly regulated by SEBI (Securities and Exchange Board of India). Your assets are never kept on the fund house balance sheet; they are held by an independent custodian bank designated by SEBI. Even if an AMC ceases operations, SEBI oversees the orderly transfer of your funds to another regulated institution or liquidates the assets directly back into your bank account.',
-          bn: 'ভারতে সমস্ত মিউচুয়াল ফান্ড সেবি (SEBI - Securities and Exchange Board of India) দ্বারা অত্যন্ত কঠোরভাবে নিয়ন্ত্রিত। আপনার টাকা ফান্ড কোম্পানির নিজস্ব ব্যালেন্স শিটে থাকে না, বরং এটি একটি সম্পূর্ণ স্বাধীন কাস্টোডিয়ান ব্যাংকের কাছে সুরক্ষিত থাকে। কোনো ফান্ড কোম্পানি বন্ধ হয়ে গেলেও SEBI-র নজরদারিতে আপনার ফান্ড অন্য বিশ্বস্ত ফান্ড হাউসে পাঠিয়ে দেওয়া হয় অথবা আপনার সমস্ত প্রাপ্য অর্থ সরাসরি আপনার ব্যাংক অ্যাকাউন্টে ফেরত দেওয়া হয়।',
+          en: 'Mutual funds are regulated by SEBI. Your investments are never kept on a fund house\'s own balance sheet—they are held safely by an independent custodian bank. Even if an AMC shuts down, SEBI ensures your funds are transferred to another institution or credited directly back to your bank account.',
+          bn: 'ভারতে সমস্ত মিউচুয়াল ফান্ড SEBI দ্বারা অত্যন্ত কঠোরভাবে নিয়ন্ত্রিত। আপনার টাকা ফান্ড কোম্পানির নিজস্ব অ্যাকাউন্টে থাকে না, বরং একটি স্বাধীন কাস্টোডিয়ান ব্যাংকের কাছে সুরক্ষিত থাকে। কোনো কোম্পানি বন্ধ হয়ে গেলেও SEBI-র নজরদারিতে আপনার টাকা অন্য বিশ্বস্ত ফান্ডে পাঠিয়ে দেওয়া হয় অথবা সরাসরি আপনার ব্যাংকে ফেরত দেওয়া হয়।',
         },
       },
       {
         id: 'safety-3',
         question: {
           en: 'Can I lose all my money in a mutual fund?',
-          bn: 'মিউচুয়াল ফান্ডে কি সমস্ত টাকা ডুবে যাওয়ার বা Zero হয়ে যাওয়ার ঝুঁকি থাকে?',
+          bn: 'মিউচুয়াল ফান্ডে কি সমস্ত টাকা ডুবে যাওয়ার ঝুঁকি থাকে?',
         },
         answer: {
-          en: 'Because mutual funds diversify across 40–80+ different securities, the risk of total loss is virtually zero in diversified funds. Market values fluctuate short-term, but holding equity funds for 5+ years historically delivers consistent inflation-beating growth.',
-          bn: 'না, কারণ একটি মিউচুয়াল ফান্ডে আপনার টাকা কোনো একটি নির্দিষ্ট কোম্পানিতে রাখা হয় না, বরং দেশের ৪০ থেকে ৮০টি শীর্ষস্থানীয় কোম্পানিতে ভাগ করে রাখা হয় (Diversification)। ফলে দু-একটি কোম্পানি ক্ষতিগ্রস্ত হলেও পুরো টাকা হারানোর কোনো ঝুঁকি থাকে না। স্বল্পমেয়াদে বাজার ওঠানামা করলেও, ৫ বছরের বেশি মেয়াদে ভালো ইকুইটি ফান্ড সবসময় মূল্যবৃদ্ধি কাটিয়ে চমৎকার লাভ দিয়েছে।',
+          en: 'Because your money is diversified across 40 to 80+ leading companies, the risk of total loss is virtually zero in diversified funds. While market prices fluctuate in the short term, holding quality equity funds for 5+ years has consistently generated strong inflation-beating returns.',
+          bn: 'না, কারণ একটি মিউচুয়াল ফান্ডে আপনার টাকা কোনো একটি কোম্পানিতে নয়, বরং ৪০ থেকে ৮০টি শীর্ষ কোম্পানিতে ভাগ করে রাখা হয়। ফলে সব টাকা হারানোর কোনো ঝুঁকি থাকে না। স্বল্পমেয়াদে বাজার ওঠানামা করলেও ৫ বছরের বেশি মেয়াদে ভালো ফান্ড সবসময় মূল্যবৃদ্ধি কাটিয়ে ভালো লাভ দিয়েছে।',
         },
       },
       {
         id: 'safety-4',
         question: {
-          en: 'What happens to my mutual fund investments if something happens to me?',
-          bn: 'আমার অবর্তমানে এই জমানো টাকার কী হবে? Nominee কীভাবে টাকা পাবেন?',
+          en: 'What happens to my investments after my lifetime?',
+          bn: 'আমার অবর্তমানে এই জমানো টাকার কী হবে? নমিনি কীভাবে পাবেন?',
         },
         answer: {
-          en: 'All investments include 100% legal nomination registered with the fund houses. In any eventuality, we personally assist your designated nominee and family members with documentation and claim settlement to ensure funds are transferred smoothly without legal hurdles.',
-          bn: 'প্রতিটি ইনভেস্টমেন্টে ১০০% আইনি নমিনি (Nominee) যুক্ত থাকে। কোনো অঘটন ঘটলে পরিবারের সদস্যদের কোনো সরকারি অফিসে বা জটিলতায় দৌড়াদৌড়ি করতে হয় না—নথিপত্র তৈরি থেকে শুরু করে নমিনির ব্যাংক অ্যাকাউন্টে টাকা পৌঁছে দেওয়া পর্যন্ত সমস্ত পেপারওয়ার্কের দায়িত্ব মনতোষবাবু নিজে সামনে থেকে সমাধান করেন।',
+          en: 'Every investment includes an official registered nominee. In any eventuality, we personally assist your nominee and family with the paperwork to ensure the money is transferred smoothly to their bank account without legal hurdles.',
+          bn: 'প্রতিটি বিনিয়োগেই অফিশিয়াল নমিনি যুক্ত থাকে। কোনো অঘটন ঘটলে পরিবারের সদস্যদের কোথাও দৌড়াদৌড়ি করতে হয় না—নথিপত্র তৈরি থেকে শুরু করে নমিনির ব্যাংকে টাকা পৌঁছে দেওয়া পর্যন্ত সমস্ত পেপারওয়ার্কের দায়িত্ব আমরা ব্যক্তিগতভাবে নিই।',
         },
       },
     ],
@@ -240,19 +240,19 @@ const categories: FaqCategory[] = [
   {
     id: 'advisory',
     label: {
-      en: 'Advisory Value',
+      en: 'Personal Advisory',
       bn: 'ব্যক্তিগত পরামর্শ',
     },
     items: [
       {
         id: 'advisory-1',
         question: {
-          en: 'Why should I invest through an advisor when apps like Groww or Zerodha exist?',
-          bn: 'Groww বা Zerodha-র মতো অ্যাপ থাকা সত্ত্বেও একজন ব্যক্তিগত অ্যাডভাইজরের মাধ্যমে ইনভেস্ট করা কেন ভালো?',
+          en: 'Why invest through an advisor instead of apps like Groww or Zerodha?',
+          bn: 'Groww বা Zerodha-র মতো অ্যাপ থাকা সত্ত্বেও ব্যক্তিগত পরামর্শ কেন জরুরি?',
         },
         answer: {
-          en: 'Discount apps only provide self-service execution without financial guidance. We offer personalized planning aligned to your family goals, emotional discipline during volatile markets, periodic rebalancing, and direct hands-on support for tax optimization and nominee claim settlements.',
-          bn: 'Groww বা Zerodha-র মতো অ্যাপগুলি কেবল নিজে নিজে লেনদেন করার একটি প্ল্যাটফর্ম—সেখানে কোনো অভিজ্ঞ পরামর্শ বা ব্যক্তিগত দায়িত্ব থাকে না। একজন পার্সোনাল অ্যাডভাইজর হিসেবে মনতোষবাবু আপনার পরিবারের সুনির্দিষ্ট লক্ষ্য অনুযায়ী সঠিক ফান্ড বেছে দেন, মার্কেট যখন পড়ে যায় তখন ভয় পেয়ে লোকসানে বিক্রি না করে ধৈর্য ধরতে শেখান, প্রতি বছর পোর্টফোলিও রিভিউ করেন এবং যেকোনো প্রয়োজনে পরিবারের পাশে দাঁড়িয়ে সম্পূর্ণ অফলাইন ও অনলাইন সহায়তা দেন।',
+          en: 'Discount apps are purely DIY transaction tools. They don\'t help you choose the right funds for your family goals, prevent emotional mistakes when markets drop, or rebalance your portfolio over time. We provide personalized planning, keep you disciplined during market swings, and handle all paperwork, tax queries, and nominee claims personally.',
+          bn: 'Groww বা Zerodha কেবল নিজে নিজে কেনাবেচা করার অ্যাপ—সেখানে কোনো ব্যক্তিগত পরামর্শ বা দায়িত্ব থাকে না। আমরা আপনার পরিবারের লক্ষ্য অনুযায়ী সঠিক ফান্ড বেছে দিই, বাজার পড়লে ভয় পেয়ে লোকসানে বিক্রি না করার পরামর্শ দিই, নিয়মিত পোর্টফোলিও রিভিউ করি এবং যেকোনো প্রয়োজনে পরিবারের পাশে দাঁড়িয়ে সহায়তা দিই।',
         },
       },
     ],
@@ -260,7 +260,7 @@ const categories: FaqCategory[] = [
   {
     id: 'returns',
     label: {
-      en: 'Returns & Liquidity',
+      en: 'Returns & Withdrawals',
       bn: 'রিটার্ন ও টাকা তোলা',
     },
     items: [
@@ -268,34 +268,34 @@ const categories: FaqCategory[] = [
         id: 'returns-1',
         question: {
           en: 'What returns can I realistically expect?',
-          bn: 'দীর্ঘমেয়াদে কেমন রিটার্ন (Return) আশা করা বাস্তবসম্মত?',
+          bn: 'দীর্ঘমেয়াদে কেমন রিটার্ন আশা করা বাস্তবসম্মত?',
         },
         answer: {
-          en: 'While market returns are never guaranteed, long-term diversified equity funds in India have historically delivered average annualized returns between 12% and 15% over 7–10 year horizons. Conservative hybrid and debt funds typically deliver between 7% and 9%.',
-          bn: 'শেয়ার বাজারে কোনো নির্দিষ্ট ফিক্সড রিটার্নের গ্যারান্টি দেওয়া নিয়মবিরুদ্ধ, তবে ঐতিহাসিক রেকর্ড অনুযায়ী ৭ থেকে ১০ বছরের মেয়াদে ভালো ইকুইটি ফান্ডে গড়ে ১২% থেকে ১৫% পর্যন্ত চক্রবৃদ্ধি রিটার্ন পাওয়া গেছে। আর অপেক্ষাকৃত কম ঝুঁকির হাইব্রিড বা ডেট ফান্ডে সাধারণত ৭% থেকে ৯% পর্যন্ত রিটার্ন পাওয়া যায়।',
+          en: 'While returns in mutual funds are subject to market movements and never fixed, diversified equity funds in India have historically delivered average annual returns of 12% to 15% over 7–10 year horizons. Conservative hybrid and debt funds typically deliver 7% to 9%.',
+          bn: 'মিউচুয়াল ফান্ডে কোনো নির্দিষ্ট রিটার্নের গ্যারান্টি থাকে না, তবে ভারতের ভালো ইকুইটি ফান্ডগুলো ৭ থেকে ১০ বছরের মেয়াদে গড়ে বার্ষিক ১২% থেকে ১৫% রিটার্ন দিয়েছে। আর অপেক্ষাকৃত কম ঝুঁকির হাইব্রিড বা ডেট ফান্ডে সাধারণত ৭% থেকে ৯% রিটার্ন পাওয়া যায়।',
         },
       },
       {
         id: 'returns-guide',
         hasCategoryTable: true,
         question: {
-          en: 'Which mutual fund category fits my goal? (Time Horizon & Return Guide)',
-          bn: 'কোন ধরনের মিউচুয়াল ফান্ড আমার জন্য সঠিক? (সময়সীমা ও রিটার্ন গাইড)',
+          en: 'Which fund category fits my goal? (Time Horizon & Return Guide)',
+          bn: 'কোন ধরনের ফান্ড আমার লক্ষ্যের জন্য সঠিক? (মেয়াদ ও রিটার্ন গাইড)',
         },
         answer: {
-          en: 'Different funds are designed for different financial timeframes and risk appetites. The table below is organized sequentially from shortest time horizon (emergency cash) to longest investment horizon (aggressive compounding):',
-          bn: 'প্রতিটি মিউচুয়াল ফান্ডের উদ্দেশ্য ও প্রয়োজনীয় মেয়াদ আলাদা। আপনার সুবিধার জন্য অতি স্বল্পমেয়াদ থেকে শুরু করে দীর্ঘমেয়াদি বড় লক্ষ্য অনুযায়ী তালিকাটি ক্রমানুসারে সাজানো হলো:',
+          en: 'Different funds suit different goals and timelines. The table below is organized sequentially from shortest time horizon (emergency savings) to longest investment horizon (long-term compounding):',
+          bn: 'বিভিন্ন মেয়াদের লক্ষ্যের জন্য আলাদা আলাদা ফান্ড রয়েছে। নিচের তালিকায় অতি স্বল্পমেয়াদ থেকে শুরু করে দীর্ঘমেয়াদের জন্য সঠিক ফান্ডের বিবরণ ক্রমানুসারে দেওয়া হলো:',
         },
       },
       {
         id: 'returns-2',
         question: {
           en: 'How quickly can I withdraw my money?',
-          bn: 'জরুরি প্রয়োজনে কত দ্রুত টাকা তুলে (Withdraw) ব্যাংকে পাওয়া যায়?',
+          bn: 'দরকার হলে কত দ্রুত টাকা তুলে ব্যাংকে পাওয়া যায়?',
         },
         answer: {
-          en: 'Most mutual funds are highly liquid. Open-ended equity funds credit withdrawals directly to your bank account within 2–3 business days. Liquid funds typically credit within 24 hours. Only tax-saving ELSS funds have a mandatory 3-year lock-in.',
-          bn: 'মিউচুয়াল ফান্ড থেকে টাকা তোলা অত্যন্ত সহজ ও দ্রুত। সাধারণ ওপেন-এন্ডেড ফান্ড থেকে টাকা তোলার নির্দেশ দিলে ২ থেকে ৩ কার্যদিবসের (Working Days) মধ্যে সরাসরি আপনার ব্যাংক অ্যাকাউন্টে টাকা চলে আসে। আর লিকুইড ফান্ডের টাকা মাত্র ২৪ ঘণ্টার মধ্যেই পাওয়া যায়। শুধু ট্যাক্স-সেভিং ELSS ফান্ডে ৩ বছরের লক-ইন থাকে।',
+          en: 'Most mutual funds are highly liquid. Open-ended equity fund redemptions are credited directly to your bank account within 2–3 business days. Liquid funds credit within 24 hours. Only tax-saving ELSS funds have a mandatory 3-year lock-in.',
+          bn: 'খুব দ্রুত। সাধারণ ওপেন-এন্ডেড ফান্ড থেকে টাকা তোলার নির্দেশ দিলে ২ থেকে ৩ কার্যদিবসের মধ্যে সরাসরি আপনার ব্যাংক অ্যাকাউন্টে টাকা চলে আসে। লিকুইড ফান্ডের ক্ষেত্রে মাত্র ২৪ ঘণ্টার মধ্যে টাকা পাওয়া যায়। শুধু ট্যাক্স-সেভিং ELSS ফান্ডে ৩ বছরের লক-ইন থাকে।',
         },
       },
     ],
@@ -303,19 +303,19 @@ const categories: FaqCategory[] = [
   {
     id: 'tax',
     label: {
-      en: 'Tax Rules (Budget 2024)',
+      en: 'Tax Rules',
       bn: 'ট্যাক্স নিয়মাবলী',
     },
     items: [
       {
         id: 'tax-1',
         question: {
-          en: 'How are mutual fund profits taxed in India?',
-          bn: 'মিউচুয়াল ফান্ডের লাভের ওপর ট্যাক্স (LTCG / STCG) কীভাবে হিসেব হয়?',
+          en: 'How are mutual fund profits taxed?',
+          bn: 'মিউচুয়াল ফান্ডের মুনাফায় ট্যাক্স কীভাবে হিসেব হয়?',
         },
         answer: {
-          en: 'As per the latest Finance Act 2024: For equity funds held over 1 year (LTCG), gains above ₹1.25 Lakhs per financial year are taxed at 12.5% (the first ₹1.25 Lakhs is completely tax-free). Equity gains held under 1 year (STCG) are taxed at 20%. Debt fund gains are taxed according to your individual income tax slab.',
-          bn: 'বাজেট ২০২৪-এর সর্বশেষ নিয়ম অনুযায়ী: ইকুইটি ফান্ডে ১ বছরের বেশি টাকা রাখলে (LTCG), বছরে ₹১.২৫ লাখ পর্যন্ত লাভ সম্পূর্ণ ট্যাক্স-ফ্রি! ₹১.২৫ লাখের বেশি লাভের ওপর ১২.৫% ট্যাক্স লাগে। আর ১ বছরের কম সময়ের মধ্যে টাকা তুললে (STCG) লাভের ওপর ২০% ট্যাক্স দিতে হয়। ডেট ফান্ডের ক্ষেত্রে আপনার নিজস্ব ইনকাম ট্যাক্স স্ল্যাব অনুযায়ী ট্যাক্স হিসেব হয়।',
+          en: 'Under current rules (Finance Act 2024): For equity funds held over 1 year (Long-Term Capital Gains), profits up to ₹1.25 Lakh per financial year are completely tax-free; gains above ₹1.25 Lakh are taxed at 12.5%. Equity gains held under 1 year (Short-Term Capital Gains) are taxed at 20%. Debt fund gains are taxed according to your personal income tax slab.',
+          bn: 'বাজেট ২০২৪-এর সর্বশেষ নিয়ম অনুযায়ী: ইকুইটি ফান্ডে ১ বছরের বেশি টাকা রাখলে (LTCG), বছরে প্রথম ₹১.২৫ লাখ পর্যন্ত মুনাফা সম্পূর্ণ ট্যাক্স-ফ্রি। এর বেশি লাভের ওপর ১২.৫% ট্যাক্স লাগে। আর ১ বছরের কম সময়ে টাকা তুললে (STCG) লাভের ওপর ২০% ট্যাক্স দিতে হয়। ডেট ফান্ডের ক্ষেত্রে নিজস্ব ইনকাম ট্যাক্স স্ল্যাব অনুযায়ী ট্যাক্স হিসেব হয়।',
         },
       },
       {
@@ -325,8 +325,8 @@ const categories: FaqCategory[] = [
           bn: 'মিউচুয়াল ফান্ড কি ইনকাম ট্যাক্স (Section 80C) বাঁচাতে সাহায্য করে?',
         },
         answer: {
-          en: 'Yes. ELSS (Equity Linked Savings Scheme) allows deductions up to ₹1.5 Lakhs under Section 80C, with the shortest lock-in period (3 years) among all 80C investment options.',
-          bn: 'হ্যাঁ। ELSS (ট্যাক্স সেভার ফান্ড)-এ ইনভেস্ট করলে আয়কর আইনের Section 80C অনুযায়ী বছরে সর্বোচ্চ ₹১.৫ লাখ টাকা পর্যন্ত ট্যাক্স ছাড় পাওয়া যায়। তাছাড়া PPF (১৫ বছর) বা ট্যাক্স-সেভিং FD (৫ বছর)-র তুলনায় ELSS-এর লক-ইন পিরিয়ড সবচেয়ে কম—মাত্র ৩ বছর।',
+          en: 'Yes. ELSS (Equity Linked Savings Scheme) allows tax deductions up to ₹1.5 Lakh per year under Section 80C. ELSS also features the shortest lock-in period (3 years) of any 80C investment option.',
+          bn: 'হ্যাঁ। ELSS ট্যাক্স-সেভার ফান্ডে বিনিয়োগ করে Section 80C অনুযায়ী বছরে সর্বোচ্চ ₹১.৫ লাখ টাকা পর্যন্ত ট্যাক্স ছাড় পাওয়া যায়। তাছাড়া PPF (১৫ বছর) বা ট্যাক্স-সেভিং FD (৫ বছর)-র তুলনায় ELSS-এর লক-ইন পিরিয়ড সবচেয়ে কম—মাত্র ৩ বছর।',
         },
       },
     ],
@@ -404,8 +404,8 @@ export default function InvestFaq() {
             lang === 'bn' ? "text-xs sm:text-[13.5px] leading-relaxed font-bengali" : "text-xs sm:text-sm leading-normal text-pretty font-sans"
           )}>
             {lang === 'en'
-              ? "Straightforward answers on safety, returns, liquidity, and taxation before you invest."
-              : "বিনিয়োগের আগে আপনার জমানো টাকার নিরাপত্তা, রিটার্ন, উইথড্রয়াল ও ট্যাক্স সংক্রান্ত যাবতীয় তথ্য।"}
+              ? "Clear answers on safety, returns, withdrawals, and taxes before you invest."
+              : "টাকার নিরাপত্তা, রিটার্ন, উইথড্রয়াল ও ট্যাক্স সংক্রান্ত জরুরি তথ্য।"}
           </p>
 
           {/* Clean Segmented Category Filter */}
@@ -546,8 +546,8 @@ export default function InvestFaq() {
                         lang === 'bn' ? "text-[11.5px] font-bengali leading-normal" : "text-[10px] font-sans italic"
                       )}>
                         {lang === 'en'
-                          ? "* Indicative historical returns based on Indian market cycles. Sorted chronologically from shortest time horizon to longest compounding horizon."
-                          : "* বিগত বছরগুলির বাজারভিত্তিক গড়ের ওপর নির্ভরশীল। সময়সীমা অনুযায়ী অতি স্বল্পমেয়াদ থেকে দীর্ঘমেয়াদি লক্ষ্য হিসেবে সাজানো।"}
+                          ? "* Based on historical market cycles. Organized from shortest to longest investment horizon."
+                          : "* বিগত বছরগুলোর বাজারভিত্তিক গড়ের ওপর নির্ভরশীল। স্বল্পমেয়াদ থেকে দীর্ঘমেয়াদের ক্রমানুসারে সাজানো।"}
                       </div>
                     </div>
                   )}

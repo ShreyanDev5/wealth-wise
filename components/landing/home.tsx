@@ -35,37 +35,37 @@ export default function HomeContent() {
   const coreServices = [
     {
       title: "Mutual Funds",
-      description: "Disciplined SIP portfolios and wealth creation strategies.",
+      description: "Goal-based SIPs and portfolios built for steady long-term growth.",
       icon: TrendingUp,
       href: "/invest#mutual-funds",
     },
     {
       title: "Health Insurance",
-      description: "Cashless medical protection for individuals and families.",
+      description: "Cashless hospital coverage for individuals and families.",
       icon: Heart,
       href: "/insurance#health-insurance",
     },
     {
       title: "Life Insurance",
-      description: "Term cover, pension planning, and long-term security via LIC.",
+      description: "Term insurance and guaranteed pension plans through LIC.",
       icon: ShieldCheck,
       href: "/insurance#life-insurance",
     },
     {
       title: "Income Tax Filing (ITR)",
-      description: "CA-assisted return filing, deductions, and TDS verification.",
+      description: "CA-assisted tax filing, deduction checks, and fast refunds.",
       icon: ClipboardList,
       href: "/documents#income-tax-filing",
     },
     {
       title: "Document Services",
-      description: "PAN, Aadhaar, driving licences, trade permits, and affidavits.",
+      description: "PAN, Aadhaar, driving licences, trade permits, and agreements.",
       icon: FileText,
       href: "/documents",
     },
     {
       title: "Financial Calculators",
-      description: "Project your SIP, retirement, and child education goals.",
+      description: "Estimate your returns for SIPs, college funds, and retirement.",
       icon: Calculator,
       href: "/calculators",
     },
@@ -73,7 +73,7 @@ export default function HomeContent() {
 
   const proofMetrics = [
     { value: "750+", label: "Families Guided" },
-    { value: "19+", label: "Years of Advisory" },
+    { value: "19+", label: "Years of Experience" },
     { value: "₹30L+", label: "Assets Managed" },
     { value: "20+", label: "Financial Services" },
   ];
@@ -88,11 +88,11 @@ export default function HomeContent() {
         className="max-w-4xl mx-auto pt-4 sm:pt-10 text-center flex flex-col items-center px-4"
       >
         <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold font-serif text-stone-900 tracking-tight leading-[1.15] text-balance">
-          Personalized Financial Planning
+          Simple, Honest Financial Planning
         </h1>
 
         <p className="text-sm sm:text-base text-stone-600 max-w-xl mx-auto mt-3 sm:mt-4 leading-normal text-pretty">
-          Independent guidance from <span className="font-semibold text-stone-900">{clientName}</span> to protect your family and grow your wealth with disciplined, personalized advisory.
+          Clear guidance from <span className="font-semibold text-stone-900">{clientName}</span> to help you protect your family, invest with clarity, and build long-term wealth.
         </p>
 
         {/* Primary Call to Actions */}
@@ -144,7 +144,7 @@ export default function HomeContent() {
       <AnimatedSection id="core-services-section" className="text-center scroll-mt-24 max-w-6xl mx-auto px-4 sm:px-6">
         <div className="mb-8 sm:mb-10 flex flex-col items-center">
           <h2 className="text-2xl sm:text-3xl font-bold font-serif text-stone-900 tracking-tight">
-            Advisory &amp; Services
+            Our Core Services
           </h2>
         </div>
         
@@ -189,17 +189,17 @@ export default function HomeContent() {
           <TestimonialCard
             name="Apurbo Saha"
             role="CEO, GS Diesel Company"
-            testimonial={`${clientFirstName} simplified our family's health cover and mutual funds from day one. Honest advice, zero sales pressure.`}
+            testimonial={`${clientFirstName} sorted out our family's health insurance and mutual funds without any confusion. Just honest advice with zero sales pressure.`}
           />
           <TestimonialCard
             name="Sanchita Mondal"
             role="Cashier, State Bank of India"
-            testimonial={`He cuts through financial jargon and explains exactly where your money goes. Always just a quick call away when questions come up.`}
+            testimonial={`He explains investments in simple words so you always know where your money goes. Whenever I have a question, he is just a phone call away.`}
           />
           <TestimonialCard
             name="Dr. Debashis Sarkar"
             role="Physician"
-            testimonial={`With my busy hospital schedule, I have very little free time. ${clientFirstName} sorted our family's term and medical coverage with zero paperwork hassle.`}
+            testimonial={`With long hospital shifts, I rarely have time for paperwork. ${clientFirstName} took care of our term and health insurance quickly and smoothly.`}
           />
         </div>
       </AnimatedSection>

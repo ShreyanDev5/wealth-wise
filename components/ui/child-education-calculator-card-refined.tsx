@@ -241,7 +241,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
 
         <div className="p-3 bg-stone-50/70 rounded-xl border border-stone-200/50 flex items-center gap-2.5 text-[11px] text-stone-500">
           <Info className="h-4 w-4 text-stone-400 flex-shrink-0" />
-          <span>Calculated using disciplined multi-year equity accumulation and phased SWP drawdowns.</span>
+          <span>Based on regular monthly investments followed by annual withdrawals for college fees.</span>
         </div>
       </div>
     );
@@ -361,7 +361,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
                 className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs flex items-center justify-center gap-2"
               >
                 <MessageCircle className="h-4 w-4" />
-                Share Projection via WhatsApp
+                Share on WhatsApp
               </Button>
             </div>
           )}
@@ -429,7 +429,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
             className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs"
             disabled={!monthlySavings || Object.keys(errors).length > 0}
           >
-            Calculate Support Schedule
+            Calculate Education Plan
           </Button>
 
           {showResults && sipSwpCalculationResults && (
@@ -441,7 +441,7 @@ End Career Fund: ${formatLargeNumber(careerFund)}`;
                 className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs flex items-center justify-center gap-2"
               >
                 <MessageCircle className="h-4 w-4" />
-                Share Results via WhatsApp
+                Share on WhatsApp
               </Button>
             </div>
           )}

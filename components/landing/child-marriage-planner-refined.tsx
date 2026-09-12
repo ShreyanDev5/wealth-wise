@@ -265,7 +265,7 @@ One-time Investment Alternative: ${formatLargeNumber(lumpSumInvestment)}`;
                 className="w-full py-2.5 h-10 sm:h-11 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-2xs hover:shadow-xs flex items-center justify-center gap-2"
               >
                 <MessageCircle className="h-4 w-4" />
-                Share Projection via WhatsApp
+                Share on WhatsApp
               </Button>
             </div>
           )}

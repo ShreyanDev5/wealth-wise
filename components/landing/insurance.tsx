@@ -85,24 +85,24 @@ export default function InsuranceContent() {
           { name: "Care Health", logo: "/care.png" },
         ],
       },
-      description: "Hospitalisation protection with direct cashless admission across Kolkata and nationwide networks, protecting family savings from sudden medical expenses.",
+      description: "Cashless hospitalisation across network hospitals in Kolkata and nationwide, protecting your family from unexpected medical bills.",
       highlights: [
-        "Direct cashless admission across network hospitals with fast TPA approvals",
-        "In-patient hospitalisation, daycare procedures, and pre/post-admission expenses",
-        "Annual cumulative No Claim Bonus and automatic restoration of sum insured",
-        "Preventive health checkup vouchers and lifetime renewability with no penalties",
+        "Cashless admission across network hospitals with quick approvals",
+        "Covers hospital stays, daycare treatments, and pre/post-admission costs",
+        "Annual No Claim Bonus and automatic recharge of sum insured",
+        "Free annual health checkups and lifelong renewal with no penalties",
       ],
       documents: [
-        "KYC proof (Aadhaar Card and PAN)",
-        "Age proof (Birth Certificate or Class 10 Admit)",
-        "Past discharge summaries or prescriptions (if pre-existing conditions exist)",
-        "Previous policy document (for renewals or porting)",
+        "Aadhaar card and PAN",
+        "Age proof (Birth Certificate or Class 10 Admit Card)",
+        "Past medical discharge summaries (if any existing conditions)",
+        "Previous policy copy (for renewals or porting)",
       ],
       process: [
-        "Brief call to evaluate family needs & medical history",
-        "Transparent plan comparison between Star Health & Care Health",
-        "Direct online premium payment to insurer via official link",
-        "Dedicated assistance with hospital desk for cashless pre-authorizations",
+        "Quick call to understand your family's healthcare requirements",
+        "Transparent plan comparison between top health insurers",
+        "Direct online payment through the insurer's official portal",
+        "Direct personal support for cashless hospital admissions and claims",
       ],
       costs: [
         { plan: "Individual Plan", cost: "Typically ₹5,000 – ₹18,000 / year" },
@@ -118,28 +118,28 @@ export default function InsuranceContent() {
         label: "Underwritten by",
         items: [{ name: "LIC of India", logo: "/lic.png" }],
       },
-      description: "Pure protection term plans, guaranteed maturity savings, and retirement pension solutions backed by the sovereign security of LIC.",
+      description: "Affordable pure term protection, guaranteed savings, and pension policies backed by LIC of India.",
       highlights: [
-        "High sum-assured pure term protection at affordable monthly premiums",
-        "Guaranteed-return endowment and pension plans for secure family milestones",
-        "Sovereign guarantee backing all claim settlements through LIC of India",
-        "Tax deductions under Section 80C and 100% tax-free maturity under Section 10(10D)",
+        "High term cover at affordable premiums to secure your family's future",
+        "Guaranteed savings and pension plans for milestone goals",
+        "100% sovereign government guarantee backing all LIC claim settlements",
+        "Tax deductions under Section 80C and tax-free payouts under Section 10(10D)",
       ],
       documents: [
-        "Identity & address proof (Aadhaar & PAN)",
-        "Income proof (Form 16 / ITR / salary slips for higher term cover)",
-        "Nominee KYC details & bank passbook copy",
-        "Medical screening (only if required by underwriting limits)",
+        "Aadhaar card and PAN",
+        "Income proof (Form 16, ITR, or salary slips for term plans)",
+        "Nominee identity proof and bank details",
+        "Medical checkup (only if required by policy limits)",
       ],
       process: [
-        "Calculate life cover needed based on liabilities, lifestyle & dependents",
-        "Select the right balance between Pure Term Cover and Guaranteed Savings",
-        "Complete proposal form with instant policy receipt upon issuance",
-        "Ongoing support for nomination updates, addresses, and death claim payouts",
+        "Calculate the right cover based on your income, loans, and family needs",
+        "Choose between term protection and guaranteed savings",
+        "Complete the simple proposal form and receive your official receipt",
+        "Lifetime personal support for address changes, nominees, and claims",
       ],
       costs: [
-        { plan: "Pure Term Plan (₹50L – ₹1 Cr)", cost: "From ₹600 – ₹1,800 / month" },
-        { plan: "Guaranteed Savings / Pension", cost: "Customized to milestone target" },
+        { plan: "Pure Term Cover (₹50L – ₹1 Cr)", cost: "From ₹600 – ₹1,800 / month" },
+        { plan: "Guaranteed Savings / Pension", cost: "Tailored to your target goal" },
       ],
       icon: ShieldCheck,
       whatsAppMsg: `Hi ${clientFirstName}, I'd like guidance on LIC term and savings plans.`,
@@ -151,27 +151,27 @@ export default function InsuranceContent() {
         label: "Partner insurers",
         items: [{ name: "HDFC ERGO · Tata AIG · Bajaj Allianz · ICICI Lombard" }],
       },
-      description: "Mandatory third-party protection and comprehensive own-damage coverage for motorcycles and scooters, issued within minutes on WhatsApp.",
+      description: "Third-party and comprehensive insurance for bikes and scooters, issued in minutes over WhatsApp.",
       highlights: [
-        "Instant digital policy PDF delivered directly on WhatsApp in under 15 minutes",
-        "Complete protection against road accidents, theft, fire, and flood damage",
-        "Seamless No Claim Bonus (NCB) retention and transfer from your previous insurer",
-        "Instant renewal without physical vehicle inspection for active policies",
+        "Instant policy PDF delivered on WhatsApp in under 15 minutes",
+        "Coverage against road accidents, theft, fire, and flood damage",
+        "Full No Claim Bonus (NCB) transfer from your previous policy",
+        "Instant renewal with zero inspection for unexpired policies",
       ],
       documents: [
-        "Vehicle Registration Certificate (RC)",
-        "Owner's Driving Licence and Aadhaar",
-        "Previous year policy copy (for NCB verification)",
+        "Vehicle Registration Certificate (RC) photo",
+        "Owner's Driving Licence or Aadhaar",
+        "Previous policy copy (for NCB discount)",
       ],
       process: [
-        "Send photo of your RC and old policy via WhatsApp",
+        "Send a photo of your RC and old policy on WhatsApp",
         "Receive instant side-by-side quotes from top insurers",
-        "Pay directly to insurer via official online payment link",
-        "Receive policy document instantly on WhatsApp & email",
+        "Pay directly through the insurer's official online link",
+        "Receive your policy PDF instantly on WhatsApp and email",
       ],
       costs: [
-        { plan: "Third-Party Liability", cost: "Approx. ₹1,200 – ₹2,800 / year (IRDAI rates)" },
-        { plan: "Comprehensive Package", cost: "Calculated based on vehicle IDV & CC" },
+        { plan: "Third-Party Liability", cost: "Approx. ₹1,200 – ₹2,800 / year (statutory)" },
+        { plan: "Comprehensive Package", cost: "Based on bike model and current IDV" },
       ],
       icon: Bike,
       whatsAppMsg: `Hi ${clientFirstName}, I'd like an instant quote for my two-wheeler insurance renewal.`,
@@ -183,27 +183,27 @@ export default function InsuranceContent() {
         label: "Partner insurers",
         items: [{ name: "HDFC ERGO · Tata AIG · Bajaj Allianz · ICICI Lombard" }],
       },
-      description: "Bumper-to-bumper zero-depreciation coverage, engine protector, and cashless repairs across authorized manufacturer workshops.",
+      description: "Comprehensive car insurance with zero depreciation, engine protection, and cashless repairs across authorized workshops.",
       highlights: [
-        "Cashless accident repairs across authorized manufacturer garages",
-        "Bumper-to-bumper Zero Depreciation with zero parts deduction on claims",
-        "Engine and gearbox protector against water ingression and hydrostatic lock",
-        "24x7 Roadside Assistance (RSA) for emergency towing, jumpstarts, and repairs",
+        "Cashless repairs across authorized manufacturer service centers",
+        "Zero Depreciation add-on for full claim payouts with no parts deduction",
+        "Engine and gearbox protection against water damage during monsoons",
+        "24x7 Roadside Assistance for towing, battery jumpstarts, and flat tyres",
       ],
       documents: [
-        "Vehicle Registration Certificate (RC)",
-        "Owner's Driving Licence and Aadhaar",
+        "Vehicle Registration Certificate (RC) photo",
+        "Owner's Driving Licence or Aadhaar",
         "Previous policy copy with NCB certificate",
       ],
       process: [
         "Share car model, year, and RC details on WhatsApp",
-        "Review comparative quotes with recommended add-on riders",
-        "Pay directly on the insurer's portal without physical inspection (if unexpired)",
-        "Instant policy issuance with active garage cashless support",
+        "Review quotes with recommended add-ons like Zero Dep and RSA",
+        "Pay securely on the insurer's portal with no physical inspection needed",
+        "Receive your policy instantly with active cashless garage support",
       ],
       costs: [
         { plan: "Hatchback & Sedan", cost: "Approx. ₹6,000 – ₹18,000 / year" },
-        { plan: "SUV & Luxury Vehicles", cost: "Quotes aligned with market IDV" },
+        { plan: "SUV & Premium Vehicles", cost: "Based on vehicle model and market IDV" },
       ],
       icon: Car,
       whatsAppMsg: `Hi ${clientFirstName}, I need a quote and comparison for my car insurance renewal.`,
@@ -226,8 +226,8 @@ export default function InsuranceContent() {
       {/* Header & Filter */}
       <div className="flex flex-col items-center">
         <SimplePageHeader 
-          title="Insurance & Family Protection" 
-          description="Independent advice across health, life, and motor insurance—with direct personal claim support when you need it most." 
+          title="Insurance &amp; Family Protection" 
+          description="Independent health, life, and vehicle insurance with direct personal claim support when your family needs it most." 
         />
 
         {/* Segmented Category Filter */}
@@ -339,7 +339,7 @@ export default function InsuranceContent() {
                     <span className="flex items-center gap-1.5 min-w-0 pr-2">
                       <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0" />
                       <span className="truncate sm:whitespace-normal">
-                        {isExpanded ? "Hide paperwork, issuance steps & estimated premiums" : "View paperwork, issuance steps & estimated premiums"}
+                        {isExpanded ? "Hide required documents, process & estimated premiums" : "View required documents, process & estimated premiums"}
                       </span>
                     </span>
                     <ChevronDown className={cn("w-4 h-4 text-stone-400 group-hover:text-stone-700 transition-transform duration-200 flex-shrink-0", isExpanded && "rotate-180")} />
@@ -352,7 +352,7 @@ export default function InsuranceContent() {
                         {/* Documents */}
                         <div>
                           <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
-                            Documents needed
+                            Required Documents
                           </div>
                           <ul className="space-y-1.5">
                             {policy.documents.map((doc, idx) => (
@@ -367,7 +367,7 @@ export default function InsuranceContent() {
                         {/* Process */}
                         <div>
                           <div className="text-xs font-semibold text-stone-900 mb-2.5 font-sans">
-                            How issuance works
+                            How It Works
                           </div>
                           <ol className="space-y-1.5 text-xs text-stone-600 leading-normal">
                             {policy.process.map((step, idx) => (
@@ -383,7 +383,7 @@ export default function InsuranceContent() {
                       {/* Structured Premium Range Chips */}
                       <div className="pt-3 border-t border-stone-100 font-sans">
                         <div className="text-xs font-semibold text-stone-900 mb-2 font-sans">
-                          Estimated premium guideline
+                          Estimated Premium Guidelines
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {policy.costs.map((item, idx) => (
@@ -425,13 +425,13 @@ export default function InsuranceContent() {
       {/* Cross-Navigation Next Step */}
       <div className="pt-2 sm:pt-4 text-center">
         <p className="text-xs sm:text-sm text-stone-500">
-          Protecting your family is step one. Looking to grow wealth alongside it?
+          Family protected? See how your savings can grow over time.
         </p>
         <Link 
           href="/invest" 
           className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-900 mt-1.5 transition-colors group"
         >
-          <span>Explore Mutual Funds &amp; SIP Portfolios</span>
+          <span>Explore Mutual Funds &amp; SIPs</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
