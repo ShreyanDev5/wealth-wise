@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
+import { Plus_Jakarta_Sans, Playfair_Display, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: '--font-plus-jakarta-sans' });
 const playfairDisplay = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair-display' });
+const notoSansBengali = Noto_Sans_Bengali({ 
+  weight: ["400", "500", "600", "700"],
+  subsets: ["bengali"], 
+  variable: '--font-noto-bengali',
+  display: 'swap'
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wealth-wise.vercel.app"),
@@ -67,7 +73,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${plusJakartaSans.variable} ${playfairDisplay.variable}`}>
+      <body className={`${plusJakartaSans.variable} ${playfairDisplay.variable} ${notoSansBengali.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

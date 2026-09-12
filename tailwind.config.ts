@@ -44,8 +44,9 @@ const config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-plus-jakarta-sans)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['var(--font-plus-jakarta-sans)', 'var(--font-noto-bengali)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         serif: ['var(--font-playfair-display)', 'Georgia', 'serif'],
+        bengali: ['var(--font-noto-bengali)', 'sans-serif'],
       },
       animation: {
         "accordion-down": "accordion-down 150ms cubic-bezier(0.16, 1, 0.3, 1)",
