@@ -14,7 +14,7 @@ export default function ShowcaseFooter() {
           </span>
           <span className="w-1 h-1 rounded-full bg-stone-300 dark:bg-stone-600 shrink-0" aria-hidden="true" />
           <span className="text-stone-500 dark:text-stone-400 font-normal">
-            Independent Financial Advisory
+            Financial Advisory &amp; Services
           </span>
         </div>
 
