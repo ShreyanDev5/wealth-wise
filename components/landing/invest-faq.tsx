@@ -106,25 +106,14 @@ const categories: FaqCategory[] = [
     },
     items: [
       {
-        id: 'basics-1',
-        question: {
-          en: 'How do mutual funds work?',
-          bn: 'মিউচুয়াল ফান্ড কীভাবে কাজ করে?',
-        },
-        answer: {
-          en: 'A mutual fund pools money from many investors and invests it across top companies and government bonds. Experienced fund managers handle the investments, and your money grows as these companies succeed. You can start with as little as ₹500 a month via SIP.',
-          bn: 'মিউচুয়াল ফান্ডে অনেক মানুষের জমানো টাকা অভিজ্ঞ ফান্ড ম্যানেজাররা একত্রিত করে দেশের সেরা কোম্পানি ও বন্ডে বিনিয়োগ করেন। সেই কোম্পানিগুলোর বৃদ্ধির সাথে সাথে আপনার জমানো টাকার মূল্যও বাড়ে। আপনি প্রতি মাসে মাত্র ₹৫০০ দিয়েও নিয়মিত SIP শুরু করতে পারেন।',
-        },
-      },
-      {
         id: 'basics-benefits',
         question: {
           en: 'Why choose mutual funds over bank fixed deposits?',
           bn: 'ব্যাংক ফিক্সড ডিপোজিটের (FD) চেয়ে মিউচুয়াল ফান্ড কেন ভালো?',
         },
         answer: {
-          en: 'Mutual funds provide three key advantages over bank FDs: higher inflation-beating growth (equity funds have historically delivered 12–15% annual returns over the long term vs. 6–7% in FDs), easy liquidity (withdraw anytime without penalty), and better tax efficiency (equity gains up to ₹1.25L per year are completely tax-free).',
-          bn: 'ব্যাংক ফিক্সড ডিপোজিটের তুলনায় মিউচুয়াল ফান্ডের তিনটি প্রধান সুবিধা রয়েছে: (১) বেশি রিটার্ন—FD-তে যেখানে ৬-৭% সুদ মেলে, ইকুইটি ফান্ডে দীর্ঘমেয়াদে গড়ে ১২-১৫% বার্ষিক রিটার্ন পাওয়া গেছে; (২) সহজ উইথড্রয়াল—কোনো পেনাল্টি ছাড়াই যেকোনো সময় টাকা তুলে নেওয়া যায়; এবং (৩) ট্যাক্স ছাড়—বছরে ₹১.২৫ লাখ পর্যন্ত মুনাফায় কোনো ট্যাক্স লাগে না।',
+          en: 'A mutual fund pools investments into India\'s top companies and bonds, managed by professional fund managers starting from just ₹500/month. Compared to bank FDs, it offers three key advantages: higher long-term growth (equity funds have historically delivered 12–15% annual returns vs. 6–7% in FDs), easy liquidity (withdraw anytime without penalty), and better tax efficiency (equity gains up to ₹1.25L per year are tax-free).',
+          bn: 'মিউচুয়াল ফান্ডে জমানো টাকা একত্রিত করে দেশের শীর্ষ কোম্পানি ও বন্ডে পেশাদারভাবে বিনিয়োগ করা হয়, যা মাসে মাত্র ₹৫০০ দিয়েও শুরু করা যায়। সাধারণ ফিক্সড ডিপোজিটের তুলনায় এর তিনটি বড় সুবিধা রয়েছে: (১) বেশি রিটার্ন—FD-র ৬-৭% সুদের তুলনায় দীর্ঘমেয়াদে গড়ে ১২-১৫% বার্ষিক বৃদ্ধি; (২) সহজ উইথড্রয়াল—কোনো পেনাল্টি ছাড়াই যেকোনো সময় টাকা তোলার সুবিধা; এবং (৩) ট্যাক্স ছাড়—বছরে প্রথম ₹১.২৫ লাখ পর্যন্ত মুনাফায় কোনো ট্যাক্স লাগে না।',
         },
       },
       {
@@ -180,17 +169,6 @@ const categories: FaqCategory[] = [
       bn: 'টাকার নিরাপত্তা',
     },
     items: [
-      {
-        id: 'safety-scale',
-        question: {
-          en: 'How large and regulated is the mutual fund industry in India?',
-          bn: 'ভারতে মিউচুয়াল ফান্ড ইন্ডাস্ট্রি কতটা বড় এবং সুরক্ষিত?',
-        },
-        answer: {
-          en: 'Mutual funds in India are strictly regulated by SEBI. Today, Indian retail investors contribute over ₹32,000 Crore every month through SIPs, and the total industry manages over ₹86 Lakh Crore across 50+ regulated fund houses.',
-          bn: 'ভারতে সমস্ত মিউচুয়াল ফান্ড SEBI দ্বারা অত্যন্ত কড়া নিয়মে পরিচালিত হয়। বর্তমানে দেশের পরিবারগুলো প্রতি মাসে শুধু SIP-র মাধ্যমেই ₹৩২,০০০ কোটি টাকার বেশি বিনিয়োগ করছেন এবং ৫০টিরও বেশি ফান্ড হাউসে মোট বিনিয়োগের পরিমাণ ₹৮৬ লক্ষ কোটি টাকা ছাড়িয়ে গেছে।',
-        },
-      },
       {
         id: 'safety-1',
         question: {
