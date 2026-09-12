@@ -1,8 +1,8 @@
-# <img src="public/monotosh_logo_1.1.png" width="28" height="28" style="vertical-align: middle;" /> WealthWise
+# WealthWise
 
 A modern financial advisory and services platform based in Kolkata. Features goal-based investment calculators, insurance and mutual fund guides, a bilingual Bengali FAQ, and direct WhatsApp inquiries.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-monotosh.vercel.app-emerald?style=flat-square&logo=vercel&logoColor=white)](https://monotosh.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-monotosh.vercel.app-emerald?style=flat-square)](https://monotosh.vercel.app/)
 [![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen?style=flat-square)](#tests)
 
 ---
