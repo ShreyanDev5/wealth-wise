@@ -13,6 +13,7 @@ import {
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import InvestFaq from "@/components/landing/invest-faq";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
 export default function InvestContent() {
@@ -24,30 +25,30 @@ export default function InvestContent() {
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
 
   const highlights = [
-    "Start an SIP from ₹500/month to grow your savings steadily over time",
-    "Carefully selected equity, hybrid, and debt funds from India's top fund houses",
-    "Regular portfolio reviews and rebalancing to keep your goals on track",
-    "Easy withdrawals deposited directly into your bank account within 2–3 days",
+    { title: "Start Small", desc: "From ₹500/mo, scale or pause anytime" },
+    { title: "Expert Choice", desc: "Top funds matched to your goals" },
+    { title: "Monitored", desc: "Routine check-ins to stay on target" },
+    { title: "Zero Lock-in", desc: "Direct bank withdrawals in 2–3 days" },
   ];
 
   const documents = [
-    "PAN card and Aadhaar for one-time paperless KYC",
-    "Cancelled cheque or bank passbook copy for auto-debit setup",
-    "Nominee identity proof (Aadhaar or PAN)",
-    "Aadhaar-linked phone number for instant OTP verification",
+    { title: "PAN Card", desc: "Standard tax ID for investor account" },
+    { title: "Aadhaar Card", desc: "Mobile-linked for instant OTP" },
+    { title: "Bank Details", desc: "Passbook or cheque copy for auto-SIP" },
+    { title: "Nominee ID", desc: "Aadhaar or PAN of chosen nominee" },
   ];
 
   const processSteps = [
-    "Quick consultation with Monotosh to map your financial goals",
-    "Paperless KYC completed online in under 5 minutes",
-    "Fund selection and automatic monthly SIP setup",
-    "Ongoing portfolio tracking and periodic performance check-ins",
+    { title: "Goal Call", desc: "Quick chat to map goals and timeline" },
+    { title: "5-Min KYC", desc: "Paperless digital ID check on phone" },
+    { title: "Start SIP", desc: "Fund selection & automated monthly save" },
+    { title: "Check-ins", desc: "Ongoing review and performance tracking" },
   ];
 
   const pricingGuidelines = [
-    { label: "Advisory & Setup", value: "Free" },
-    { label: "Fund Management (TER)", value: "Standard SEBI rates (built into NAV)" },
-    { label: "Long-Term Gains (> 1 yr)", value: "12.5% on profits over ₹1.25L / yr" },
+    { label: "Advisory Fee", value: "₹0 (100% Free)" },
+    { label: "Fund Management", value: "Built into NAV (no extra bill)" },
+    { label: "Long-Term Gains (> 1 yr)", value: "12.5% on profits over ₹1.25L/yr" },
     { label: "Short-Term Gains (< 1 yr)", value: "Flat 20% on profits" },
   ];
 
@@ -62,10 +63,10 @@ export default function InvestContent() {
       {/* Main Advisory Card */}
       <div id="mutual-funds" className="scroll-mt-28">
         <AnimatedSection animation="fade-up" delay={0} duration={350}>
-          <div className="bg-white/95 rounded-2xl sm:rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-2xs hover:shadow-xs hover:border-stone-300 transition-all duration-200 text-left">
+          <div className="bg-white/95 rounded-2xl sm:rounded-3xl border border-stone-200/80 p-4 sm:p-7 shadow-2xs hover:shadow-xs hover:border-stone-300 transition-all duration-200 text-left">
             {/* Header Row */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex items-center gap-3.5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+              <div className="flex items-center gap-3">
                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-stone-100 flex items-center justify-center text-stone-800 border border-stone-200/60 flex-shrink-0">
                   <TrendingUp className="w-5 h-5 text-emerald-800" />
                 </div>
@@ -89,18 +90,21 @@ export default function InvestContent() {
 
             {/* Symmetrical 2x2 Highlights Grid */}
             <div className="mt-4 sm:mt-5">
-              <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-x-6">
+              <ul className="grid gap-2 sm:grid-cols-2 sm:gap-x-6">
                 {highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-normal font-normal">
+                  <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-snug font-normal">
                     <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                    <span>{highlight}</span>
+                    <span>
+                      <strong className="font-semibold text-stone-900">{highlight.title}:</strong>{" "}
+                      <span className="text-stone-600">{highlight.desc}</span>
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Requirements & Process Toggle */}
-            <div className="mt-4 pt-3.5 border-t border-stone-100">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-stone-100">
               <button
                 type="button"
                 onClick={() => setIsDetailsExpanded(!isDetailsExpanded)}
@@ -108,66 +112,83 @@ export default function InvestContent() {
                 aria-expanded={isDetailsExpanded}
               >
                 <span className="flex items-center gap-2 min-w-0 pr-2 text-left">
-                  <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0 mt-0.5" />
+                  <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0" />
                   <span className="leading-snug">
-                    {isDetailsExpanded ? "Hide documents, process & tax rules" : "View documents, process & tax rules"}
+                    {isDetailsExpanded ? "Hide details" : "View details"}
                   </span>
                 </span>
                 <ChevronDown className={cn("w-4 h-4 text-stone-400 group-hover:text-stone-700 transition-transform duration-200 flex-shrink-0", isDetailsExpanded && "rotate-180")} />
               </button>
 
-              {/* Clean Sans-Serif Drawer Content */}
+              {/* Clean Progressive Tabbed Drawer */}
               {isDetailsExpanded && (
-                <div className="mt-3 pt-1 space-y-5 font-sans">
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    {/* Documents */}
-                    <div>
-                      <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
-                        Required Documents
-                      </h4>
-                      <ul className="space-y-1.5">
-                        {documents.map((doc, idx) => (
-                          <li key={idx} className="text-xs text-stone-600 flex items-start gap-2 leading-normal">
-                            <span className="w-1.5 h-1.5 rounded-full bg-stone-300 mt-1.5 flex-shrink-0" />
-                            <span className="flex-1">{doc}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Process */}
-                    <div>
-                      <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
+                <div className="mt-3 pt-1 font-sans">
+                  <Tabs defaultValue="process" className="w-full">
+                    <TabsList className="grid w-full grid-cols-3 bg-stone-100/90 p-1 rounded-xl border border-stone-200/60 h-auto">
+                      <TabsTrigger
+                        value="process"
+                        className="text-[11px] sm:text-xs py-1.5 px-1 sm:px-3 rounded-lg font-medium text-stone-600 data-[state=active]:bg-white data-[state=active]:text-stone-900 data-[state=active]:shadow-xs transition-all"
+                      >
                         How It Works
-                      </h4>
-                      <ol className="space-y-1.5 text-xs text-stone-600 leading-normal">
-                        {processSteps.map((step, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <span className="text-stone-400 font-medium tabular-nums flex-shrink-0">{idx + 1}.</span>
-                            <span className="text-stone-600 flex-1">{step}</span>
-                          </li>
-                        ))}
-                      </ol>
-                    </div>
-                  </div>
+                      </TabsTrigger>
+                      <TabsTrigger
+                        value="documents"
+                        className="text-[11px] sm:text-xs py-1.5 px-1 sm:px-3 rounded-lg font-medium text-stone-600 data-[state=active]:bg-white data-[state=active]:text-stone-900 data-[state=active]:shadow-xs transition-all"
+                      >
+                        Documents
+                      </TabsTrigger>
+                      <TabsTrigger
+                        value="fees"
+                        className="text-[11px] sm:text-xs py-1.5 px-1 sm:px-3 rounded-lg font-medium text-stone-600 data-[state=active]:bg-white data-[state=active]:text-stone-900 data-[state=active]:shadow-xs transition-all"
+                      >
+                        Fees &amp; Taxes
+                      </TabsTrigger>
+                    </TabsList>
 
-                  {/* Fees & Tax Rules */}
-                  <div className="pt-1">
-                    <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
-                      Fees &amp; Tax Rules
-                    </h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-2">
-                      {pricingGuidelines.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs text-stone-600 leading-normal min-w-0">
-                          <span className="w-1.5 h-1.5 rounded-full bg-stone-300 mt-1.5 flex-shrink-0" />
-                          <span className="flex-1 leading-normal break-words">
-                            <span className="font-medium text-stone-600">{item.label}:</span>{" "}
-                            <span className="font-semibold text-stone-900">{item.value}</span>
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    {/* How It Works Tab */}
+                    <TabsContent value="process" className="pt-3 focus-visible:outline-none">
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {processSteps.map((step, idx) => (
+                          <div key={idx} className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-stone-50/70 border border-stone-200/50">
+                            <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+                              {idx + 1}
+                            </span>
+                            <div className="text-xs">
+                              <span className="font-semibold text-stone-900 block">{step.title}</span>
+                              <span className="text-stone-600 mt-0.5 block leading-relaxed">{step.desc}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </TabsContent>
+
+                    {/* Documents Tab */}
+                    <TabsContent value="documents" className="pt-3 focus-visible:outline-none">
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {documents.map((doc, idx) => (
+                          <div key={idx} className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-stone-50/70 border border-stone-200/50">
+                            <FileText className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
+                            <div className="text-xs">
+                              <span className="font-semibold text-stone-900 block">{doc.title}</span>
+                              <span className="text-stone-600 mt-0.5 block leading-relaxed">{doc.desc}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </TabsContent>
+
+                    {/* Fees & Taxes Tab */}
+                    <TabsContent value="fees" className="pt-3 focus-visible:outline-none">
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {pricingGuidelines.map((item, idx) => (
+                          <div key={idx} className="p-2.5 sm:p-3 rounded-xl bg-stone-50/70 border border-stone-200/50 flex flex-col justify-between">
+                            <span className="text-[11px] font-medium text-stone-500">{item.label}</span>
+                            <span className="text-xs font-semibold text-stone-900 mt-0.5">{item.value}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </TabsContent>
+                  </Tabs>
                 </div>
               )}
             </div>
@@ -175,7 +196,7 @@ export default function InvestContent() {
             {/* Mobile WhatsApp Action */}
             <div className="mt-4 sm:hidden">
               <a
-                href={`https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(clientFirstName)}%2C%20I'd%20like%20guidance%20on%20starting%20a%20disciplined%20SIP%20or%20reviewing%20my%20mutual%20fund%20portfolio.`}
+                href={`https://wa.me/${whatsAppNumber}?text=Hi%20${encodeURIComponent(clientFirstName)}%2C%20I'd%20like%20guidance%20on%20starting%20a%20disciplined%20SIP%20or%20reviewing%20my%20mutual%20fund%20portfolio.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 h-10 px-5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-medium text-xs shadow-2xs transition-all"

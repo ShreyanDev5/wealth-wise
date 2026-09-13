@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
 interface PremiumRange {
@@ -25,11 +26,6 @@ interface PremiumRange {
 interface PolicyItem {
   id: string;
   title: string;
-  underwriters: {
-    label: string;
-    items: { name: string; logo?: string }[];
-  };
-  description: string;
   highlights: string[];
   documents: string[];
   process: string[];
@@ -78,35 +74,27 @@ export default function InsuranceContent() {
     {
       id: "health-insurance",
       title: "Health Insurance",
-      underwriters: {
-        label: "Underwritten by",
-        items: [
-          { name: "Star Health", logo: "/starhealth.png" },
-          { name: "Care Health", logo: "/care.png" },
-        ],
-      },
-      description: "Cashless hospitalisation across top network hospitals to protect your family from sudden medical bills.",
       highlights: [
-        "Cashless admission across network hospitals with quick approvals",
-        "Covers hospital stays, daycare treatments, and pre/post-admission costs",
-        "Annual No Claim Bonus and automatic recharge of sum insured",
-        "Free annual health checkups and lifelong renewal with no penalties",
+        "Cashless Billing: Zero cash upfront across network hospitals",
+        "Full Cover: Rooms, ICU, doctor visits & medicines",
+        "Annual Bonus: Cover increases each claim-free year",
+        "Claim Support: Direct assistance during hospital admission",
       ],
       documents: [
-        "Aadhaar card and PAN",
-        "Age proof (Birth Certificate or Class 10 Admit Card)",
-        "Past medical discharge summaries (if any existing conditions)",
-        "Previous policy copy (for renewals or porting)",
+        "Aadhaar & PAN: For insured family members",
+        "Age Proof: Birth certificate or school card",
+        "Medical Records: Only if you have ongoing health issues",
+        "Old Policy: If switching or renewing existing plan",
       ],
       process: [
-        "Quick call to understand your family's healthcare requirements",
-        "Transparent plan comparison between top health insurers",
-        "Direct online payment through the insurer's official portal",
-        "Direct personal support for cashless hospital admissions and claims",
+        "Quick Call: Share family size, health history & budget",
+        "Compare: Review best plans from Star Health & Care",
+        "Direct Pay: Official secure insurer payment portal",
+        "Instant Cover: Policy card issued with 24/7 hospital help",
       ],
       costs: [
-        { plan: "Individual Plan", cost: "Typically ₹5,000 – ₹18,000 / year" },
-        { plan: "Family Floater", cost: "Typically ₹14,000 – ₹38,000 / year" },
+        { plan: "Individual Plan", cost: "Typically ₹5,000 – ₹18,000 / yr" },
+        { plan: "Family Floater", cost: "Typically ₹14,000 – ₹38,000 / yr" },
       ],
       icon: Heart,
       whatsAppMsg: `Hi ${clientFirstName}, I'd like help comparing health insurance plans for my family.`,
@@ -114,32 +102,27 @@ export default function InsuranceContent() {
     {
       id: "life-insurance",
       title: "Life Insurance",
-      underwriters: {
-        label: "Underwritten by",
-        items: [{ name: "LIC of India", logo: "/lic.png" }],
-      },
-      description: "Affordable term protection, guaranteed savings, and retirement plans backed by LIC of India.",
       highlights: [
-        "High term cover at affordable premiums to secure your family's future",
-        "Guaranteed savings and pension plans for milestone goals",
-        "100% sovereign government guarantee backing all LIC claim settlements",
-        "Tax deductions under Section 80C and tax-free payouts under Section 10(10D)",
+        "Family Security: Guaranteed financial payout for loved ones",
+        "Govt Guarantee: 100% sovereign safety backed by LIC",
+        "Goal Savings: Grow funds for child future or pension",
+        "Tax-Free: Deposits & maturity payouts 100% tax exempt",
       ],
       documents: [
-        "Aadhaar card and PAN",
-        "Income proof (Form 16, ITR, or salary slips for term plans)",
-        "Nominee identity proof and bank details",
-        "Medical checkup (only if required by policy limits)",
+        "Aadhaar & PAN: Identity proof of applicant",
+        "Income Proof: Salary slip, bank statement, or ITR",
+        "Nominee Details: Nominee ID proof and bank details",
+        "Medical: Arranged free of charge if required",
       ],
       process: [
-        "Calculate the right cover based on your income, loans, and family needs",
-        "Choose between term protection and guaranteed savings",
-        "Complete the simple proposal form and receive your official receipt",
-        "Lifetime personal support for address changes, nominees, and claims",
+        "Needs Check: Calculate right cover for family expenses",
+        "Pick Plan: Pure family cover or guaranteed savings",
+        "Simple Form: Quick proposal submission with official receipt",
+        "Support: Lifetime help with nominees, updates & claims",
       ],
       costs: [
-        { plan: "Pure Term Cover (₹50L – ₹1 Cr)", cost: "From ₹600 – ₹1,800 / month" },
-        { plan: "Guaranteed Savings / Pension", cost: "Tailored to your target goal" },
+        { plan: "Family Cover (₹50L – ₹1 Cr)", cost: "From ₹600 – ₹1,800 / mo" },
+        { plan: "Guaranteed Savings", cost: "Tailored to monthly savings goal" },
       ],
       icon: ShieldCheck,
       whatsAppMsg: `Hi ${clientFirstName}, I'd like guidance on LIC term and savings plans.`,
@@ -147,31 +130,26 @@ export default function InsuranceContent() {
     {
       id: "two-wheeler-insurance",
       title: "Two-Wheeler Insurance",
-      underwriters: {
-        label: "Partner insurers",
-        items: [{ name: "HDFC ERGO · Tata AIG · Bajaj Allianz · ICICI Lombard" }],
-      },
-      description: "Instant third-party and comprehensive bike insurance delivered on WhatsApp in minutes.",
       highlights: [
-        "Instant policy PDF delivered on WhatsApp in under 15 minutes",
-        "Coverage against road accidents, theft, fire, and flood damage",
-        "Full No Claim Bonus (NCB) transfer from your previous policy",
-        "Instant renewal with zero inspection for unexpired policies",
+        "10-Min Delivery: Official policy PDF on WhatsApp in minutes",
+        "Accident & Theft: Covers road crashes, theft, fire & storms",
+        "Zero Inspection: Instant renewal without bike check",
+        "Keep Discount: Transfer your existing no-claim discount",
       ],
       documents: [
-        "Vehicle Registration Certificate (RC) photo",
-        "Owner's Driving Licence or Aadhaar",
-        "Previous policy copy (for NCB discount)",
+        "Bike RC: Photo of Registration Certificate",
+        "Owner ID: Driving licence or Aadhaar card",
+        "Old Policy: To transfer your existing discount",
       ],
       process: [
-        "Send a photo of your RC and old policy on WhatsApp",
-        "Receive instant side-by-side quotes from top insurers",
-        "Pay directly through the insurer's official online link",
-        "Receive your policy PDF instantly on WhatsApp and email",
+        "Send RC: Share photo of bike RC and old policy",
+        "Compare: Instant quotes from HDFC, Tata & Bajaj",
+        "Pay Direct: Secure link from the insurer",
+        "Get Policy: Download renewed policy PDF instantly",
       ],
       costs: [
-        { plan: "Third-Party Liability", cost: "Approx. ₹1,200 – ₹2,800 / year (statutory)" },
-        { plan: "Comprehensive Package", cost: "Based on bike model and current IDV" },
+        { plan: "Third-Party Legal Cover", cost: "Approx. ₹1,200 – ₹2,800 / yr" },
+        { plan: "Full Protection Package", cost: "Based on bike model and age" },
       ],
       icon: Bike,
       whatsAppMsg: `Hi ${clientFirstName}, I'd like an instant quote for my two-wheeler insurance renewal.`,
@@ -179,31 +157,26 @@ export default function InsuranceContent() {
     {
       id: "four-wheeler-(car)-insurance",
       title: "Four-Wheeler (Car) Insurance",
-      underwriters: {
-        label: "Partner insurers",
-        items: [{ name: "HDFC ERGO · Tata AIG · Bajaj Allianz · ICICI Lombard" }],
-      },
-      description: "Comprehensive car insurance with zero depreciation and cashless repairs at authorized workshops.",
       highlights: [
-        "Cashless repairs across authorized manufacturer service centers",
-        "Zero Depreciation add-on for full claim payouts with no parts deduction",
-        "Engine and gearbox protection against water damage during monsoons",
-        "24x7 Roadside Assistance for towing, battery jumpstarts, and flat tyres",
+        "Cashless Repairs: Direct billing at authorized workshops",
+        "Zero Dep: 100% parts payout with no deduction",
+        "24/7 Roadside: Free towing, flat tyre & battery jumps",
+        "Monsoon Shield: Engine cover against waterlogging",
       ],
       documents: [
-        "Vehicle Registration Certificate (RC) photo",
-        "Owner's Driving Licence or Aadhaar",
-        "Previous policy copy with NCB certificate",
+        "Car RC: Photo of Registration Certificate",
+        "Owner ID: Driving licence or Aadhaar card",
+        "Old Policy: To transfer your existing discount",
       ],
       process: [
-        "Share car model, year, and RC details on WhatsApp",
-        "Review quotes with recommended add-ons like Zero Dep and RSA",
-        "Pay securely on the insurer's portal with no physical inspection needed",
-        "Receive your policy instantly with active cashless garage support",
+        "Share RC: Send car details & old policy on WhatsApp",
+        "Compare: Review quotes with Zero Dep & Roadside Help",
+        "Pay Online: Direct payment with zero inspection",
+        "Drive Safe: Instant policy with cashless garage support",
       ],
       costs: [
-        { plan: "Hatchback & Sedan", cost: "Approx. ₹6,000 – ₹18,000 / year" },
-        { plan: "SUV & Premium Vehicles", cost: "Based on vehicle model and market IDV" },
+        { plan: "Hatchback & Sedan", cost: "Approx. ₹6,000 – ₹18,000 / yr" },
+        { plan: "SUV & Luxury Cars", cost: "Based on vehicle market value" },
       ],
       icon: Car,
       whatsAppMsg: `Hi ${clientFirstName}, I need a quote and comparison for my car insurance renewal.`,
@@ -286,11 +259,11 @@ export default function InsuranceContent() {
               className="scroll-mt-28"
               id={policy.id}
             >
-              <div className="bg-white/95 rounded-2xl sm:rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-2xs hover:shadow-xs hover:border-stone-300 transition-all duration-200 text-left">
+              <div className="bg-white/95 rounded-2xl sm:rounded-3xl border border-stone-200/80 p-4 sm:p-7 shadow-2xs hover:shadow-xs hover:border-stone-300 transition-all duration-200 text-left">
                 {/* Header Row */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-stone-100 flex items-center justify-center text-stone-800 border border-stone-200/60 flex-shrink-0">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center text-stone-800 border border-stone-200/60 flex-shrink-0">
                       <PolicyIcon className="w-5 h-5 text-emerald-800" />
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold font-serif text-stone-900 leading-tight">
@@ -313,18 +286,31 @@ export default function InsuranceContent() {
 
                 {/* Symmetrical 2x2 Coverage Highlights */}
                 <div className="mt-4 sm:mt-5">
-                  <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-x-6">
-                    {policy.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-normal font-normal">
-                        <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
+                  <ul className="grid gap-2 sm:grid-cols-2 sm:gap-x-6">
+                    {policy.highlights.map((highlight, idx) => {
+                      const colonIdx = highlight.indexOf(":");
+                      const hasColon = colonIdx !== -1;
+                      const title = hasColon ? highlight.slice(0, colonIdx).trim() : "";
+                      const desc = hasColon ? highlight.slice(colonIdx + 1).trim() : highlight;
+                      return (
+                        <li key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-stone-700 leading-snug font-normal">
+                          <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                          {hasColon ? (
+                            <span>
+                              <strong className="font-semibold text-stone-900">{title}:</strong>{" "}
+                              <span className="text-stone-600">{desc}</span>
+                            </span>
+                          ) : (
+                            <span>{highlight}</span>
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
 
                 {/* Requirements & Process Toggle */}
-                <div className="mt-4 pt-3.5 border-t border-stone-100">
+                <div className="mt-4 sm:mt-5 pt-3 border-t border-stone-100">
                   <button
                     type="button"
                     onClick={() => toggleDetails(policy.id)}
@@ -332,66 +318,107 @@ export default function InsuranceContent() {
                     aria-expanded={isExpanded}
                   >
                     <span className="flex items-center gap-2 min-w-0 pr-2 text-left">
-                      <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0 mt-0.5" />
+                      <FileText className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors flex-shrink-0" />
                       <span className="leading-snug">
-                        {isExpanded ? "Hide documents, process & premium guidelines" : "View documents, process & premium guidelines"}
+                        {isExpanded ? "Hide details" : "View details"}
                       </span>
                     </span>
                     <ChevronDown className={cn("w-4 h-4 text-stone-400 group-hover:text-stone-700 transition-transform duration-200 flex-shrink-0", isExpanded && "rotate-180")} />
                   </button>
 
-                  {/* Clean Sans-Serif Drawer Content */}
+                  {/* Clean Progressive Tabbed Drawer */}
                   {isExpanded && (
-                    <div className="mt-3 pt-1 space-y-5 font-sans">
-                      <div className="grid gap-6 sm:grid-cols-2">
-                        {/* Documents */}
-                        <div>
-                          <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
-                            Required Documents
-                          </h4>
-                          <ul className="space-y-1.5">
-                            {policy.documents.map((doc, idx) => (
-                              <li key={idx} className="text-xs text-stone-600 flex items-start gap-2 leading-normal">
-                                <span className="w-1.5 h-1.5 rounded-full bg-stone-300 mt-1.5 flex-shrink-0" />
-                                <span className="flex-1">{doc}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Process */}
-                        <div>
-                          <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
+                    <div className="mt-3 pt-1 font-sans">
+                      <Tabs defaultValue="process" className="w-full">
+                        <TabsList className="grid w-full grid-cols-3 bg-stone-100/90 p-1 rounded-xl border border-stone-200/60 h-auto">
+                          <TabsTrigger
+                            value="process"
+                            className="text-[11px] sm:text-xs py-1.5 px-1 sm:px-3 rounded-lg font-medium text-stone-600 data-[state=active]:bg-white data-[state=active]:text-stone-900 data-[state=active]:shadow-xs transition-all"
+                          >
                             How It Works
-                          </h4>
-                          <ol className="space-y-1.5 text-xs text-stone-600 leading-normal">
-                            {policy.process.map((step, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <span className="text-stone-400 font-medium tabular-nums flex-shrink-0">{idx + 1}.</span>
-                                <span className="text-stone-600 flex-1">{step}</span>
-                              </li>
-                            ))}
-                          </ol>
-                        </div>
-                      </div>
+                          </TabsTrigger>
+                          <TabsTrigger
+                            value="documents"
+                            className="text-[11px] sm:text-xs py-1.5 px-1 sm:px-3 rounded-lg font-medium text-stone-600 data-[state=active]:bg-white data-[state=active]:text-stone-900 data-[state=active]:shadow-xs transition-all"
+                          >
+                            Documents
+                          </TabsTrigger>
+                          <TabsTrigger
+                            value="premiums"
+                            className="text-[11px] sm:text-xs py-1.5 px-1 sm:px-3 rounded-lg font-medium text-stone-600 data-[state=active]:bg-white data-[state=active]:text-stone-900 data-[state=active]:shadow-xs transition-all"
+                          >
+                            Premiums
+                          </TabsTrigger>
+                        </TabsList>
 
-                      {/* Estimated Premium Guidelines */}
-                      <div className="pt-1">
-                        <h4 className="text-xs font-semibold text-stone-900 mb-2.5">
-                          Estimated Premium Guidelines
-                        </h4>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-2">
-                          {policy.costs.map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-xs text-stone-600 leading-normal min-w-0">
-                              <span className="w-1.5 h-1.5 rounded-full bg-stone-300 mt-1.5 flex-shrink-0" />
-                              <span className="flex-1 leading-normal break-words">
-                                <span className="font-medium text-stone-600">{item.plan}:</span>{" "}
-                                <span className="font-semibold text-stone-900">{item.cost}</span>
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                        {/* Process Tab */}
+                        <TabsContent value="process" className="pt-3 focus-visible:outline-none">
+                          <div className="grid gap-2 sm:grid-cols-2">
+                            {policy.process.map((step, idx) => {
+                              const colonIdx = step.indexOf(":");
+                              const hasColon = colonIdx !== -1;
+                              const title = hasColon ? step.slice(0, colonIdx).trim() : "";
+                              const desc = hasColon ? step.slice(colonIdx + 1).trim() : step;
+                              return (
+                                <div key={idx} className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-stone-50/70 border border-stone-200/50">
+                                  <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    {idx + 1}
+                                  </span>
+                                  <div className="text-xs">
+                                    {hasColon ? (
+                                      <>
+                                        <span className="font-semibold text-stone-900 block">{title}</span>
+                                        <span className="text-stone-600 mt-0.5 block leading-relaxed">{desc}</span>
+                                      </>
+                                    ) : (
+                                      <span className="text-stone-700 leading-relaxed">{step}</span>
+                                    )}
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </TabsContent>
+
+                        {/* Documents Tab */}
+                        <TabsContent value="documents" className="pt-3 focus-visible:outline-none">
+                          <div className="grid gap-2 sm:grid-cols-2">
+                            {policy.documents.map((doc, idx) => {
+                              const colonIdx = doc.indexOf(":");
+                              const hasColon = colonIdx !== -1;
+                              const title = hasColon ? doc.slice(0, colonIdx).trim() : "";
+                              const desc = hasColon ? doc.slice(colonIdx + 1).trim() : doc;
+                              return (
+                                <div key={idx} className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-stone-50/70 border border-stone-200/50">
+                                  <FileText className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
+                                  <div className="text-xs">
+                                    {hasColon ? (
+                                      <>
+                                        <span className="font-semibold text-stone-900 block">{title}</span>
+                                        <span className="text-stone-600 mt-0.5 block leading-relaxed">{desc}</span>
+                                      </>
+                                    ) : (
+                                      <span className="text-stone-700 leading-relaxed">{doc}</span>
+                                    )}
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </TabsContent>
+
+                        {/* Estimated Premiums Tab */}
+                        <TabsContent value="premiums" className="pt-3 focus-visible:outline-none">
+                          <div className="grid gap-2 sm:grid-cols-2">
+                            {policy.costs.map((item, idx) => (
+                              <div key={idx} className="p-2.5 sm:p-3 rounded-xl bg-stone-50/70 border border-stone-200/50 flex flex-col justify-between">
+                                <span className="text-[11px] font-medium text-stone-500">{item.plan}</span>
+                                <span className="text-xs font-semibold text-stone-900 mt-0.5">{item.cost}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </TabsContent>
+                      </Tabs>
                     </div>
                   )}
                 </div>
