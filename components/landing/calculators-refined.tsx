@@ -47,7 +47,7 @@ export default function CalculatorsContentRefined() {
       <div className="flex flex-col items-center mb-5 sm:mb-6">
         <SimplePageHeader 
           title="Financial Calculators" 
-          description="Plan your investments, child's education, retirement corpus, and major life milestones."
+          description="Plan your investments, education funds, retirement corpus, and life milestones."
           className="mb-4 sm:mb-5"
         />
 

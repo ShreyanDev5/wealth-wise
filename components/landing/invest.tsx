@@ -57,7 +57,7 @@ export default function InvestContent() {
       {/* Header */}
       <SimplePageHeader 
         title="Mutual Funds &amp; SIPs" 
-        description="Grow your wealth steadily with goal-focused SIPs, handpicked funds, and regular portfolio reviews." 
+        description="Goal-focused SIPs, curated mutual funds, and regular portfolio reviews." 
       />
 
       {/* Main Advisory Card */}

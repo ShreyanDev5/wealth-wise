@@ -35,7 +35,7 @@ export default function HomeContent() {
   const coreServices = [
     {
       title: "Mutual Funds",
-      description: "Goal-based SIPs and portfolios built for steady long-term growth.",
+      description: "Goal-based SIPs and portfolios for steady long-term growth.",
       icon: TrendingUp,
       href: "/invest#mutual-funds",
     },
@@ -47,25 +47,25 @@ export default function HomeContent() {
     },
     {
       title: "Life Insurance",
-      description: "Term insurance and guaranteed pension plans through LIC.",
+      description: "Term insurance and guaranteed pension plans via LIC.",
       icon: ShieldCheck,
       href: "/insurance#life-insurance",
     },
     {
       title: "Income Tax Filing (ITR)",
-      description: "CA-assisted tax filing, deduction checks, and fast refunds.",
+      description: "Expert tax filing, deduction checks, and fast refunds.",
       icon: ClipboardList,
       href: "/documents#income-tax-filing",
     },
     {
       title: "Document Services",
-      description: "PAN, Aadhaar, driving licences, trade permits, and agreements.",
+      description: "PAN, Aadhaar, driving licences, and trade permits.",
       icon: FileText,
       href: "/documents",
     },
     {
       title: "Financial Calculators",
-      description: "Estimate your returns for SIPs, college funds, and retirement.",
+      description: "Quick projections for SIPs, education, and retirement.",
       icon: Calculator,
       href: "/calculators",
     },
@@ -88,11 +88,11 @@ export default function HomeContent() {
         className="max-w-4xl mx-auto pt-4 sm:pt-10 text-center flex flex-col items-center px-4"
       >
         <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold font-serif text-stone-900 tracking-tight leading-[1.15] text-balance">
-          Simple, Honest Financial Planning
+          Financial Planning Made Simple
         </h1>
 
         <p className="text-sm sm:text-base text-stone-600 max-w-xl mx-auto mt-3 sm:mt-4 leading-normal text-pretty">
-          Clear guidance from <span className="font-semibold text-stone-900">{clientName}</span> to help you protect your family, invest with clarity, and build long-term wealth.
+          Clear guidance from <span className="font-semibold text-stone-900">{clientName}</span> to protect your family and build long-term wealth.
         </p>
 
         {/* Primary Call to Actions */}
@@ -189,7 +189,7 @@ export default function HomeContent() {
           <TestimonialCard
             name="Apurbo Saha"
             role="CEO, GS Diesel Company"
-            testimonial={`${clientFirstName} sorted out our family's health insurance and mutual funds without any confusion. Just honest advice with zero sales pressure.`}
+            testimonial={`${clientFirstName} sorted out our family's health insurance and mutual funds without any confusion. Clear advice and always responsive.`}
           />
           <TestimonialCard
             name="Sanchita Mondal"

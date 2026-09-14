@@ -132,8 +132,8 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Aadhaar Card Services",
       highlights: [
-        "Primary ID: Accepted across all banks, mobile SIMs & govt schemes",
-        "Online Updates: Update address or name without waiting in line",
+        "Universal ID: Accepted across all banks, SIMs & govt schemes",
+        "Online Updates: Update address or name without queues",
         "Official PVC Card: Waterproof pocket smart card with secure QR code",
         "Fast e-Aadhaar: Quick download and colour lamination assistance",
       ],
@@ -256,7 +256,7 @@ export default function DocumentsContent() {
       category: "personal",
       title: "Marriage Registration",
       highlights: [
-        "Legal Certificate: Essential proof for spouse visas, joint loans & bank accounts",
+        "Legal Proof: Essential for spouse visas, joint loans & banking",
         "Govt-Authorized: Registered under Special or Hindu Marriage Act",
         "Advocate Drafting: Complete legal paperwork and witness affidavits",
         "Flexible Slot: Signing at registrar office or your venue",
@@ -516,7 +516,7 @@ export default function DocumentsContent() {
       <div className="flex flex-col items-center">
         <SimplePageHeader 
           title="Document &amp; Legal Services" 
-          description="Assistance with government identity cards, vehicle paperwork, business registrations, and tax filing." 
+          description="Assistance with government IDs, vehicle paperwork, trade permits, and tax filing." 
         />
 
         {/* Segmented Category Filter */}

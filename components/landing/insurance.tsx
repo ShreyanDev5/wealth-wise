@@ -131,7 +131,7 @@ export default function InsuranceContent() {
       id: "two-wheeler-insurance",
       title: "Two-Wheeler Insurance",
       highlights: [
-        "10-Min Delivery: Official policy PDF on WhatsApp in minutes",
+        "Instant Delivery: Official policy PDF on WhatsApp in minutes",
         "Accident & Theft: Covers road crashes, theft, fire & storms",
         "Zero Inspection: Instant renewal without bike check",
         "Keep Discount: Transfer your existing no-claim discount",
@@ -159,7 +159,7 @@ export default function InsuranceContent() {
       title: "Four-Wheeler (Car) Insurance",
       highlights: [
         "Cashless Repairs: Direct billing at authorized workshops",
-        "Zero Dep: 100% parts payout with no deduction",
+        "Zero Dep: Full parts payout with no deduction",
         "24/7 Roadside: Free towing, flat tyre & battery jumps",
         "Monsoon Shield: Engine cover against waterlogging",
       ],
@@ -199,8 +199,8 @@ export default function InsuranceContent() {
       {/* Header & Filter */}
       <div className="flex flex-col items-center">
         <SimplePageHeader 
-          title="Insurance &amp; Family Protection" 
-          description="Independent health, life, and vehicle insurance with direct personal claim support when your family needs it most." 
+          title="Insurance & Family Protection" 
+          description="Health, life, and motor insurance with direct personal claim support." 
         />
 
         {/* Segmented Category Filter */}
