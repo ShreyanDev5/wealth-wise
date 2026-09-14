@@ -44,7 +44,7 @@ export function AdvisorSection({ advisor }: { advisor: AdvisorInfo }) {
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
                   <span>NISM &amp; IRDA Certified</span>
                 </div>
-                <span className="text-stone-300 hidden sm:inline" aria-hidden="true">•</span>
+                <span className="text-stone-300" aria-hidden="true">•</span>
                 <span className="font-semibold">
                   ARN: 155875
                 </span>
