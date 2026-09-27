@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
@@ -314,6 +314,110 @@ const categories: FaqCategory[] = [
 export default function InvestFaq() {
   const [lang, setLang] = useState<Language>('en');
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const filterScrollRef = useRef<HTMLDivElement>(null);
+  const animFrameRef = useRef<number | null>(null);
+
+  const smoothSlide = (targetLeft: number, duration = 650) => {
+    const container = filterScrollRef.current;
+    if (!container) return;
+
+    if (animFrameRef.current !== null) {
+      cancelAnimationFrame(animFrameRef.current);
+      animFrameRef.current = null;
+    }
+
+    const startLeft = container.scrollLeft;
+    const distance = targetLeft - startLeft;
+    if (Math.abs(distance) < 2) return;
+
+    const startTime = performance.now();
+
+    const step = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Gentle cubic deceleration: silky smooth and slow
+      const ease = 1 - Math.pow(1 - progress, 3);
+      container.scrollLeft = startLeft + distance * ease;
+
+      if (progress < 1) {
+        animFrameRef.current = requestAnimationFrame(step);
+      } else {
+        animFrameRef.current = null;
+      }
+    };
+
+    animFrameRef.current = requestAnimationFrame(step);
+  };
+
+  const handleCategorySelect = (categoryId: string, index: number) => {
+    setActiveCategory(categoryId);
+
+    // Only on mobile screens (< 640px)
+    if (typeof window !== "undefined" && window.innerWidth < 640) {
+      const container = filterScrollRef.current;
+      if (container) {
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (maxScroll > 0) {
+          if (index < 2) {
+            // Earlier filters ("All Questions", "Getting Started") slide back to the beginning
+            smoothSlide(0, 650);
+          } else {
+            // 3rd filter ("Safety & Trust") and all subsequent filters slide so the
+            // selected filter smoothly moves to the very left edge of the visible strip
+            const child = container.children[index] as HTMLElement | undefined;
+            if (child) {
+              const containerRect = container.getBoundingClientRect();
+              const childRect = child.getBoundingClientRect();
+              const paddingLeft = parseFloat(getComputedStyle(container).paddingLeft) || 4;
+              const rawTarget = container.scrollLeft + (childRect.left - containerRect.left - paddingLeft);
+              const target = Math.max(0, Math.min(rawTarget, maxScroll));
+              smoothSlide(target, 650);
+            }
+          }
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (animFrameRef.current !== null) {
+        cancelAnimationFrame(animFrameRef.current);
+      }
+    };
+  }, []);
+
+  // Keep active filter properly aligned at the left edge when language switches
+  useEffect(() => {
+    if (typeof window === "undefined" || window.innerWidth >= 640) return;
+    const container = filterScrollRef.current;
+    if (!container) return;
+
+    const activeIndex = activeCategory === 'all'
+      ? 0
+      : categories.findIndex((c) => c.id === activeCategory) + 1;
+
+    const frameId = requestAnimationFrame(() => {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      if (maxScroll <= 0) return;
+
+      if (activeIndex < 2) {
+        container.scrollLeft = 0;
+      } else {
+        const child = container.children[activeIndex] as HTMLElement | undefined;
+        if (child) {
+          const containerRect = container.getBoundingClientRect();
+          const childRect = child.getBoundingClientRect();
+          const paddingLeft = parseFloat(getComputedStyle(container).paddingLeft) || 4;
+          const rawTarget = container.scrollLeft + (childRect.left - containerRect.left - paddingLeft);
+          const target = Math.max(0, Math.min(rawTarget, maxScroll));
+          container.scrollLeft = target;
+        }
+      }
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [lang]);
 
   const displayedItems = activeCategory === 'all'
     ? categories.flatMap((cat) => cat.items)
@@ -387,12 +491,21 @@ export default function InvestFaq() {
           </p>
 
           {/* Clean Segmented Category Filter */}
-          <div className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full justify-start sm:justify-center">
+          <div 
+            ref={filterScrollRef}
+            onTouchStart={() => {
+              if (animFrameRef.current !== null) {
+                cancelAnimationFrame(animFrameRef.current);
+                animFrameRef.current = null;
+              }
+            }}
+            className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full justify-start sm:justify-center"
+          >
             <button
               type="button"
-              onClick={() => setActiveCategory('all')}
+              onClick={() => handleCategorySelect('all', 0)}
               className={cn(
-                "px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-center cursor-pointer",
+                "px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-center cursor-pointer shrink-0",
                 lang === 'bn' && "font-bengali text-xs sm:text-[13px]",
                 activeCategory === 'all'
                   ? "bg-white text-stone-900 shadow-xs font-semibold"
@@ -401,13 +514,13 @@ export default function InvestFaq() {
             >
               {lang === 'en' ? "All Questions" : "সব প্রশ্ন"}
             </button>
-            {categories.map((cat) => (
+            {categories.map((cat, idx) => (
               <button
                 key={cat.id}
                 type="button"
-                onClick={() => setActiveCategory(cat.id)}
+                onClick={() => handleCategorySelect(cat.id, idx + 1)}
                 className={cn(
-                  "px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-center cursor-pointer",
+                  "px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-center cursor-pointer shrink-0",
                   lang === 'bn' && "font-bengali text-xs sm:text-[13px]",
                   activeCategory === cat.id
                     ? "bg-white text-stone-900 shadow-xs font-semibold"

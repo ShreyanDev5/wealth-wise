@@ -313,7 +313,7 @@ export function InvestmentCalculatorCardRefined({ investmentType }: { investment
 
           {/* Results Block */}
           {calculatedResult && (
-            <div className="pt-3 border-t border-stone-100">
+            <div>
               <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-center bg-stone-50/70 p-4 sm:p-6 rounded-2xl border border-stone-200/70">
                 {/* Left: Donut Chart */}
                 <div className="md:col-span-5 flex justify-center">
