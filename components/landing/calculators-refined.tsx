@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
@@ -18,6 +18,61 @@ export default function CalculatorsContentRefined() {
   const whatsAppNumber = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
 
   const [activeCategory, setActiveCategory] = useState<'all' | 'investment' | 'education' | 'retirement' | 'marriage'>('all');
+  const filterScrollRef = useRef<HTMLDivElement>(null);
+  const animFrameRef = useRef<number | null>(null);
+
+  const smoothSlide = (targetLeft: number, duration = 650) => {
+    const container = filterScrollRef.current;
+    if (!container) return;
+
+    if (animFrameRef.current !== null) {
+      cancelAnimationFrame(animFrameRef.current);
+      animFrameRef.current = null;
+    }
+
+    const startLeft = container.scrollLeft;
+    const distance = targetLeft - startLeft;
+    if (Math.abs(distance) < 2) return;
+
+    const startTime = performance.now();
+
+    const step = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Gentle cubic deceleration: silky smooth and slow
+      const ease = 1 - Math.pow(1 - progress, 3);
+      container.scrollLeft = startLeft + distance * ease;
+
+      if (progress < 1) {
+        animFrameRef.current = requestAnimationFrame(step);
+      } else {
+        animFrameRef.current = null;
+      }
+    };
+
+    animFrameRef.current = requestAnimationFrame(step);
+  };
+
+  const handleCategorySelect = (
+    category: 'all' | 'investment' | 'education' | 'retirement' | 'marriage',
+    index: number
+  ) => {
+    setActiveCategory(category);
+
+    // Only on mobile screens (< 640px)
+    if (typeof window !== "undefined" && window.innerWidth < 640) {
+      const container = filterScrollRef.current;
+      if (container) {
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (maxScroll > 0) {
+          // When selecting the rightmost visible filter (index >= 2), slide smoothly and slowly
+          // to the left so the hidden filters come into view. Earlier filters slide back to the start.
+          const target = index >= 2 ? maxScroll : 0;
+          smoothSlide(target, 650);
+        }
+      }
+    }
+  };
 
   useEffect(() => {
     const checkHash = () => {
@@ -25,20 +80,25 @@ export default function CalculatorsContentRefined() {
       if (hash) {
         const id = hash.substring(1).toLowerCase();
         if (id.includes("investment")) {
-          setActiveCategory("investment");
+          handleCategorySelect("investment", 1);
         } else if (id.includes("education")) {
-          setActiveCategory("education");
+          handleCategorySelect("education", 2);
         } else if (id.includes("income") || id.includes("retirement")) {
-          setActiveCategory("retirement");
+          handleCategorySelect("retirement", 3);
         } else if (id.includes("marriage") || id.includes("wedding")) {
-          setActiveCategory("marriage");
+          handleCategorySelect("marriage", 4);
         }
       }
     };
 
     checkHash();
     window.addEventListener("hashchange", checkHash);
-    return () => window.removeEventListener("hashchange", checkHash);
+    return () => {
+      window.removeEventListener("hashchange", checkHash);
+      if (animFrameRef.current !== null) {
+        cancelAnimationFrame(animFrameRef.current);
+      }
+    };
   }, []);
 
   return (
@@ -52,10 +112,19 @@ export default function CalculatorsContentRefined() {
         />
 
         {/* Segmented Category Filter */}
-        <div className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full justify-start sm:justify-center">
+        <div 
+          ref={filterScrollRef}
+          onTouchStart={() => {
+            if (animFrameRef.current !== null) {
+              cancelAnimationFrame(animFrameRef.current);
+              animFrameRef.current = null;
+            }
+          }}
+          className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full justify-start sm:justify-center"
+        >
           <button
             type="button"
-            onClick={() => setActiveCategory('all')}
+            onClick={() => handleCategorySelect('all', 0)}
             className={cn(
               "px-3.5 py-1.5 text-xs rounded-full font-medium transition-all shrink-0",
               activeCategory === 'all'
@@ -67,7 +136,7 @@ export default function CalculatorsContentRefined() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveCategory('investment')}
+            onClick={() => handleCategorySelect('investment', 1)}
             className={cn(
               "px-3.5 py-1.5 text-xs rounded-full font-medium transition-all shrink-0",
               activeCategory === 'investment'
@@ -79,7 +148,7 @@ export default function CalculatorsContentRefined() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveCategory('education')}
+            onClick={() => handleCategorySelect('education', 2)}
             className={cn(
               "px-3.5 py-1.5 text-xs rounded-full font-medium transition-all shrink-0",
               activeCategory === 'education'
@@ -91,7 +160,7 @@ export default function CalculatorsContentRefined() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveCategory('retirement')}
+            onClick={() => handleCategorySelect('retirement', 3)}
             className={cn(
               "px-3.5 py-1.5 text-xs rounded-full font-medium transition-all shrink-0",
               activeCategory === 'retirement'
@@ -103,7 +172,7 @@ export default function CalculatorsContentRefined() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveCategory('marriage')}
+            onClick={() => handleCategorySelect('marriage', 4)}
             className={cn(
               "px-3.5 py-1.5 text-xs rounded-full font-medium transition-all shrink-0",
               activeCategory === 'marriage'

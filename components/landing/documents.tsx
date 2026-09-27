@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   Check,
@@ -48,9 +48,64 @@ export default function DocumentsContent() {
 
   const [activeCategory, setActiveCategory] = useState<'all' | 'personal' | 'vehicle' | 'business'>('all');
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+  const filterScrollRef = useRef<HTMLDivElement>(null);
+  const animFrameRef = useRef<number | null>(null);
 
   const toggleDetails = (id: string) => {
     setExpandedCards((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const smoothSlide = (targetLeft: number, duration = 650) => {
+    const container = filterScrollRef.current;
+    if (!container) return;
+
+    if (animFrameRef.current !== null) {
+      cancelAnimationFrame(animFrameRef.current);
+      animFrameRef.current = null;
+    }
+
+    const startLeft = container.scrollLeft;
+    const distance = targetLeft - startLeft;
+    if (Math.abs(distance) < 2) return;
+
+    const startTime = performance.now();
+
+    const step = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Gentle cubic deceleration: silky smooth and slow
+      const ease = 1 - Math.pow(1 - progress, 3);
+      container.scrollLeft = startLeft + distance * ease;
+
+      if (progress < 1) {
+        animFrameRef.current = requestAnimationFrame(step);
+      } else {
+        animFrameRef.current = null;
+      }
+    };
+
+    animFrameRef.current = requestAnimationFrame(step);
+  };
+
+  const handleCategorySelect = (
+    category: 'all' | 'personal' | 'vehicle' | 'business',
+    index: number
+  ) => {
+    setActiveCategory(category);
+
+    // Only on mobile screens (< 640px)
+    if (typeof window !== "undefined" && window.innerWidth < 640) {
+      const container = filterScrollRef.current;
+      if (container) {
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (maxScroll > 0) {
+          // When selecting the rightmost visible filter (index >= 2), slide smoothly and slowly
+          // to the left so hidden options come into view. Earlier filters slide back to the start.
+          const target = index >= 2 ? maxScroll : 0;
+          smoothSlide(target, 650);
+        }
+      }
+    }
   };
 
   useEffect(() => {
@@ -67,7 +122,7 @@ export default function DocumentsContent() {
           id.includes("passport") ||
           id.includes("marriage")
         ) {
-          setActiveCategory("personal");
+          handleCategorySelect("personal", 1);
         } else if (
           id.includes("driving") ||
           id.includes("licence") ||
@@ -75,7 +130,7 @@ export default function DocumentsContent() {
           id.includes("ownership") ||
           id.includes("rto")
         ) {
-          setActiveCategory("vehicle");
+          handleCategorySelect("vehicle", 2);
         } else if (
           id.includes("tax") ||
           id.includes("trade") ||
@@ -84,14 +139,19 @@ export default function DocumentsContent() {
           id.includes("business") ||
           id.includes("p.tax")
         ) {
-          setActiveCategory("business");
+          handleCategorySelect("business", 3);
         }
       }
     };
 
     checkHash();
     window.addEventListener("hashchange", checkHash);
-    return () => window.removeEventListener("hashchange", checkHash);
+    return () => {
+      window.removeEventListener("hashchange", checkHash);
+      if (animFrameRef.current !== null) {
+        cancelAnimationFrame(animFrameRef.current);
+      }
+    };
   }, []);
 
   const allDocumentServices: DocumentService[] = [
@@ -520,12 +580,21 @@ export default function DocumentsContent() {
         />
 
         {/* Segmented Category Filter */}
-        <div className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full justify-start sm:justify-center">
+        <div 
+          ref={filterScrollRef}
+          onTouchStart={() => {
+            if (animFrameRef.current !== null) {
+              cancelAnimationFrame(animFrameRef.current);
+              animFrameRef.current = null;
+            }
+          }}
+          className="inline-flex p-1 bg-stone-100/90 rounded-full border border-stone-200/70 overflow-x-auto no-scrollbar gap-1 max-w-full justify-start sm:justify-center"
+        >
           <button
             type="button"
-            onClick={() => setActiveCategory('all')}
+            onClick={() => handleCategorySelect('all', 0)}
             className={cn(
-              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center shrink-0",
               activeCategory === 'all'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -535,9 +604,9 @@ export default function DocumentsContent() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveCategory('personal')}
+            onClick={() => handleCategorySelect('personal', 1)}
             className={cn(
-              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center shrink-0",
               activeCategory === 'personal'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -547,9 +616,9 @@ export default function DocumentsContent() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveCategory('vehicle')}
+            onClick={() => handleCategorySelect('vehicle', 2)}
             className={cn(
-              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center shrink-0",
               activeCategory === 'vehicle'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
@@ -559,9 +628,9 @@ export default function DocumentsContent() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveCategory('business')}
+            onClick={() => handleCategorySelect('business', 3)}
             className={cn(
-              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center",
+              "px-3 sm:px-3.5 py-1.5 text-xs rounded-full font-medium transition-all whitespace-nowrap text-center shrink-0",
               activeCategory === 'business'
                 ? "bg-white text-stone-900 shadow-xs font-semibold"
                 : "text-stone-600 hover:text-stone-900"
