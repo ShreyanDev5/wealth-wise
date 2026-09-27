@@ -26,7 +26,7 @@ export function AdvisorSection({ advisor }: { advisor: AdvisorInfo }) {
           {/* Left - Portrait */}
           <div className="relative w-28 sm:w-32 aspect-[3/4] shrink-0 rounded-2xl overflow-hidden border border-stone-200/80 bg-stone-100 shadow-2xs mx-auto md:mx-0">
             <Image
-              src="/advisor_profile-pic.jpg"
+              src="/advisor-sketch.png"
               alt={advisor.name}
               fill
               className="object-cover object-top"
