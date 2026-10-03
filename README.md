@@ -33,7 +33,7 @@
 ### 1. Setup
 
 ```bash
-git clone https://github.com/ShreyanDev5/wealth-wise.git
+git clone https://github.com/shreyansr01/wealth-wise.git
 cd wealth-wise
 npm install
 cp .env.example .env
@@ -61,4 +61,4 @@ npm test
 
 ## Author
 
-**Shreyan Sardar** — [Portfolio](https://shreyandev.vercel.app) · [GitHub](https://github.com/ShreyanDev5) · [LinkedIn](https://www.linkedin.com/in/shreyansardar/)
+**Shreyan Sardar** — [Portfolio](https://shreyandev.vercel.app) · [GitHub](https://github.com/shreyansr01) · [LinkedIn](https://www.linkedin.com/in/shreyansardar/)

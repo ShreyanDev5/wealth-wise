@@ -40,7 +40,7 @@ export default function ShowcaseFooter() {
                 /
               </span>
               <a
-                href="https://github.com/ShreyanDev5/wealth-wise"
+                href="https://github.com/shreyansr01/wealth-wise"
                 target="_blank"
                 rel="noreferrer"
                 className="group inline-flex items-center gap-1 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 transition-colors duration-200"
